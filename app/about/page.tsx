@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer"
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground" style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}>
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground items-center" style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}>
       <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
