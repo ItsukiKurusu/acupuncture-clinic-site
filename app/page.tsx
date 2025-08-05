@@ -21,7 +21,7 @@ export default function AcupunctureClinicPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground">
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground" style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}>
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
