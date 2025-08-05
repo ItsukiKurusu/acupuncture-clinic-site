@@ -9,7 +9,7 @@ export function Header() {
     <header className="px-4 lg:px-6 h-16 flex items-center sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b">
       <Link href="/" className="flex items-center justify-center" prefetch={false}>
         <Image src="/logo-feather.png" alt="鍼灸HANE ロゴ" width={28} height={28} className="object-contain" />
-        <span className="ml-2 text-xl font-semibold">鍼灸HANE</span>
+        <span className="ml-2 text-xl font-semibold" style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}>鍼灸HANE</span>
       </Link>
       <nav className="ml-auto hidden lg:flex gap-4 sm:gap-6">
         <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
