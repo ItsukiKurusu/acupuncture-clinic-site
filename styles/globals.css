@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+body {
+  font-family: 'Yu Mincho', 'Noto Serif JP', serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
