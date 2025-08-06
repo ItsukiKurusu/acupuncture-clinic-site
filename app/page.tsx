@@ -321,14 +321,17 @@ export default function AcupunctureClinicPage() {
                 </div>
               </div>
             </div>
-            <div className="w-full h-64 md:h-full rounded-lg overflow-hidden">
-              <Image
-                src="/ginza-tokyo-map.png"
+            <div className="w-full h-64 md:h-full rounded-lg overflow-hidden flex items-center justify-center">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4437.25499778088!2d130.37531134980813!3d33.57453767350731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541937dbe2ca4c9%3A0xb845966763d97a2d!2z6Y2854G4SEFORQ!5e0!3m2!1sja!2sjp!4v1754456205934!5m2!1sja!2sjp"
                 width="600"
-                height="400"
-                alt="地図"
-                className="w-full h-full object-cover"
-              />
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Map"
+              ></iframe>
             </div>
           </div>
         </section>
