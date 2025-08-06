@@ -296,15 +296,15 @@ export default function AcupunctureClinicPage() {
                   <div>
                     <h3 className="font-semibold">お電話でのご予約</h3>
                     <p className="text-2xl font-bold text-primary">03-1234-5678</p>
-                    <p className="text-sm text-muted-foreground">受付時間: 9:00 - 19:00 (木・日・祝日を除く)</p>
+                    <p className="text-sm text-muted-foreground">受付時間: 10:00 - 20:00 (日・祝日を除く)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold">アクセス</h3>
-                    <p className="text-muted-foreground">〒123-4567 東京都中央区銀座1-2-3 こころビル2F</p>
-                    <p className="text-sm text-muted-foreground">東京メトロ銀座駅 A13出口より徒歩3分</p>
+                    <p className="text-muted-foreground">〒810-0044 福岡県福岡市中央区六本松4丁目5-39 ピア21 401号室</p>
+                    <p className="text-sm text-muted-foreground">地下鉄七隈線六本松駅 徒歩8分</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
