@@ -124,12 +124,12 @@ export default function AcupunctureClinicPage() {
               <Card>
                 <CardHeader className="flex flex-col items-center text-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
-                    <Leaf className="h-8 w-8 text-primary" />
+                    <Sparkles className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold">お灸</h3>
+                  <h3 className="text-xl font-bold">美容鍼</h3>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
-                  <p>もぐさの温熱効果で身体を芯から温め、冷え性の改善や免疫力アップ、リラックス効果が期待できます。</p>
+                  <p>お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。</p>
                 </CardContent>
               </Card>
               <Card>
@@ -137,7 +137,7 @@ export default function AcupunctureClinicPage() {
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Sparkles className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold">美容鍼</h3>
+                  <h3 className="text-xl font-bold">トレーニング</h3>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
                   <p>お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。</p>
