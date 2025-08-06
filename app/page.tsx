@@ -111,7 +111,9 @@ export default function AcupunctureClinicPage() {
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Stethoscope className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold">鍼治療</h3>
+                  <h3 className="text-xl font-bold">施術</h3>
+                  <div className="text-base font-medium mt-2">全身　¥6,000</div>
+                  <div className="text-base font-medium">局所　¥4,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
                   <p>
@@ -327,7 +329,7 @@ export default function AcupunctureClinicPage() {
                 width="600"
                 height="450"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Google Map"
