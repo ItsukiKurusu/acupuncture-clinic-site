@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={cn("font-serif", notoSerifJp.variable)}>{children}</body>
+      <body className={cn("font-serif", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>{children}</body>
     </html>
   )
 }

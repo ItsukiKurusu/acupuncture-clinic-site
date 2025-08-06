@@ -21,7 +21,7 @@ export default function AcupunctureClinicPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground items-center" style={{ fontFamily: "'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'Helvetica Neue', Arial, sans-serif" }}>
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground items-center" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
