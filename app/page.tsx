@@ -39,7 +39,12 @@ export default function AcupunctureClinicPage() {
                 </p>
                 <div className="space-x-4">
                   <Button asChild size="lg">
-                    <Link href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold shadow-lg animate-pulse hover:scale-105 transition-transform duration-200 px-8 py-4 rounded-xl text-lg border-2 border-pink-400"
+                    >
                       ご予約はこちら
                     </Link>
                   </Button>
@@ -317,7 +322,12 @@ export default function AcupunctureClinicPage() {
                     <h3 className="font-semibold">オンライン予約</h3>
                     <p className="text-muted-foreground">24時間受付可能なオンライン予約もご利用いただけます。</p>
                     <Button asChild className="mt-2">
-                      <Link href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                      <Link
+                        href={bookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold shadow-lg animate-pulse hover:scale-105 transition-transform duration-200 px-8 py-4 rounded-xl text-lg border-2 border-pink-400"
+                      >
                         オンラインで予約する
                       </Link>
                     </Button>
