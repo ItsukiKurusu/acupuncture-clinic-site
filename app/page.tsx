@@ -299,7 +299,7 @@ export default function AcupunctureClinicPage() {
                   <Phone className="h-6 w-6 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold">お電話でのご予約</h3>
-                    <p className="text-2xl font-bold text-primary">03-1234-5678</p>
+                    <p className="text-2xl font-bold text-primary">090-4181-7937</p>
                     <p className="text-sm text-muted-foreground">受付時間: 10:00 - 20:00 (日・祝日を除く)</p>
                   </div>
                 </div>
