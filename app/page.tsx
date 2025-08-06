@@ -70,9 +70,9 @@ export default function AcupunctureClinicPage() {
           <div className="container px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <Image
-                src="/friendly-acupuncturist-portrait.png"
-                width="550"
-                height="550"
+                src="/director-portrait.jpg"
+                width={550}
+                height={550}
                 alt="鍼灸師"
                 className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full"
               />
