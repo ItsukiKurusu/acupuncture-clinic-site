@@ -116,9 +116,7 @@ export default function AcupunctureClinicPage() {
                   <div className="text-base font-medium">局所　¥4,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
-                  <p>
-                    髪の毛ほどの細さの鍼を使い、ツボを刺激することで気血の流れを整え、痛みの緩和や体質改善を促します。
-                  </p>
+                  <p>慢性的な肩こり・腰痛や身体のだるさ、取りにくい疲れや痛みに対して体質改善を促します。</p>
                 </CardContent>
               </Card>
               <Card>
@@ -144,7 +142,7 @@ export default function AcupunctureClinicPage() {
                   <div className="text-base font-medium">EMSトレーニング　¥3,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
-                  <p>直流電気を用いたEMSトレーニングとパーソナルトレーニングを組み合わせたオーダーメイドのプログラムです。筋力アップや体型改善を目指す方に最適です。</p>
+                  <p>直流電気を用いたEMSトレーニングとパーソナルトレーニングを組み合わせたオーダーメイドのプログラムです。</p>
                 </CardContent>
               </Card>
             </div>
