@@ -29,8 +29,10 @@ export default function AcupunctureClinicPage() {
           <div className="container px-4 md:px-6 space-y-10 xl:space-y-16">
             <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
               <div className="flex flex-col justify-center space-y-4">
-                <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] whitespace-nowrap">
-                  心と身体を癒す、伝統の鍼灸治療 あなたの健康に寄り添うパートナー
+                <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+                  心と身体を癒す、
+                  <br />
+                  伝統の鍼灸治療
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                   お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。
@@ -44,13 +46,20 @@ export default function AcupunctureClinicPage() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <Image
-                  src="/director-portrait.jpg"
-                  width={600}
-                  height={600}
-                  alt="院長 羽田野 裕稀"
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full max-w-[600px]"
-                />
+                <div className="mx-auto aspect-square overflow-hidden rounded-xl">
+                  <video
+                    width="600"
+                    height="600"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/766032657.827297-TGQDXpMTeDr6gPnZpqF5uEe8xj2tbB.mp4" type="video/mp4" />
+                    お使いのブラウザはビデオタグをサポートしていません。
+                  </video>
+                </div>
               </div>
             </div>
           </div>
