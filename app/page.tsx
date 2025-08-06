@@ -81,9 +81,9 @@ export default function AcupunctureClinicPage() {
                   <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
                     当院について
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">あなたの健康に寄り添うパートナー</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl whitespace-nowrap text-balance">あなたの健康に寄り添うパートナー</h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                    こころ鍼灸院では、東洋医学の知恵と現代的なアプローチを融合させ、患者様一人ひとりの心と身体のバランスを整えることを目指しています。丁寧なカウンセリングを通じて、不調の根本原因を探り、最適な治療プランをご提案します。
+                    鍼灸院HANEでは、東洋医学の知恵と現代的なアプローチを融合させ、患者様一人ひとりの心と身体のバランスを整えることを目指しています。丁寧なカウンセリングを通じて、不調の根本原因を探り、最適な治療プランをご提案します。
                   </p>
                 </div>
               </div>
