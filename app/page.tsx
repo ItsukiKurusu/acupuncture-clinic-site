@@ -83,7 +83,7 @@ export default function AcupunctureClinicPage() {
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl whitespace-nowrap text-balance">あなたの健康に寄り添うパートナー</h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                    鍼灸院HANEでは、東洋医学の知恵と現代的なアプローチを融合させ、患者様一人ひとりの心と身体のバランスを整えることを目指しています。丁寧なカウンセリングを通じて、不調の根本原因を探り、最適な治療プランをご提案します。
+                    鍼灸HANEでは、東洋医学の知恵と現代的なアプローチを融合させ、患者様一人ひとりの心と身体のバランスを整えることを目指しています。丁寧なカウンセリングを通じて、不調の根本原因を探り、最適な治療プランをご提案します。
                   </p>
                 </div>
               </div>
@@ -127,6 +127,8 @@ export default function AcupunctureClinicPage() {
                     <Sparkles className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold">美容鍼</h3>
+                  <div className="text-base font-medium mt-2">初回お試し　¥5,000</div>
+                  <div className="text-base font-medium">2回目以降　¥8,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
                   <p>お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。</p>
@@ -138,9 +140,11 @@ export default function AcupunctureClinicPage() {
                     <Sparkles className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold">トレーニング</h3>
+                  <div className="text-base font-medium mt-2">EMS×パーソナル　¥8,000</div>
+                  <div className="text-base font-medium">EMSトレーニング　¥3,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
-                  <p>お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。</p>
+                  <p>直流電気を用いたEMSトレーニングとパーソナルトレーニングを組み合わせたオーダーメイドのプログラムです。筋力アップや体型改善を目指す方に最適です。</p>
                 </CardContent>
               </Card>
             </div>
