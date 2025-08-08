@@ -60,7 +60,7 @@ export default async function AcupunctureClinicPage() {
                     loop
                     muted
                     playsInline
-                    className="h-full w-full object-cover"
+                    className="w-full h-auto object-cover"
                   >
                     <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/766032657.827297-TGQDXpMTeDr6gPnZpqF5uEe8xj2tbB.mp4" type="video/mp4" />
                     お使いのブラウザはビデオタグをサポートしていません。
@@ -75,22 +75,30 @@ export default async function AcupunctureClinicPage() {
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div className="container mx-auto w-full px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
-              <Image
-                src="/director-portrait.jpg"
-                width={550}
-                height={550}
-                alt="鍼灸師"
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full"
-              />
+              <div className="flex justify-center">
+                <Image
+                  src="/director-portrait.jpg"
+                  width={550}
+                  height={550}
+                  alt="院長 羽田野 裕稀"
+                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[550px]"
+                />
+              </div>
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
+                  <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm mb-2">
                     当院について
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl whitespace-nowrap text-balance">あなたの健康に寄り添うパートナー</h2>
-                  <p className="max-w-[600px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                    鍼灸HANEでは、東洋医学の知恵と現代的なアプローチを融合させ、患者様一人ひとりの心と身体のバランスを整えることを目指しています。丁寧なカウンセリングを通じて、不調の根本原因を探り、最適な治療プランをご提案します。
-                  </p>
+                  <h2 className="text-3xl font-bold tracking-tighter">羽田野 裕稀 (はだの ひろき)</h2>
+                  <p className="font-semibold text-primary">鍼灸師 / 理学療法士</p>
+                  <div className="space-y-4 text-muted-foreground md:text-lg/relaxed">
+                    <p>
+                      鍼灸師としてだけでなく、理学療法士として病院やクリニックで「運動・筋肉・骨格」に関する知識と技術を培ってきました。
+                    </p>
+                    <p>
+                      鍼灸HANEでは、東洋医学の知恵と現代的なアプローチを融合させ、患者様一人ひとりの心と身体のバランスを整えることを目指しています。丁寧なカウンセリングを通じて、不調の根本原因を探り、最適な治療プランをご提案します。
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
