@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+
 body {
   font-family: "游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif;
-}
 }
 
 @custom-variant dark (&:is(.dark *));
