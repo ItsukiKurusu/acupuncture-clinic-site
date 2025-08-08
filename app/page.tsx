@@ -113,7 +113,7 @@ export default async function AcupunctureClinicPage() {
                 <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
                   施術内容
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">お悩みに合わせた多様な施術</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl whitespace-nowrap text-balance">お悩みに合わせた多様な施術</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   肩こりや腰痛などの慢性的な痛みから、自律神経の乱れ、美容のお悩みまで幅広く対応いたします。
                 </p>
