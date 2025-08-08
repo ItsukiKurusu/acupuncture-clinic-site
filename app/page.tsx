@@ -8,7 +8,7 @@ import { Leaf, Sparkles, MapPin, Phone, Mail, Stethoscope, Star, Instagram } fro
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-export default function AcupunctureClinicPage() {
+export default async function AcupunctureClinicPage() {
   const bookingUrl = "https://www.shinq-compass.jp/salon/reserve/37835"
   const reviewsUrl = "https://www.shinq-compass.jp/salon/review/37835"
 
