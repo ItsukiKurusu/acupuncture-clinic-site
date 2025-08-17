@@ -37,6 +37,10 @@ export default function ScenePage() {
                 <Image src="/scene5.jpg" alt="膝・下肢のトレーニング" width={800} height={600} className="rounded-xl shadow-lg w-full h-auto object-cover" />
                 <p className="mt-2 text-muted-foreground text-sm">膝・下肢のトレーニング</p>
               </div>
+              <div className="flex flex-col items-center">
+                <Image src="/scene6.jpg" alt="下肢のケアの様子" width={800} height={600} className="rounded-xl shadow-lg w-full h-auto object-cover" />
+                <p className="mt-2 text-muted-foreground text-sm">下肢のケアの様子</p>
+              </div>
             </div>
           </div>
         </section>
