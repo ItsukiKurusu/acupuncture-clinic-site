@@ -54,23 +54,19 @@ export default function AcupunctureClinicPage() {
         }
       );
     }
-    // Hero white fade overlay on about overlap (fade to full white)
+    // Hero white fade overlay and text fade out on about overlap (fade to full white)
     const whiteFade = document.getElementById("hero-white-fade");
-    if (whiteFade && aboutRef.current) {
-      gsap.fromTo(
-        whiteFade,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 100%",
-            end: "top -100%",
-            scrub: true,
-          },
-        }
-      );
+    if (whiteFade && aboutRef.current && heroTextRef.current) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top 100%",
+          end: "top -100%",
+          scrub: true,
+        },
+      });
+      tl.to(whiteFade, { opacity: 1, ease: "power1.out" }, 0);
+      tl.to(heroTextRef.current, { opacity: 0, ease: "power1.out" }, 0);
     }
     // Hero text
     if (heroTextRef.current) {
