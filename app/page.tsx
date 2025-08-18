@@ -188,9 +188,9 @@ export default function AcupunctureClinicPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
-          {/* Gray space with Scroll down bar */}
-          <div className="w-full bg-gray-200 h-16 flex items-center justify-center relative">
-            <div className="flex items-center justify-center w-40 h-8 bg-white rounded-full shadow-md text-gray-700 text-sm font-semibold tracking-wide opacity-90 select-none">
+          {/* Larger gray space with Scroll down bar at top center */}
+          <div className="w-full bg-gray-200 h-32 relative flex items-start justify-center">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center justify-center w-40 h-8 bg-white rounded-full shadow-md text-gray-700 text-sm font-semibold tracking-wide opacity-90 select-none z-10">
               <span>Scroll down</span>
             </div>
           </div>
