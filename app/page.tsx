@@ -486,6 +486,12 @@ export default function AcupunctureClinicPage() {
                 <br />
                 ご不明な点など、お気軽にお問い合わせください。
               </p>
+              {/* 鍼灸コンパス 相互リンクバナー */}
+              <div className="mt-6 flex justify-center">
+                <a href="https://www.shinq-compass.jp/salon/detail/37835/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://www.shinq-compass.jp/common/img/bnr/link/bnr180_150.jpg" alt="鍼灸院・美容鍼サロンの口コミ・予約サイト | しんきゅうコンパス" />
+                </a>
+              </div>
               <div className="space-y-4 mt-6">
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-primary mt-1" />
