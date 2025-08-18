@@ -211,7 +211,7 @@ export default function AcupunctureClinicPage() {
                 お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。
               </p>
               <div className="space-x-4">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="shadow-xl">
                   <Link
                     href={bookingUrl}
                     target="_blank"
@@ -275,7 +275,7 @@ export default function AcupunctureClinicPage() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-              <Card>
+              <Card className="shadow-xl">
                 <CardHeader className="flex flex-col items-center text-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Stethoscope className="h-8 w-8 text-primary" />
@@ -288,7 +288,7 @@ export default function AcupunctureClinicPage() {
                   <p>慢性的な肩こり・腰痛や身体のだるさ、取りにくい疲れや痛みに対して体質改善を促します。</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-xl">
                 <CardHeader className="flex flex-col items-center text-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Sparkles className="h-8 w-8 text-primary" />
@@ -301,7 +301,7 @@ export default function AcupunctureClinicPage() {
                   <p>お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-xl">
                 <CardHeader className="flex flex-col items-center text-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Sparkles className="h-8 w-8 text-primary" />
@@ -485,7 +485,7 @@ export default function AcupunctureClinicPage() {
                   <div>
                     <h3 className="font-semibold">オンライン予約</h3>
                     <p className="text-muted-foreground">24時間受付可能なオンライン予約もご利用いただけます。</p>
-                    <Button asChild className="mt-2">
+                    <Button asChild className="shadow-xl">
                       <Link
                         href={bookingUrl}
                         target="_blank"
