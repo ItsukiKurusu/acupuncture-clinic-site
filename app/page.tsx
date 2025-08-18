@@ -26,9 +26,16 @@ export default function AcupunctureClinicPage() {
 
   const videoRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const instagramRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    // Hero video
     if (videoRef.current) {
       gsap.fromTo(
         videoRef.current,
@@ -47,6 +54,7 @@ export default function AcupunctureClinicPage() {
         }
       );
     }
+    // Hero text
     if (heroTextRef.current) {
       gsap.fromTo(
         heroTextRef.current,
@@ -59,6 +67,114 @@ export default function AcupunctureClinicPage() {
           scrollTrigger: {
             trigger: heroTextRef.current,
             start: "top top",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // About section
+    if (aboutRef.current) {
+      gsap.fromTo(
+        aboutRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: aboutRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // Services section
+    if (servicesRef.current) {
+      gsap.fromTo(
+        servicesRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: servicesRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // Testimonials section
+    if (testimonialsRef.current) {
+      gsap.fromTo(
+        testimonialsRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: testimonialsRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // Instagram section
+    if (instagramRef.current) {
+      gsap.fromTo(
+        instagramRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: instagramRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // FAQ section
+    if (faqRef.current) {
+      gsap.fromTo(
+        faqRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: faqRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // Contact section
+    if (contactRef.current) {
+      gsap.fromTo(
+        contactRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: contactRef.current,
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         }
@@ -112,7 +228,7 @@ export default function AcupunctureClinicPage() {
 
         {/* About Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container mx-auto w-full px-4 md:px-6">
+          <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex justify-center">
                 <Image
@@ -146,7 +262,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Services Section */}
         <section id="services" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto w-full px-4 md:px-6">
+          <div ref={servicesRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
@@ -204,7 +320,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Testimonials Section */}
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container mx-auto w-full grid items-center justify-center gap-4 px-4 text-center md:px-6">
+          <div ref={testimonialsRef} className="container mx-auto w-full grid items-center justify-center gap-4 px-4 text-center md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">お客様の声</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -261,7 +377,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Instagram Section */}
         <section id="instagram" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto w-full px-4 md:px-6">
+          <div ref={instagramRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
@@ -299,7 +415,7 @@ export default function AcupunctureClinicPage() {
 
         {/* FAQ Section */}
         <section id="faq" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container mx-auto w-full px-4 md:px-6">
+          <div ref={faqRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">よくあるご質問</h2>
               <p className="mt-4 text-muted-foreground md:text-xl/relaxed">
@@ -339,7 +455,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Contact Section */}
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto w-full grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
+          <div ref={contactRef} className="container mx-auto w-full grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">ご予約・お問い合わせ</h2>
               <p className="text-muted-foreground">
