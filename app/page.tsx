@@ -239,7 +239,7 @@ export default function AcupunctureClinicPage() {
                     href={bookingUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold shadow-lg animate-pulse hover:scale-105 transition-transform duration-200 px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg w-full sm:w-auto"
+                    className="btn-gradient px-6 py-3 md:px-8 md:py-4 text-base md:text-lg w-full sm:w-auto font-bold animate-pulse transition-all duration-200"
                   >
                     ご予約はこちら
                   </Link>
@@ -513,7 +513,7 @@ export default function AcupunctureClinicPage() {
                         href={bookingUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold shadow-lg animate-pulse hover:scale-105 transition-transform duration-200 px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg w-full sm:w-auto"
+                        className="btn-gradient px-6 py-3 md:px-8 md:py-4 text-base md:text-lg w-full sm:w-auto font-bold animate-pulse transition-all duration-200"
                       >
                         オンラインで予約する
                       </Link>
