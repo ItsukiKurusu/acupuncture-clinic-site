@@ -35,7 +35,7 @@ export default function AcupunctureClinicPage() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    // Hero video
+    // Hero video fade-in
     if (videoRef.current) {
       gsap.fromTo(
         videoRef.current,
@@ -50,6 +50,24 @@ export default function AcupunctureClinicPage() {
             trigger: videoRef.current,
             start: "top top",
             toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    // Hero white fade overlay on about overlap
+    const whiteFade = document.getElementById("hero-white-fade");
+    if (whiteFade && aboutRef.current) {
+      gsap.fromTo(
+        whiteFade,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: aboutRef.current,
+            start: "top 100%",
+            end: "top 0%",
+            scrub: true,
           },
         }
       );
@@ -204,6 +222,8 @@ export default function AcupunctureClinicPage() {
               お使いのブラウザはビデオタグをサポートしていません。
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
+            {/* White fade overlay for hero video */}
+            <div id="hero-white-fade" className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.0) 60%)", opacity: 0, transition: "opacity 0.3s" }} />
             <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10">
               <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
                 心と身体を癒す、<br />伝統の鍼灸治療
