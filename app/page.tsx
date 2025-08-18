@@ -189,6 +189,10 @@ export default function AcupunctureClinicPage() {
         {/* Hero Section */}
         <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
           <div ref={videoRef} className="w-full overflow-hidden relative" style={{ opacity: 0 }}>
+            {/* Scroll down bar */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-40 h-8 bg-white rounded-full shadow-md text-gray-700 text-sm font-semibold tracking-wide opacity-90 mt-4 select-none">
+              <span>Scroll down</span>
+            </div>
             <video
               width="1920"
               height="800"
@@ -197,7 +201,7 @@ export default function AcupunctureClinicPage() {
               muted
               playsInline
               className="w-full h-[40vh] md:h-[60vh] lg:h-[80vh] object-cover object-center block"
-              style={{ borderRadius: "0 0 2rem 2rem", boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
+              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
             >
               <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/766032657.827297-TGQDXpMTeDr6gPnZpqF5uEe8xj2tbB.mp4" type="video/mp4" />
               お使いのブラウザはビデオタグをサポートしていません。
