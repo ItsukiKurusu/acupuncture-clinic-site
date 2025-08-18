@@ -53,46 +53,42 @@ export default function AcupunctureClinicPage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full pt-12 md:pt-24 lg:pt-32">
-          <div className="container mx-auto w-full px-4 md:px-6 space-y-10 xl:space-y-16">
-            <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
-              <div className="flex flex-col justify-center space-y-4 w-full">
-                <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                  心と身体を癒す、
-                  <br />
-                  伝統の鍼灸治療
-                </h1>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。
-                </p>
-                <div className="space-x-4">
-                  <Button asChild size="lg">
-                    <Link
-                      href={bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold shadow-lg animate-pulse hover:scale-105 transition-transform duration-200 px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg border-2 border-pink-400 w-full sm:w-auto"
-                    >
-                      ご予約はこちら
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <div ref={videoRef} className="mx-auto aspect-square overflow-hidden rounded-xl shadow-2xl" style={{ opacity: 0 }}>
-                  <video
-                    width="600"
-                    height="600"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto object-cover"
+        <section className="w-full pt-0 md:pt-0 lg:pt-0">
+          <div ref={videoRef} className="w-full overflow-hidden relative" style={{ opacity: 0 }}>
+            <video
+              width="1920"
+              height="800"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-[40vh] md:h-[60vh] lg:h-[80vh] object-cover object-center block"
+              style={{ borderRadius: "0 0 2rem 2rem", boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
+            >
+              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/766032657.827297-TGQDXpMTeDr6gPnZpqF5uEe8xj2tbB.mp4" type="video/mp4" />
+              お使いのブラウザはビデオタグをサポートしていません。
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
+          </div>
+          <div className="container mx-auto w-full px-4 md:px-6 space-y-10 xl:space-y-16 mt-[-4rem] md:mt-[-6rem] lg:mt-[-8rem] relative z-10">
+            <div className="flex flex-col justify-center items-center text-center space-y-4 w-full">
+              <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
+                心と身体を癒す、<br />伝統の鍼灸治療
+              </h1>
+              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl drop-shadow">
+                お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。
+              </p>
+              <div className="space-x-4">
+                <Button asChild size="lg">
+                  <Link
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold shadow-lg animate-pulse hover:scale-105 transition-transform duration-200 px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg border-2 border-pink-400 w-full sm:w-auto"
                   >
-                    <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/766032657.827297-TGQDXpMTeDr6gPnZpqF5uEe8xj2tbB.mp4" type="video/mp4" />
-                    お使いのブラウザはビデオタグをサポートしていません。
-                  </video>
-                </div>
+                    ご予約はこちら
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
