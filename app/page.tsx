@@ -25,13 +25,14 @@ export default function AcupunctureClinicPage() {
   }
 
   const videoRef = useRef<HTMLDivElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (videoRef.current) {
       gsap.fromTo(
         videoRef.current,
-        { opacity: 0, y: 60, scale: 0.9 },
+        { opacity: 0, y: 60, scale: 0.98 },
         {
           opacity: 1,
           y: 0,
@@ -40,7 +41,24 @@ export default function AcupunctureClinicPage() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: videoRef.current,
-            start: "top 80%",
+            start: "top top",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+    if (heroTextRef.current) {
+      gsap.fromTo(
+        heroTextRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: heroTextRef.current,
+            start: "top 60%",
             toggleActions: "play none none none",
           },
         }
@@ -53,7 +71,7 @@ export default function AcupunctureClinicPage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full pt-0 md:pt-0 lg:pt-0">
+        <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
           <div ref={videoRef} className="w-full overflow-hidden relative" style={{ opacity: 0 }}>
             <video
               width="1920"
@@ -69,9 +87,7 @@ export default function AcupunctureClinicPage() {
               お使いのブラウザはビデオタグをサポートしていません。
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
-          </div>
-          <div className="container mx-auto w-full px-4 md:px-6 space-y-10 xl:space-y-16 mt-[-4rem] md:mt-[-6rem] lg:mt-[-8rem] relative z-10">
-            <div className="flex flex-col justify-center items-center text-center space-y-4 w-full">
+            <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10">
               <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
                 心と身体を癒す、<br />伝統の鍼灸治療
               </h1>
