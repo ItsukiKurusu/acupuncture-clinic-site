@@ -58,7 +58,7 @@ export default function AcupunctureClinicPage() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: heroTextRef.current,
-            start: "top 60%",
+            start: "top top",
             toggleActions: "play none none none",
           },
         }
