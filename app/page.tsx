@@ -188,11 +188,13 @@ export default function AcupunctureClinicPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
-          <div ref={videoRef} className="w-full overflow-hidden relative" style={{ opacity: 0 }}>
-            {/* Scroll down bar */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-40 h-8 bg-white rounded-full shadow-md text-gray-700 text-sm font-semibold tracking-wide opacity-90 mt-4 select-none">
+          {/* Gray space with Scroll down bar */}
+          <div className="w-full bg-gray-200 h-16 flex items-center justify-center relative">
+            <div className="flex items-center justify-center w-40 h-8 bg-white rounded-full shadow-md text-gray-700 text-sm font-semibold tracking-wide opacity-90 select-none">
               <span>Scroll down</span>
             </div>
+          </div>
+          <div ref={videoRef} className="w-full overflow-hidden relative" style={{ opacity: 0 }}>
             <video
               width="1920"
               height="800"
