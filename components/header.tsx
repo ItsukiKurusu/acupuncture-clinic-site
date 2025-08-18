@@ -8,7 +8,7 @@ export function Header() {
 
   const [open, setOpen] = React.useState(false);
   return (
-    <header className="w-full sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b">
+    <header className="w-full sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b shadow-xl">
       <div className="container mx-auto flex items-center h-16 px-4 lg:px-6">
         <Link href="/" className="flex items-center justify-center" prefetch={false}>
           <Image src="/logo-feather.png" alt="鍼灸HANE ロゴ" width={28} height={28} className="object-contain" />

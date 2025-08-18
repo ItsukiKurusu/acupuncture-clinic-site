@@ -228,7 +228,7 @@ export default function AcupunctureClinicPage() {
 
         {/* About Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
+          <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex justify-center">
                 <Image
@@ -236,7 +236,7 @@ export default function AcupunctureClinicPage() {
                   width={550}
                   height={550}
                   alt="院長 羽田野 裕稀"
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[550px]"
+                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[550px] shadow-xl"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4">
@@ -262,7 +262,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Services Section */}
         <section id="services" className="w-full py-12 md:py-24 lg:py-32">
-          <div ref={servicesRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
+          <div ref={servicesRef} className="container mx-auto w-full px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
@@ -320,7 +320,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Testimonials Section */}
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div ref={testimonialsRef} className="container mx-auto w-full grid items-center justify-center gap-4 px-4 text-center md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
+          <div ref={testimonialsRef} className="container mx-auto w-full grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">お客様の声</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -328,7 +328,7 @@ export default function AcupunctureClinicPage() {
               </p>
             </div>
             <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-8 pt-8 max-w-4xl mx-auto">
-              <Card>
+              <Card className="shadow-xl">
                 <CardContent className="p-6 text-left">
                   <div className="flex items-center mb-4">
                     <div className="flex items-center gap-0.5 text-primary">
@@ -346,7 +346,7 @@ export default function AcupunctureClinicPage() {
                   <p className="font-semibold text-right">かおる様 (女性)</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-xl">
                 <CardContent className="p-6 text-left">
                   <div className="flex items-center mb-4">
                     <div className="flex items-center gap-0.5 text-primary">
@@ -377,7 +377,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Instagram Section */}
         <section id="instagram" className="w-full py-12 md:py-24 lg:py-32">
-          <div ref={instagramRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
+          <div ref={instagramRef} className="container mx-auto w-full px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm">
@@ -415,7 +415,7 @@ export default function AcupunctureClinicPage() {
 
         {/* FAQ Section */}
         <section id="faq" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div ref={faqRef} className="container mx-auto w-full px-4 md:px-6 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
+          <div ref={faqRef} className="container mx-auto w-full px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">よくあるご質問</h2>
               <p className="mt-4 text-muted-foreground md:text-xl/relaxed">
@@ -455,7 +455,7 @@ export default function AcupunctureClinicPage() {
 
         {/* Contact Section */}
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
-          <div ref={contactRef} className="container mx-auto w-full grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16 shadow-2xl rounded-2xl bg-white/80 backdrop-blur-md">
+          <div ref={contactRef} className="container mx-auto w-full grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">ご予約・お問い合わせ</h2>
               <p className="text-muted-foreground">
