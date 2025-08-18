@@ -57,16 +57,22 @@ export default function AcupunctureClinicPage() {
     // Hero white fade overlay and text fade out on about overlap (fade to full white)
     const whiteFade = document.getElementById("hero-white-fade");
     if (whiteFade && aboutRef.current && heroTextRef.current) {
-      const tl = gsap.timeline({
+      gsap.timeline({
         scrollTrigger: {
           trigger: aboutRef.current,
           start: "top 100%",
           end: "top -100%",
           scrub: true,
+          onUpdate: self => {
+            // When scrolling back up, restore text opacity
+            if (self.progress === 0 && heroTextRef.current) {
+              heroTextRef.current.style.opacity = "1";
+            }
+          },
         },
-      });
-      tl.to(whiteFade, { opacity: 1, ease: "power1.out" }, 0);
-      tl.to(heroTextRef.current, { opacity: 0, ease: "power1.out" }, 0);
+      })
+        .to(whiteFade, { opacity: 1, ease: "power1.out" }, 0)
+        .to(heroTextRef.current, { opacity: 0, ease: "power1.out" }, 0);
     }
     // Hero text
     if (heroTextRef.current) {
