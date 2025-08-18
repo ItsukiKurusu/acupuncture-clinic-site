@@ -2,6 +2,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import Script from "next/script"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
@@ -9,7 +12,7 @@ import { Leaf, Sparkles, MapPin, Phone, Mail, Stethoscope, Star, Instagram } fro
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-export default async function AcupunctureClinicPage() {
+export default function AcupunctureClinicPage() {
   const bookingUrl = "https://www.shinq-compass.jp/salon/reserve/37835"
   const reviewsUrl = "https://www.shinq-compass.jp/salon/review/37835"
 
@@ -20,6 +23,30 @@ export default async function AcupunctureClinicPage() {
   const stationRouteEmbed = {
     __html: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DMt3qGJydmv/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`,
   }
+
+  const videoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    if (videoRef.current) {
+      gsap.fromTo(
+        videoRef.current,
+        { opacity: 0, y: 60, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: videoRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+  }, []);
 
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
@@ -52,7 +79,7 @@ export default async function AcupunctureClinicPage() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <div className="mx-auto aspect-square overflow-hidden rounded-xl">
+                <div ref={videoRef} className="mx-auto aspect-square overflow-hidden rounded-xl shadow-2xl" style={{ opacity: 0 }}>
                   <video
                     width="600"
                     height="600"
