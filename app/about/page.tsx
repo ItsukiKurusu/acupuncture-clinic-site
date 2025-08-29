@@ -19,7 +19,7 @@ export default function AboutPage() {
             <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
               <div className="flex justify-center">
                 <Image
-                  src="/director-portrait.jpg"
+                  src="/director-portrait1.jpg"
                   width={450}
                   height={450}
                   alt="院長 羽田野 裕稀"
