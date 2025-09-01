@@ -330,7 +330,7 @@ export default function AcupunctureClinicPage() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-              <Card className="shadow-xl">
+            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:max-w-none mt-12">
                 <CardHeader className="flex flex-col items-center text-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Stethoscope className="h-8 w-8 text-primary" />
