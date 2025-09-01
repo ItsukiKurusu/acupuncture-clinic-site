@@ -229,9 +229,9 @@ export default function AcupunctureClinicPage() {
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
       {/* Initial Scroll cue overlay */}
       <div id="scroll-cue-initial" className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
-        <span className="text-gray-500 text-lg font-semibold mb-2 animate-pulse">Scroll</span>
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
-          <path d="M16 24L8 16H24L16 24Z" fill="#888" />
+        <span className="text-gray-500 text-4xl font-bold mb-4 animate-pulse">Scroll</span>
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+          <path d="M32 48L16 32H48L32 48Z" fill="#888" />
         </svg>
       </div>
       <Header />
@@ -256,12 +256,7 @@ export default function AcupunctureClinicPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
             {/* White fade overlay for hero video (fade to full white) */}
             <div id="hero-white-fade" className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center" style={{ background: "white", opacity: 0, transition: "opacity 0.3s" }}>
-              <div id="scroll-cue" className="flex flex-col items-center justify-center h-full w-full" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
-                <span className="text-gray-500 text-lg font-semibold mb-2 animate-pulse">Scroll</span>
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
-                  <path d="M16 24L8 16H24L16 24Z" fill="#888" />
-                </svg>
-              </div>
+              {/* (Scroll cue removed from overlay) */}
             </div>
             <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10">
               <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
