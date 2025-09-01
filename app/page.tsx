@@ -34,6 +34,23 @@ export default function AcupunctureClinicPage() {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Show scroll cue on initial load, hide when video is visible
+    const scrollCue = document.getElementById("scroll-cue-initial");
+    if (videoRef.current && scrollCue) {
+      gsap.fromTo(
+        scrollCue,
+        { opacity: 1 },
+        {
+          opacity: 0,
+          duration: 1.2,
+          delay: 0.2,
+          ease: "power2.out",
+          onComplete: () => {
+            scrollCue.style.display = "none";
+          }
+        }
+      );
+    }
     gsap.registerPlugin(ScrollTrigger);
     // Hero video fade-in
     if (videoRef.current) {
@@ -210,6 +227,13 @@ export default function AcupunctureClinicPage() {
 
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+      {/* Initial Scroll cue overlay */}
+      <div id="scroll-cue-initial" className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
+        <span className="text-gray-500 text-lg font-semibold mb-2 animate-pulse">Scroll</span>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+          <path d="M16 24L8 16H24L16 24Z" fill="#888" />
+        </svg>
+      </div>
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
