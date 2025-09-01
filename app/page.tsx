@@ -225,7 +225,14 @@ export default function AcupunctureClinicPage() {
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
             {/* White fade overlay for hero video (fade to full white) */}
-            <div id="hero-white-fade" className="absolute inset-0 pointer-events-none" style={{ background: "white", opacity: 0, transition: "opacity 0.3s" }} />
+            <div id="hero-white-fade" className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center" style={{ background: "white", opacity: 0, transition: "opacity 0.3s" }}>
+              <div className="flex flex-col items-center justify-center h-full w-full">
+                <span className="text-gray-500 text-lg font-semibold mb-2 animate-pulse">Scroll</span>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+                  <path d="M16 24L8 16H24L16 24Z" fill="#888" />
+                </svg>
+              </div>
+            </div>
             <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10">
               <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
                 心と身体を癒す、<br />伝統の鍼灸治療
