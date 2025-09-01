@@ -57,6 +57,7 @@ export default function AcupunctureClinicPage() {
     // Hero white fade overlay and text fade out on about overlap (fade to full white)
     const whiteFade = document.getElementById("hero-white-fade");
     if (whiteFade && aboutRef.current && heroTextRef.current) {
+      const scrollText = document.getElementById("scroll-cue");
       gsap.timeline({
         scrollTrigger: {
           trigger: aboutRef.current,
@@ -64,6 +65,11 @@ export default function AcupunctureClinicPage() {
           end: "top 20%",
           scrub: true,
           onUpdate: self => {
+            // Show/hide scroll cue based on overlay opacity
+            if (scrollText) {
+              scrollText.style.opacity = self.progress < 0.01 ? "1" : (self.progress > 0.99 ? "0" : "1");
+              scrollText.style.pointerEvents = self.progress < 0.99 ? "auto" : "none";
+            }
             // When scrolling back up, restore text opacity
             if (self.progress === 0 && heroTextRef.current) {
               heroTextRef.current.style.opacity = "1";
@@ -226,7 +232,7 @@ export default function AcupunctureClinicPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
             {/* White fade overlay for hero video (fade to full white) */}
             <div id="hero-white-fade" className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center" style={{ background: "white", opacity: 0, transition: "opacity 0.3s" }}>
-              <div className="flex flex-col items-center justify-center h-full w-full">
+              <div id="scroll-cue" className="flex flex-col items-center justify-center h-full w-full" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
                 <span className="text-gray-500 text-lg font-semibold mb-2 animate-pulse">Scroll</span>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
                   <path d="M16 24L8 16H24L16 24Z" fill="#888" />
