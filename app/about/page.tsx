@@ -18,14 +18,12 @@ export default function AboutPage() {
             </div>
             <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
               <div className="flex justify-center">
-                <Image
-                        <img
-                          src="/director-portrait1.jpg"
-                          width="450"
-                          height="450"
-                          alt="院長 羽田野 裕稀"
-                          className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[450px]"
-                        />
+                <img
+                  src="/director-portrait1.jpg"
+                  width="450"
+                  height="450"
+                  alt="院長 羽田野 裕稀"
+                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[450px]"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4 text-left lg:text-left">
