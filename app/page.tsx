@@ -369,6 +369,19 @@ export default function AcupunctureClinicPage() {
                   <p>直流電気を用いたEMSトレーニングとパーソナルトレーニングを組み合わせたオーダーメイドのプログラムです。</p>
                 </CardContent>
               </Card>
+              {/* 眼精疲労カード追加 */}
+              <Card className="shadow-xl">
+                <CardHeader className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-primary/10 rounded-full mb-4">
+                    <Sparkles className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">眼精疲労</h3>
+                  <div className="text-base font-medium mt-2">1回　¥2,000</div>
+                </CardHeader>
+                <CardContent className="text-center text-muted-foreground">
+                  <p>パソコンやスマホによる目の疲れ・かすみ、<br />頭痛や肩こりの原因となる眼精疲労にアプローチします。</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
