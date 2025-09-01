@@ -226,16 +226,17 @@ export default function AcupunctureClinicPage() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
-      {/* Initial Scroll cue overlay */}
-      <div id="scroll-cue-initial" className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
-        <span className="text-gray-500 text-4xl font-bold mb-4 animate-pulse">Scroll</span>
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
-          <path d="M32 48L16 32H48L32 48Z" fill="#888" />
-        </svg>
-      </div>
-      <Header />
-      <main className="flex-1">
+  <>
+      <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+        {/* Initial Scroll cue overlay */}
+        <div id="scroll-cue-initial" className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
+          <span className="text-gray-500 text-4xl font-bold mb-4 animate-pulse">Scroll</span>
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+            <path d="M32 48L16 32H48L32 48Z" fill="#888" />
+          </svg>
+        </div>
+        <Header />
+        <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
           {/* Hero video full viewport height, next section overlaps on scroll */}
@@ -591,5 +592,6 @@ export default function AcupunctureClinicPage() {
       <Footer />
       <Script src="//www.instagram.com/embed.js" async />
     </div>
+  </>
   )
 }
