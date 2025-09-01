@@ -61,7 +61,7 @@ export default function AcupunctureClinicPage() {
         scrollTrigger: {
           trigger: aboutRef.current,
           start: "top 100%",
-          end: "top -100%",
+          end: "top 20%",
           scrub: true,
           onUpdate: self => {
             // When scrolling back up, restore text opacity
@@ -255,7 +255,7 @@ export default function AcupunctureClinicPage() {
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex justify-center">
                 <Image
-                  src="/director-portrait1.jpg"
+                  src="director-portrait1.jpg"
                   width={550}
                   height={550}
                   alt="院長 羽田野 裕稀"
