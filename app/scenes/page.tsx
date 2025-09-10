@@ -1,4 +1,6 @@
+
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const gallery = [
@@ -40,6 +42,7 @@ const gallery = [
 ];
 
 export default function TreatmentPage() {
+  const [preview, setPreview] = useState<null | typeof gallery[0]>(null);
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
       {/* Hero Section */}
@@ -71,12 +74,13 @@ export default function TreatmentPage() {
           {gallery.map((item, idx) => (
             <motion.div
               key={idx}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden w-[420px] flex flex-col items-center transition-all"
+              className="cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden w-[420px] flex flex-col items-center transition-all"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15 }}
               whileHover={{ scale: 1.07 }}
+              onClick={() => setPreview(item)}
             >
               <img
                 src={item.src}
@@ -90,6 +94,31 @@ export default function TreatmentPage() {
           ))}
         </div>
       </section>
+      {/* プレビュー用モーダル */}
+      {preview && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setPreview(null)}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="relative"
+            onClick={e => e.stopPropagation()}
+          >
+            <img
+              src={preview.src}
+              alt={preview.alt}
+              className="max-w-[90vw] max-h-[80vh] rounded-2xl shadow-2xl"
+            />
+            <div className="text-center text-[#bfae9e] text-xl font-semibold mt-4">{preview.caption}</div>
+            <button
+              className="absolute top-2 right-2 text-white bg-[#bfae9e] rounded-full px-3 py-1 text-lg"
+              onClick={() => setPreview(null)}
+            >
+              ×
+            </button>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
