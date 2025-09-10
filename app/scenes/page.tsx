@@ -66,24 +66,24 @@ export default function TreatmentPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="max-w-6xl mx-auto py-16 px-4">
-        <div className="flex gap-8 justify-center flex-wrap">
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
           {gallery.map((item, idx) => (
             <motion.div
               key={idx}
-              className="bg-white rounded-xl shadow-md overflow-hidden w-96 flex flex-col items-center transition-all"
+              className="bg-white rounded-2xl shadow-xl overflow-hidden w-[420px] flex flex-col items-center transition-all"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.07 }}
             >
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-64 object-cover duration-300"
+                className="w-full h-[320px] object-cover duration-300"
               />
-              <div className="p-4 text-[#bfae9e] text-center font-medium">
+              <div className="p-5 text-[#bfae9e] text-lg text-center font-semibold">
                 {item.caption}
               </div>
             </motion.div>
