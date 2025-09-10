@@ -2,6 +2,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Header } from "@/components/header";
 
 const gallery = [
   {
@@ -41,10 +42,10 @@ const gallery = [
   },
 ];
 
-export default function TreatmentPage() {
   const [preview, setPreview] = useState<null | typeof gallery[0]>(null);
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
+      <Header />
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center h-[60vh] bg-white">
         <motion.video
