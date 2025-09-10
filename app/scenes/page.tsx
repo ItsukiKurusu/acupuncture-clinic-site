@@ -71,7 +71,7 @@ export default function TreatmentPage() {
           {gallery.map((item, idx) => (
             <motion.div
               key={idx}
-              className="bg-white rounded-xl shadow-md overflow-hidden w-72 flex flex-col items-center transition-all"
+              className="bg-white rounded-xl shadow-md overflow-hidden w-96 flex flex-col items-center transition-all"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -81,7 +81,7 @@ export default function TreatmentPage() {
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-48 object-cover duration-300"
+                className="w-full h-64 object-cover duration-300"
               />
               <div className="p-4 text-[#bfae9e] text-center font-medium">
                 {item.caption}
