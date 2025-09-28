@@ -40,6 +40,11 @@ const gallery = [
     alt: "施術風景7",
     caption: "電気治療の施術",
   },
+  {
+    src: "/treatment8.jpg",
+    alt: "施術風景8",
+    caption: "姿勢改善の指導",
+  },
 ];
 
 export default function ScenesPage() {
