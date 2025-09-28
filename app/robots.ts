@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://your-site.vercel.app' // 実際のVercelのURLに変更してください
+  const baseUrl = 'https://acupuncture-clinic-site.vercel.app'
 
   return {
     rules: {
