@@ -1,7 +1,12 @@
-"use client";
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "当院について",
+  description: "鍼灸HANEの院長紹介と治療方針。長年の経験と確かな技術で、お一人おひとりに寄り添った丁寧な治療を提供します。福岡市中央区六本松。",
+}
 
 export default function AboutPage() {
   return (

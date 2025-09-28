@@ -1,5 +1,10 @@
-"use client";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "治療内容",
+  description: "鍼灸HANEの治療メニューと施術内容のご紹介。伝統的な鍼灸治療から現代的な電気治療まで、症状に合わせた最適な治療を提供します。福岡市中央区六本松。",
+};
 
 const gallery = [
   {

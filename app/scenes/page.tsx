@@ -1,8 +1,13 @@
 
-"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "院内風景",
+  description: "鍼灸HANEの院内の様子をご紹介。清潔で落ち着いた空間で、リラックスして治療をお受けいただけます。福岡市中央区六本松。",
+};
 
 const gallery = [
   {

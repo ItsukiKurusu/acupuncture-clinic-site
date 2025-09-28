@@ -11,11 +11,28 @@ const notoSerifJp = Noto_Serif_JP({
 })
 
 export const metadata: Metadata = {
-  title: "鍼灸HANE - 心と身体を癒す伝統の鍼灸治療",
-  description: "お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。",
+  title: {
+    default: "鍼灸HANE｜中央区六本松の鍼灸院",
+    template: "%s｜鍼灸HANE - 中央区六本松の鍼灸院"
+  },
+  description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。",
+  keywords: ["鍼灸", "鍼灸院", "六本松", "中央区", "福岡市", "HANE", "鍼", "お灸", "治療"],
   generator: 'v0.dev',
   verification: {
     google: '442cf3c64d24a393'
+  },
+  openGraph: {
+    title: "鍼灸HANE｜中央区六本松の鍼灸院",
+    description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。",
+    url: "https://acupuncture-clinic-site.vercel.app",
+    siteName: "鍼灸HANE",
+    locale: "ja_JP",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "鍼灸HANE｜中央区六本松の鍼灸院",
+    description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術。"
   }
 }
 
