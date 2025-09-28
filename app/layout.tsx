@@ -13,7 +13,10 @@ const notoSerifJp = Noto_Serif_JP({
 export const metadata: Metadata = {
   title: "鍼灸HANE - 心と身体を癒す伝統の鍼灸治療",
   description: "お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  verification: {
+    google: '442cf3c64d24a393'
+  }
 }
 
 export default function RootLayout({
