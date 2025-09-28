@@ -1,13 +1,8 @@
 
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "院内風景",
-  description: "鍼灸HANEの院内の様子をご紹介。清潔で落ち着いた空間で、リラックスして治療をお受けいただけます。福岡市中央区六本松。",
-};
 
 const gallery = [
   {
@@ -47,8 +42,12 @@ const gallery = [
   },
 ];
 
-export default function TreatmentPage() {
+export default function ScenesPage() {
   const [preview, setPreview] = useState<null | typeof gallery[0]>(null);
+  
+  useEffect(() => {
+    document.title = "院内風景｜鍼灸HANE - 中央区六本松の鍼灸院";
+  }, []);
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
       <Header />

@@ -1,10 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "治療内容",
-  description: "鍼灸HANEの治療メニューと施術内容のご紹介。伝統的な鍼灸治療から現代的な電気治療まで、症状に合わせた最適な治療を提供します。福岡市中央区六本松。",
-};
+import { useEffect } from "react";
 
 const gallery = [
   {
@@ -45,6 +41,10 @@ const gallery = [
 ];
 
 export default function TreatmentPage() {
+  useEffect(() => {
+    document.title = "治療内容｜鍼灸HANE - 中央区六本松の鍼灸院";
+  }, []);
+
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
       {/* Hero Section */}

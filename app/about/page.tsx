@@ -1,14 +1,13 @@
+"use client";
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "当院について",
-  description: "鍼灸HANEの院長紹介と治療方針。長年の経験と確かな技術で、お一人おひとりに寄り添った丁寧な治療を提供します。福岡市中央区六本松。",
-}
+import { useEffect } from "react"
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = "当院について｜鍼灸HANE - 中央区六本松の鍼灸院";
+  }, []);
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
       <Header />
