@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   keywords: ["鍼灸", "鍼灸院", "六本松", "中央区", "福岡市", "HANE", "鍼", "お灸", "治療"],
   generator: 'v0.dev',
   verification: {
-    google: '442cf3c64d24a393'
+    google: '442cf3c64d24a393',
+    // Bing Webmaster Toolsから取得したコードに置き換えてください
+    other: {
+      'msvalidate.01': 'your-bing-verification-code-here'
+    }
   },
   openGraph: {
     title: "鍼灸HANE｜中央区六本松の鍼灸院",
@@ -33,6 +37,21 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "鍼灸HANE｜中央区六本松の鍼灸院",
     description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術。"
+  },
+  // 検索エンジン向けの追加設定
+  alternates: {
+    canonical: "https://acupuncture-clinic-site.vercel.app"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   }
 }
 
