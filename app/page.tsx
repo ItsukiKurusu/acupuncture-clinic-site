@@ -34,34 +34,17 @@ export default function AcupunctureClinicPage() {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Show scroll cue on initial load, hide when video is visible
-    const scrollCue = document.getElementById("scroll-cue-initial");
-    if (videoRef.current && scrollCue) {
-      gsap.fromTo(
-        scrollCue,
-        { opacity: 1 },
-        {
-          opacity: 0,
-          duration: 1.2,
-          delay: 0.2,
-          ease: "power2.out",
-          onComplete: () => {
-            scrollCue.style.display = "none";
-          }
-        }
-      );
-    }
     gsap.registerPlugin(ScrollTrigger);
     // Hero video fade-in
     if (videoRef.current) {
       gsap.fromTo(
         videoRef.current,
-        { opacity: 0, y: 60, scale: 0.98 },
+        { opacity: 1, y: 0, scale: 1 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1.2,
+          duration: 0.1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: videoRef.current,
@@ -228,19 +211,13 @@ export default function AcupunctureClinicPage() {
   return (
   <>
       <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
-        {/* Initial Scroll cue overlay */}
-        <div id="scroll-cue-initial" className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white" style={{ opacity: 1, transition: 'opacity 0.3s' }}>
-          <span className="text-gray-500 text-4xl font-bold mb-4 animate-pulse">Scroll</span>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
-            <path d="M32 48L16 32H48L32 48Z" fill="#888" />
-          </svg>
-        </div>
+        {/* Initial Scroll cue overlay - removed to fix white screen issue */}
         <Header />
         <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
           {/* Hero video full viewport height, next section overlaps on scroll */}
-          <div ref={videoRef} className="w-full h-screen overflow-hidden absolute top-0 left-0 z-0" style={{ opacity: 0 }}>
+          <div ref={videoRef} className="w-full h-screen overflow-hidden absolute top-0 left-0 z-0" style={{ opacity: 1 }}>
             <video
               width="1920"
               height="1080"
