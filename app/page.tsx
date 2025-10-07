@@ -80,21 +80,16 @@ export default function AcupunctureClinicPage() {
         .to(whiteFade, { opacity: 1, ease: "power1.out" }, 0)
         .to(heroTextRef.current, { opacity: 0, ease: "power1.out" }, 0);
     }
-    // Hero text
+    // Hero text - show immediately
     if (heroTextRef.current) {
       gsap.fromTo(
         heroTextRef.current,
-        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0 },
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
+          duration: 0.1,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: heroTextRef.current,
-            start: "top top",
-            toggleActions: "play none none none",
-          },
         }
       );
     }
@@ -236,7 +231,7 @@ export default function AcupunctureClinicPage() {
             <div id="hero-white-fade" className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center" style={{ background: "white", opacity: 0, transition: "opacity 0.3s" }}>
               {/* (Scroll cue removed from overlay) */}
             </div>
-            <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10">
+            <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10" style={{ opacity: 1 }}>
               <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
                 心と身体を癒す、<br />伝統の鍼灸治療
               </h1>
