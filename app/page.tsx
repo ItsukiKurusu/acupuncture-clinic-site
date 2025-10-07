@@ -240,7 +240,7 @@ export default function AcupunctureClinicPage() {
         {/* Hero Section */}
         <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
           {/* Hero video full viewport height, next section overlaps on scroll */}
-          <div ref={videoRef} className="w-full h-screen overflow-hidden fixed top-0 left-0 z-0" style={{ opacity: 0 }}>
+          <div ref={videoRef} className="w-full h-screen overflow-hidden absolute top-0 left-0 z-0" style={{ opacity: 0 }}>
             <video
               width="1920"
               height="1080"
@@ -280,11 +280,13 @@ export default function AcupunctureClinicPage() {
               </div>
             </div>
           </div>
+          {/* Spacer to create space for the fixed video */}
+          <div className="h-screen"></div>
         </section>
 
         {/* About Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6 relative z-10" style={{ marginTop: '100vh' }}>
+          <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6 relative z-10">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex justify-center">
                 <Image
