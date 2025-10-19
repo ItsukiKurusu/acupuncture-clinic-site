@@ -25,9 +25,9 @@ export default function AboutPage() {
                 <img
                   src="/director-portrait1.jpg"
                   width="450"
-                  height="450"
+                  height="560"
                   alt="院長 羽田野 裕稀"
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[450px]"
+                  className="mx-auto aspect-[4/5] overflow-hidden rounded-xl object-cover object-top w-full h-auto sm:w-full max-w-[450px]"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4 text-left lg:text-left">

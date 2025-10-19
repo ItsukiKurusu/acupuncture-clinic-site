@@ -264,9 +264,9 @@ export default function AcupunctureClinicPage() {
                 <Image
                   src="director-portrait1.jpg"
                   width={550}
-                  height={550}
+                  height={680}
                   alt="院長 羽田野 裕稀"
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center w-full h-auto sm:w-full max-w-[550px] shadow-xl"
+                  className="mx-auto aspect-[4/5] overflow-hidden rounded-xl object-cover object-top w-full h-auto sm:w-full max-w-[550px] shadow-xl"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4">
