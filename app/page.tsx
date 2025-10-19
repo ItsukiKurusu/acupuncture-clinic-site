@@ -223,7 +223,7 @@ export default function AcupunctureClinicPage() {
               className="w-full h-full object-cover object-center block"
               style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
             >
-              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/766032657.827297-TGQDXpMTeDr6gPnZpqF5uEe8xj2tbB.mp4" type="video/mp4" />
+              <source src="/hero.mp4" type="video/mp4" />
               お使いのブラウザはビデオタグをサポートしていません。
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
