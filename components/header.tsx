@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
-  const bookingUrl = "https://www.shinq-compass.jp/salon/reserve/37835"
+  const bookingUrl = "https://line.me/R/ti/p/@241gbrkw"
 
   const [open, setOpen] = React.useState(false);
   return (
@@ -21,7 +21,7 @@ export function Header() {
           <Link href="/scenes" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             施術風景
           </Link>
-          <Link href="/#services" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+          <Link href="/services" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             施術内容
           </Link>
           <Link href="/#testimonials" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
@@ -56,7 +56,7 @@ export function Header() {
         <div className="lg:hidden bg-background border-b px-4 py-4 space-y-2 animate-fade-in-down">
           <Link href="/about" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>当院について</Link>
           <Link href="/scenes" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>施術風景</Link>
-          <Link href="/#services" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>施術内容</Link>
+          <Link href="/services" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>施術内容</Link>
           <Link href="/#testimonials" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>お客様の声</Link>
           <Link href="/#instagram" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>Instagram</Link>
           <Link href="#faq" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>よくある質問</Link>

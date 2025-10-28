@@ -11,9 +11,12 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Leaf, Sparkles, MapPin, Phone, Mail, Stethoscope, Star, Instagram } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import StructuredData from "@/components/structured-data";
+import ReviewStructuredData from "@/components/review-structured-data";
+import FAQStructuredData from "@/components/faq-structured-data";
 
 export default function AcupunctureClinicPage() {
-  const bookingUrl = "https://www.shinq-compass.jp/salon/reserve/37835"
+  const bookingUrl = "https://line.me/R/ti/p/@241gbrkw"
   const reviewsUrl = "https://www.shinq-compass.jp/salon/review/37835"
 
   const selfIntroEmbed = {
@@ -205,7 +208,10 @@ export default function AcupunctureClinicPage() {
 
   return (
   <>
-      <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+    <StructuredData />
+    <ReviewStructuredData />
+    <FAQStructuredData />
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
         {/* Initial Scroll cue overlay - removed to fix white screen issue */}
         <Header />
         <main className="flex-1">
