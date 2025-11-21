@@ -24,6 +24,9 @@ export function Header() {
           <Link href="/services" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             施術内容
           </Link>
+          <Link href="/matrix-wave" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            MATRIX WAVE
+          </Link>
           <Link href="/#testimonials" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             お客様の声
           </Link>
@@ -57,6 +60,7 @@ export function Header() {
           <Link href="/about" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>当院について</Link>
           <Link href="/scenes" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>施術風景</Link>
           <Link href="/services" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>施術内容</Link>
+          <Link href="/matrix-wave" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>MATRIX WAVE</Link>
           <Link href="/#testimonials" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>お客様の声</Link>
           <Link href="/#instagram" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>Instagram</Link>
           <Link href="#faq" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>よくある質問</Link>
