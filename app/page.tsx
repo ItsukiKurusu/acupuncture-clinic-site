@@ -262,42 +262,6 @@ export default function AcupunctureClinicPage() {
           <div className="h-screen"></div>
         </section>
 
-        {/* Banner Section */}
-        <section className="w-full py-8 md:py-12 bg-background">
-          <div className="container mx-auto w-full px-4 md:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <Link
-                href="https://www.shinq-compass.jp/salon/reserve/37835"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition-transform hover:scale-105 duration-300"
-              >
-                <Image
-                  src="/キャンペーン.png"
-                  width={600}
-                  height={400}
-                  alt="キャンペーン"
-                  className="w-full h-auto rounded-lg shadow-xl"
-                />
-              </Link>
-              <Link
-                href="https://line.me/R/ti/p/@241gbrkw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition-transform hover:scale-105 duration-300"
-              >
-                <Image
-                  src="/LINE追加バナー.png"
-                  width={600}
-                  height={400}
-                  alt="LINE追加バナー"
-                  className="w-full h-auto rounded-lg shadow-xl"
-                />
-              </Link>
-            </div>
-          </div>
-        </section>
-
         {/* About Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6 relative z-10">
@@ -456,6 +420,42 @@ export default function AcupunctureClinicPage() {
                   「しんきゅうコンパス」で他の口コミを見る
                 </Link>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Banner Section */}
+        <section className="w-full py-8 md:py-12 bg-background">
+          <div className="w-full px-4 md:px-6">
+            <div className="flex flex-col gap-6 max-w-full mx-auto">
+              <Link
+                href="https://www.shinq-compass.jp/salon/reserve/37835"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-transform hover:scale-[1.02] duration-300"
+              >
+                <Image
+                  src="/キャンペーン.png"
+                  width={1920}
+                  height={600}
+                  alt="キャンペーン"
+                  className="w-full h-auto shadow-xl"
+                />
+              </Link>
+              <Link
+                href="https://line.me/R/ti/p/@241gbrkw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-transform hover:scale-[1.02] duration-300"
+              >
+                <Image
+                  src="/LINE追加バナー.png"
+                  width={1920}
+                  height={600}
+                  alt="LINE追加バナー"
+                  className="w-full h-auto shadow-xl"
+                />
+              </Link>
             </div>
           </div>
         </section>
