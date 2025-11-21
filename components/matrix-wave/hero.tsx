@@ -13,7 +13,7 @@ export function Hero() {
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight text-[#333]">
               MATRIX <br />
-              <span className="text-[#d4af37]">WAVE</span> Plus
+              <span className="text-[#d4af37]">WAVE</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
