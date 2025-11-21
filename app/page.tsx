@@ -426,8 +426,8 @@ export default function AcupunctureClinicPage() {
 
         {/* Banner Section */}
         <section className="w-full py-8 md:py-12 bg-background">
-          <div className="w-full px-4 md:px-6">
-            <div className="flex flex-col gap-6 max-w-full mx-auto">
+          <div className="w-full px-4 md:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 max-w-5xl mx-auto">
               <Link
                 href="https://www.shinq-compass.jp/salon/reserve/37835"
                 target="_blank"
@@ -440,8 +440,9 @@ export default function AcupunctureClinicPage() {
                   height={600}
                   alt="キャンペーン"
                   className="w-full h-auto shadow-xl"
-                  quality={95}
+                  quality={100}
                   priority
+                  unoptimized
                 />
               </Link>
               <Link
@@ -456,8 +457,9 @@ export default function AcupunctureClinicPage() {
                   height={600}
                   alt="LINE追加バナー"
                   className="w-full h-auto shadow-xl"
-                  quality={95}
+                  quality={100}
                   priority
+                  unoptimized
                 />
               </Link>
             </div>
