@@ -435,7 +435,7 @@ export default function AcupunctureClinicPage() {
                 className="block transition-transform hover:scale-[1.02] duration-300"
               >
                 <Image
-                  src="/キャンペーン.png"
+                  src="/campaign-banner.png"
                   width={1920}
                   height={600}
                   alt="キャンペーン"
@@ -449,7 +449,7 @@ export default function AcupunctureClinicPage() {
                 className="block transition-transform hover:scale-[1.02] duration-300"
               >
                 <Image
-                  src="/LINE追加バナー.png"
+                  src="/line-banner.png"
                   width={1920}
                   height={600}
                   alt="LINE追加バナー"
