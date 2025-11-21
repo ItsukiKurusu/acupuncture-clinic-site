@@ -17,9 +17,9 @@ export function Hero() {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
-              エステ業界初！
+              業界唯一！
               <br />
-              直流電流でエイジングケア & <br />
+              直流電流でトレーニング & <br />
               炎症抑制効果
             </p>
 
