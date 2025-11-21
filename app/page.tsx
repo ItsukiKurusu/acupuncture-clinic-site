@@ -440,6 +440,8 @@ export default function AcupunctureClinicPage() {
                   height={600}
                   alt="キャンペーン"
                   className="w-full h-auto shadow-xl"
+                  quality={95}
+                  priority
                 />
               </Link>
               <Link
@@ -454,6 +456,8 @@ export default function AcupunctureClinicPage() {
                   height={600}
                   alt="LINE追加バナー"
                   className="w-full h-auto shadow-xl"
+                  quality={95}
+                  priority
                 />
               </Link>
             </div>
