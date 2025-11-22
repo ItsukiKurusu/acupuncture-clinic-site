@@ -26,8 +26,8 @@ export function Hero() {
 
           <div className="relative h-[400px] md:h-[600px] w-full rounded-2xl overflow-hidden bg-gray-100 animate-in fade-in slide-in-from-right-10 duration-1000 delay-200">
             <Image
-              src="/new-high-end-beauty-machine-aesthetic-salon-clean-whit.jpg"
-              alt="Matrix Wave Plus Machine"
+              src="/matrix-wave.png"
+              alt="Matrix Wave"
               fill
               className="object-cover"
               priority

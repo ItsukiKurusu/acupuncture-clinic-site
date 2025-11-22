@@ -7,7 +7,7 @@ export function Mechanism() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[500px] rounded-2xl overflow-hidden">
             <Image
-              src="/medical-aesthetic-technology-science-visualization.jpg"
+              src="/nef.png"
               alt="Mechanism Visualization"
               fill
               className="object-cover"

@@ -18,8 +18,10 @@ export function CTA() {
           まずは一度、その効果をご自身のお肌と体で実感してください。
         </p>
 
-        <Button className="bg-[#d4af37] hover:bg-[#b5952f] text-white rounded-full px-12 h-16 text-xl shadow-lg shadow-[#d4af37]/20">
-          Online Reservation
+        <Button asChild className="bg-[#d4af37] hover:bg-[#b5952f] text-white rounded-full px-12 h-16 text-xl shadow-lg shadow-[#d4af37]/20">
+          <a href="https://line.me/R/ti/p/@241gbrkw" target="_blank" rel="noopener noreferrer">
+            オンラインで予約する
+          </a>
         </Button>
       </div>
     </section>
