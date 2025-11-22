@@ -5,12 +5,12 @@ export function Mechanism() {
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative h-[500px] rounded-2xl overflow-hidden">
+          <div className="relative h-[500px] rounded-2xl overflow-hidden bg-gray-100">
             <Image
               src="/nef.png"
               alt="Mechanism Visualization"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
 

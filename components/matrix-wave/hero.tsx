@@ -29,7 +29,7 @@ export function Hero() {
               src="/matrix-wave.png"
               alt="Matrix Wave"
               fill
-              className="object-cover"
+              className="object-contain"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
