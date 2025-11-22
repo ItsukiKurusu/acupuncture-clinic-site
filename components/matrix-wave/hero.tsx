@@ -22,12 +22,6 @@ export function Hero() {
               直流電流でトレーニング & <br />
               炎症抑制効果
             </p>
-
-            <div className="pt-4">
-              <Button size="lg" className="bg-[#333] hover:bg-black text-white rounded-full px-8 h-14 text-lg">
-                詳しく見る
-              </Button>
-            </div>
           </div>
 
           <div className="relative h-[400px] md:h-[600px] w-full rounded-2xl overflow-hidden bg-gray-100 animate-in fade-in slide-in-from-right-10 duration-1000 delay-200">
