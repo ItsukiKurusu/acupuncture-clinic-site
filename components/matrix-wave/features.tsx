@@ -18,7 +18,7 @@ const features = [
   },
   {
     icon: Scale,
-    title: "ダイエット",
+    title: "トレーニング",
     description: "内臓脂肪の燃焼を促進し、代謝をアップ。細胞レベルでのリセットで、痩せやすい体質へ。",
   },
 ]
@@ -29,7 +29,7 @@ export function Features() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#333] mb-4">Features</h2>
-          <p className="text-gray-500">MATRIX WAVE Plusが選ばれる4つの理由</p>
+          <p className="text-gray-500">MATRIX WAVEが選ばれる4つの理由</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
