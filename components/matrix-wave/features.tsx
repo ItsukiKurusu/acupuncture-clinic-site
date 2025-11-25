@@ -1,4 +1,5 @@
 import { Sparkles, Activity, Zap, Scale } from "lucide-react"
+import Image from "next/image"
 
 const features = [
   {
@@ -45,6 +46,18 @@ export function Features() {
               <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="relative w-full h-auto rounded-xl overflow-hidden shadow-xl">
+            <Image
+              src="/matrix-prove.jpg"
+              alt="MATRIX WAVE 実績"
+              width={1200}
+              height={800}
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </div>
     </section>
