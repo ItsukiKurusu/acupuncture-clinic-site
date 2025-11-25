@@ -367,6 +367,48 @@ export default function AcupunctureClinicPage() {
           </div>
         </section>
 
+        {/* Banner Section */}
+        <section className="w-full py-8 md:py-12 bg-background">
+          <div className="w-full px-4 md:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 max-w-5xl mx-auto">
+              <Link
+                href="https://www.shinq-compass.jp/salon/reserve/37835"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-transform hover:scale-[1.02] duration-300"
+              >
+                <Image
+                  src="/campaign-banner.png"
+                  width={1920}
+                  height={600}
+                  alt="キャンペーン"
+                  className="w-full h-auto shadow-xl"
+                  quality={100}
+                  priority
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="https://line.me/R/ti/p/@241gbrkw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-transform hover:scale-[1.02] duration-300"
+              >
+                <Image
+                  src="/line-banner.png"
+                  width={1920}
+                  height={600}
+                  alt="LINE追加バナー"
+                  className="w-full h-auto shadow-xl"
+                  quality={100}
+                  priority
+                  unoptimized
+                />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Section */}
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div ref={testimonialsRef} className="container mx-auto w-full grid items-center justify-center gap-4 px-4 text-center md:px-6">
@@ -420,48 +462,6 @@ export default function AcupunctureClinicPage() {
                   「しんきゅうコンパス」で他の口コミを見る
                 </Link>
               </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Banner Section */}
-        <section className="w-full py-8 md:py-12 bg-background">
-          <div className="w-full px-4 md:px-6 lg:px-8">
-            <div className="flex flex-col gap-6 max-w-5xl mx-auto">
-              <Link
-                href="https://www.shinq-compass.jp/salon/reserve/37835"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition-transform hover:scale-[1.02] duration-300"
-              >
-                <Image
-                  src="/campaign-banner.png"
-                  width={1920}
-                  height={600}
-                  alt="キャンペーン"
-                  className="w-full h-auto shadow-xl"
-                  quality={100}
-                  priority
-                  unoptimized
-                />
-              </Link>
-              <Link
-                href="https://line.me/R/ti/p/@241gbrkw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition-transform hover:scale-[1.02] duration-300"
-              >
-                <Image
-                  src="/line-banner.png"
-                  width={1920}
-                  height={600}
-                  alt="LINE追加バナー"
-                  className="w-full h-auto shadow-xl"
-                  quality={100}
-                  priority
-                  unoptimized
-                />
-              </Link>
             </div>
           </div>
         </section>
