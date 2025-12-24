@@ -669,5 +669,6 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
       <Footer />
       <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
     </div>
+  </>
   );
 }
