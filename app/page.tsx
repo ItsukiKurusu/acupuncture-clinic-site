@@ -11,6 +11,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Leaf, Sparkles, MapPin, Phone, Mail, Stethoscope, Star, Instagram } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BlogSection } from "@/components/blog-section"
 import StructuredData from "@/components/structured-data";
 import ReviewStructuredData from "@/components/review-structured-data";
 import FAQStructuredData from "@/components/faq-structured-data";
@@ -466,8 +467,33 @@ export default function AcupunctureClinicPage() {
           </div>
         </section>
 
+        {/* Blog Section */}
+        <section id="blog" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto w-full px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-primary/10 text-primary px-3 py-1 text-sm font-semibold">
+                  Blog
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">ブログ</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  健康に関する情報や院の最新情報をお届けします
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto max-w-6xl">
+              <BlogSection />
+            </div>
+            <div className="text-center mt-12">
+              <Button asChild size="lg">
+                <Link href="/blog">すべての記事を見る</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* Instagram Section */}
-        <section id="instagram" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="instagram" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div ref={instagramRef} className="container mx-auto w-full px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">

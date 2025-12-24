@@ -30,6 +30,9 @@ export function Header() {
           <Link href="/#testimonials" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             お客様の声
           </Link>
+          <Link href="/blog" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            ブログ
+          </Link>
           <Link href="/#instagram" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             Instagram
           </Link>
@@ -62,6 +65,7 @@ export function Header() {
           <Link href="/services" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>施術内容</Link>
           <Link href="/matrix-wave" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>MATRIX WAVE</Link>
           <Link href="/#testimonials" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>お客様の声</Link>
+          <Link href="/blog" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>ブログ</Link>
           <Link href="/#instagram" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>Instagram</Link>
           <Link href="#faq" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>よくある質問</Link>
           <Link href="#contact" className="block text-base py-2 font-medium" onClick={() => setOpen(false)} prefetch={false}>アクセス</Link>
