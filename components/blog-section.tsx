@@ -1,13 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getRecentPosts } from '@/lib/blog'
 import { Calendar, ArrowRight } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import { BlogPostMeta } from '@/lib/blog'
 
-export function BlogSection() {
-  const recentPosts = getRecentPosts(3)
+interface BlogSectionProps {
+  posts: BlogPostMeta[]
+}
 
-  if (recentPosts.length === 0) {
+export function BlogSection({ posts }: BlogSectionProps) {
+  if (posts.length === 0) {
     return (
       <div className="text-center py-8">
         <p className="text-muted-foreground">記事がまだありません</p>
@@ -17,7 +19,7 @@ export function BlogSection() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {recentPosts.map((post) => (
+      {posts.map((post) => (
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
