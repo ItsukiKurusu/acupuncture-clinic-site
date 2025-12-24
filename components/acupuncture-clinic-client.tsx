@@ -213,74 +213,63 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <StructuredData />
-      <ReviewStructuredData />
-      <FAQStructuredData />
-      <Header />
-      <main className="flex-1">
-        {/* Hero Section with Video */}
-        <section className="relative w-full h-screen overflow-hidden">
-          {/* Background video */}
-          <div ref={videoRef} className="absolute inset-0">
+  <>
+    <StructuredData />
+    <ReviewStructuredData />
+    <FAQStructuredData />
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+        {/* Initial Scroll cue overlay - removed to fix white screen issue */}
+        <Header />
+        <main className="flex-1">
+        {/* Hero Section */}
+        <section className="w-full pt-0 md:pt-0 lg:pt-0 relative">
+          {/* Hero video full viewport height, next section overlaps on scroll */}
+          <div ref={videoRef} className="w-full h-screen overflow-hidden absolute top-0 left-0 z-0" style={{ opacity: 1 }}>
             <video
+              width="1920"
+              height="1080"
               autoPlay
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-full object-cover object-center block"
+              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
             >
-              <source src="/hero-video.mp4" type="video/mp4" />
+              <source src="/hero.mp4" type="video/mp4" />
+              お使いのブラウザはビデオタグをサポートしていません。
             </video>
-          </div>
-          {/* White fade-to-full overlay, controlled by scroll */}
-          <div
-            id="hero-white-fade"
-            className="absolute inset-0 bg-white pointer-events-none"
-            style={{ opacity: 0 }}
-          />
-          {/* Hero content */}
-          <div ref={heroTextRef} className="relative z-10 flex h-full w-full items-center justify-center text-center px-4 md:px-6">
-            <div className="space-y-4">
-              <h1
-                className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-white"
-                style={{
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                  fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif"
-                }}
-              >
-                心と体を整える
-                <br />
-                本格鍼灸治療
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
+            {/* White fade overlay for hero video (fade to full white) */}
+            <div id="hero-white-fade" className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center" style={{ background: "white", opacity: 0, transition: "opacity 0.3s" }}>
+              {/* (Scroll cue removed from overlay) */}
+            </div>
+            <div ref={heroTextRef} className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 w-full z-10" style={{ opacity: 1 }}>
+              <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white drop-shadow-lg">
+                心と身体を癒す、<br />伝統の鍼灸治療
               </h1>
-              <p
-                className="mx-auto max-w-[700px] text-white md:text-xl"
-                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
-              >
-                伝統的な東洋医学の知恵と最新の技術で<br />あなたの健康をサポートします
+              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl drop-shadow">
+                お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。
               </p>
               <div className="space-x-4">
-                <Button asChild size="lg">
-                  <Link href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                <Button asChild size="lg" className="shadow-xl">
+                  <Link
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-6 py-3 md:px-8 md:py-4 font-bold animate-pulse transition-all duration-200 bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] text-white hover:opacity-90 hover:-translate-y-1 hover:shadow-xl"
+                  >
                     ご予約はこちら
                   </Link>
                 </Button>
               </div>
             </div>
           </div>
-          {/* Scroll indicator */}
-          <div id="scroll-cue" className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-            <div className="flex flex-col items-center gap-2 text-white animate-bounce" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
-              <span className="text-sm">Scroll</span>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </div>
+          {/* Spacer to create space for the fixed video */}
+          <div className="h-screen"></div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
