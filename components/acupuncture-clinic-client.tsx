@@ -271,7 +271,7 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
         {/* About Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+            <div className="max-w-3xl mx-auto">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
@@ -308,15 +308,6 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                     </Link>
                   </Button>
                 </div>
-              </div>
-              <div className="relative h-[400px] lg:h-full w-full overflow-hidden rounded-xl">
-                <Image
-                  src="/hero.jpg"
-                  alt="院内の様子"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
               </div>
             </div>
           </div>
