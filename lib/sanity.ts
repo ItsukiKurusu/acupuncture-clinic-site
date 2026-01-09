@@ -42,52 +42,67 @@ export interface SanityBlogPost {
 
 // 全記事を取得（公開日順）
 export async function getAllPosts(): Promise<SanityBlogPost[]> {
-  const query = `*[_type == "post"] | order(publishedAt desc) {
-    _id,
-    _createdAt,
-    title,
-    slug,
-    author,
-    coverImage,
-    excerpt,
-    tags,
-    publishedAt
-  }`
-  
-  return await client.fetch(query)
+  try {
+    const query = `*[_type == "post"] | order(publishedAt desc) {
+      _id,
+      _createdAt,
+      title,
+      slug,
+      author,
+      coverImage,
+      excerpt,
+      tags,
+      publishedAt
+    }`
+    
+    return await client.fetch(query)
+  } catch (error) {
+    console.error('Failed to fetch posts from Sanity:', error)
+    return []
+  }
 }
 
 // スラッグから記事を取得
 export async function getPostBySlug(slug: string): Promise<SanityBlogPost | null> {
-  const query = `*[_type == "post" && slug.current == $slug][0] {
-    _id,
-    _createdAt,
-    title,
-    slug,
-    author,
-    coverImage,
-    excerpt,
-    content,
-    tags,
-    publishedAt
-  }`
-  
-  return await client.fetch(query, { slug })
+  try {
+    const query = `*[_type == "post" && slug.current == $slug][0] {
+      _id,
+      _createdAt,
+      title,
+      slug,
+      author,
+      coverImage,
+      excerpt,
+      content,
+      tags,
+      publishedAt
+    }`
+    
+    return await client.fetch(query, { slug })
+  } catch (error) {
+    console.error('Failed to fetch post from Sanity:', error)
+    return null
+  }
 }
 
 // 最新N件の記事を取得
 export async function getRecentPosts(limit: number = 3): Promise<SanityBlogPost[]> {
-  const query = `*[_type == "post"] | order(publishedAt desc) [0...${limit}] {
-    _id,
-    _createdAt,
-    title,
-    slug,
-    author,
-    coverImage,
-    excerpt,
-    tags,
-    publishedAt
-  }`
-  
-  return await client.fetch(query)
+  try {
+    const query = `*[_type == "post"] | order(publishedAt desc) [0...${limit}] {
+      _id,
+      _createdAt,
+      title,
+      slug,
+      author,
+      coverImage,
+      excerpt,
+      tags,
+      publishedAt
+    }`
+    
+    return await client.fetch(query)
+  } catch (error) {
+    console.error('Failed to fetch recent posts from Sanity:', error)
+    return []
+  }
 }
