@@ -9,7 +9,8 @@ export default function ServicesStructuredData() {
     "description": "福岡市中央区六本松の鍼灸院。整体、鍼、電気、カッピング、美容鍼、EMSトレーニングなど多彩な施術メニューを提供。",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "六本松",
+      "streetAddress": "六本松4丁目5-39 ピア21 401号室",
+      "postalCode": "810-0044",
       "addressLocality": "中央区",
       "addressRegion": "福岡県",
       "addressCountry": "JP"

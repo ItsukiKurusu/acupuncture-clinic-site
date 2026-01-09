@@ -8,22 +8,22 @@ export default function StructuredData() {
     "alternateName": "ハネ鍼灸院",
     "description": "福岡市中央区六本松の鍼灸院。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高める。",
     "url": "https://acupuncture-clinic-site.vercel.app",
-    "telephone": "+81-XX-XXXX-XXXX", // 実際の電話番号に変更してください
+    "telephone": "+81-90-4181-7937",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "六本松", // 実際の住所に変更してください
+      "streetAddress": "六本松4丁目5-39 ピア21 401号室",
+      "postalCode": "810-0044",
       "addressLocality": "中央区",
       "addressRegion": "福岡県",
       "addressCountry": "JP"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "33.574537", // 実際の緯度に変更してください
-      "longitude": "130.375311" // 実際の経度に変更してください
+      "latitude": "33.574537",
+      "longitude": "130.375311"
     },
     "openingHours": [
-      "Mo-Fr 09:00-18:00", // 実際の営業時間に変更してください
-      "Sa 09:00-16:00"
+      "Mo-Sa 10:00-20:00"
     ],
     "priceRange": "$$",
     "paymentAccepted": "Cash, Credit Card",

@@ -2,8 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug } from '@/lib/blog'
+import { getAllPosts, getPostBySlug, urlFor } from '@/lib/sanity'
 import { Calendar, User, Tag, ArrowLeft } from 'lucide-react'
+import { PortableText } from '@portabletext/react'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -12,9 +13,9 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
+  const posts = await getAllPosts()
   return posts.map((post) => ({
-    slug: post.slug,
+    slug: post.slug.current,
   }))
 }
 
@@ -30,13 +31,15 @@ export async function generateMetadata({
     }
   }
 
+  const ogImage = post.coverImage ? urlFor(post.coverImage).width(1200).height(630).url() : undefined
+
   return {
     title: `${post.title} | 鍼灸院ブログ`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.coverImage ? [post.coverImage] : [],
+      images: ogImage ? [ogImage] : [],
     },
   }
 }
@@ -65,7 +68,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {post.coverImage && (
           <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
             <Image
-              src={post.coverImage}
+              src={urlFor(post.coverImage).width(1200).height(600).url()}
               alt={post.title}
               fill
               className="object-cover"
@@ -82,7 +85,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="flex flex-wrap gap-4 text-gray-600 mb-8 pb-8 border-b border-gray-200">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5" />
-            <span>{post.date}</span>
+            <span>{new Date(post.publishedAt).toLocaleDateString('ja-JP')}</span>
           </div>
 
           {post.author && (
@@ -125,8 +128,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             prose-code:text-[#d4af37] prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
             prose-pre:bg-gray-900 prose-pre:text-gray-100
             prose-img:rounded-lg prose-img:shadow-lg"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        >
+          <PortableText 
+            value={post.content}
+            components={{
+              types: {
+                image: ({value}) => (
+                  <div className="relative w-full h-96 my-8">
+                    <Image
+                      src={urlFor(value).url()}
+                      alt={value.alt || '記事内画像'}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                ),
+              },
+            }}
+          />
+        </div>
 
         {/* 記事末尾のCTA */}
         <div className="mt-16 p-8 bg-gradient-to-r from-[#d4af37]/10 to-[#d4af37]/5 rounded-lg text-center">

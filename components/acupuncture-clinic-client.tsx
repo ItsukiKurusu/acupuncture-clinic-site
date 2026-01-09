@@ -333,12 +333,12 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <Leaf className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold">鍼灸治療</h3>
-                  <div className="text-base font-medium mt-2">初回　¥5,000</div>
-                  <div className="text-base font-medium">2回目以降　¥4,000</div>
+                  <h3 className="text-xl font-bold">施術</h3>
+                  <div className="text-base font-medium mt-2">全身　¥6,000</div>
+                  <div className="text-base font-medium">局所　¥4,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
-                  <p>肩こり、腰痛、頭痛などの痛みから、自律神経の乱れまで幅広く対応いたします。</p>
+                  <p>慢性的な肩こり・腰痛や身体のだるさ、取りにくい疲れや痛みに対して体質改善を促します。</p>
                 </CardContent>
               </Card>
               <Card className="shadow-xl">
@@ -347,11 +347,11 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                     <Sparkles className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold">美容鍼</h3>
-                  <div className="text-base font-medium mt-2">初回　¥7,000</div>
-                  <div className="text-base font-medium">2回目以降　¥6,000</div>
+                  <div className="text-base font-medium mt-2">初回お試し　¥5,000</div>
+                  <div className="text-base font-medium">2回目以降　¥8,000</div>
                 </CardHeader>
                 <CardContent className="text-center text-muted-foreground">
-                  <p>顔のたるみやしわ、くすみなど、美容面でのお悩みにアプローチします。</p>
+                  <p>お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。</p>
                 </CardContent>
               </Card>
               <Card className="shadow-xl">
@@ -616,11 +616,11 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                   <div className="space-y-2 text-muted-foreground">
                     <div className="flex items-start gap-2">
                       <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                      <span>〒810-0044<br />福岡県福岡市中央区六本松2丁目12-8 チサンマンション六本松203</span>
+                      <span>〒810-0044<br />福岡県福岡市中央区六本松4丁目5-39 ピア21 401号室<br />地下鉄七隈線六本松駅 徒歩8分</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone className="h-5 w-5 flex-shrink-0" />
-                      <span>092-791-5846</span>
+                      <span>090-4181-7937</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Mail className="h-5 w-5 flex-shrink-0" />
@@ -629,10 +629,10 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-semibold">営業時間</h4>
+                  <h4 className="font-semibold">受付時間</h4>
                   <p className="text-muted-foreground">
-                    月〜土: 9:00 - 20:00<br />
-                    日・祝: 定休日
+                    10:00 - 20:00<br />
+                    日・祝日: 定休日
                   </p>
                 </div>
                 <Button asChild className="w-full sm:w-auto">

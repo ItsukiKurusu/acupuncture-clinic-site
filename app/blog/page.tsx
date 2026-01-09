@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllPosts } from '@/lib/blog'
+import { getAllPosts, urlFor } from '@/lib/sanity'
 import { Calendar, User, Tag } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: '鍼灸、健康、治療に関する最新情報をお届けします。',
 }
 
-export default function BlogPage() {
-  const posts = getAllPosts()
+export default async function BlogPage() {
+  const posts = await getAllPosts()
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -34,15 +34,15 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
+                key={post._id}
+                href={`/blog/${post.slug.current}`}
                 className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 {/* カバー画像 */}
                 {post.coverImage && (
                   <div className="relative w-full h-48 bg-gray-200">
                     <Image
-                      src={post.coverImage}
+                      src={urlFor(post.coverImage).width(800).height(400).url()}
                       alt={post.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -66,7 +66,7 @@ export default function BlogPage() {
                   <div className="flex flex-col gap-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      <span>{post.date}</span>
+                      <span>{new Date(post.publishedAt).toLocaleDateString('ja-JP')}</span>
                     </div>
 
                     {post.author && (
