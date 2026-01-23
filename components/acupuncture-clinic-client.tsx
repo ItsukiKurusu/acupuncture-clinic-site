@@ -645,7 +645,7 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
               </div>
               <div className="relative h-[300px] sm:h-full min-h-[400px] rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.6848707502106!2d130.38772!3d33.5878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354189e5e5e5e5e5%3A0x0!2z44K244Kr44Oq44Oz44OL44K544K844OT44Oz44OL44O844Oe44OV!5e0!3m2!1sja!2sjp!4v1703414400000!5m2!1sja!2sjp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26593.45708033658!2d130.3410070743164!3d33.574619999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541937dbe2ca4c9%3A0xb845966763d97a2d!2z6Y2854G4SEFORQ!5e0!3m2!1sja!2sjp!4v1769165064198!5m2!1sja!2sjp"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
