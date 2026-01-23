@@ -1,16 +1,15 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import { getAllPosts, urlFor } from '@/lib/sanity'
-import { Calendar, User, Tag } from 'lucide-react'
+import { getAllPosts } from '@/lib/blog'
+import { Calendar, Tag } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'ブログ | 鍼灸院',
   description: '鍼灸、健康、治療に関する最新情報をお届けします。',
 }
 
-export default async function BlogPage() {
-  const posts = await getAllPosts()
+export default function BlogPage() {
+  const posts = getAllPosts()
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -34,22 +33,10 @@ export default async function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <Link
-                key={post._id}
-                href={`/blog/${post.slug.current}`}
+                key={post.slug}
+                href={`/blog/${post.slug}`}
                 className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                {/* カバー画像 */}
-                {post.coverImage && (
-                  <div className="relative w-full h-48 bg-gray-200">
-                    <Image
-                      src={urlFor(post.coverImage).width(800).height(400).url()}
-                      alt={post.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-
                 {/* コンテンツ */}
                 <div className="p-6">
                   {/* タイトル */}
@@ -66,15 +53,8 @@ export default async function BlogPage() {
                   <div className="flex flex-col gap-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      <span>{new Date(post.publishedAt).toLocaleDateString('ja-JP')}</span>
+                      <span>{post.date}</span>
                     </div>
-
-                    {post.author && (
-                      <div className="flex items-center gap-2">
-                        <User className="w-4 h-4" />
-                        <span>{post.author}</span>
-                      </div>
-                    )}
 
                     {post.tags && post.tags.length > 0 && (
                       <div className="flex items-center gap-2 flex-wrap">
