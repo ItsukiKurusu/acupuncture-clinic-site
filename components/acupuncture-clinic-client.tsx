@@ -251,16 +251,15 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                 お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。
               </p>
               <div className="space-x-4">
-                <Button asChild size="lg" className="shadow-xl">
-                  <Link
-                    href={bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-6 py-3 md:px-8 md:py-4 font-bold animate-pulse transition-all duration-200 bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] text-white hover:opacity-90 hover:-translate-y-1 hover:shadow-xl"
-                  >
-                    ご予約はこちら
-                  </Link>
-                </Button>
+                <Link
+                  href={bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="standout-button"
+                  style={{ backgroundColor: '#4CAF50', width: '240px' }}
+                >
+                  ご予約はこちら
+                </Link>
               </div>
             </div>
           </div>
@@ -622,10 +621,7 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                       <Phone className="h-5 w-5 flex-shrink-0" />
                       <span>090-4181-7937</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Mail className="h-5 w-5 flex-shrink-0" />
-                      <span>info@acupuncture-hane.jp</span>
-                    </div>
+
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -636,14 +632,20 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                   </p>
                 </div>
                 <Button asChild className="w-full sm:w-auto">
-                  <Link href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                  <Link 
+                    href={bookingUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="standout-button"
+                    style={{ backgroundColor: '#4CAF50' }}
+                  >
                     LINEで予約する
                   </Link>
                 </Button>
               </div>
               <div className="relative h-[300px] sm:h-full min-h-[400px] rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.5234567890123!2d130.39012341521234!3d33.58912348073456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDM1JzIwLjgiTiAxMzDCsDIzJzI1LjIiRQ!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.6848707502106!2d130.38772!3d33.5878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354189e5e5e5e5e5%3A0x0!2z44K244Kr44Oq44Oz44OL44K544K844OT44Oz44OL44O844Oe44OV!5e0!3m2!1sja!2sjp!4v1703414400000!5m2!1sja!2sjp"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

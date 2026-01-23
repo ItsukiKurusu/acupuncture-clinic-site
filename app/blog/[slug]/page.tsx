@@ -158,7 +158,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
           <Link
             href="/#contact"
-            className="inline-block bg-[#d4af37] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#b8941f] transition-colors"
+            className="standout-button"
+            style={{ backgroundColor: '#d4af37' }}
           >
             お問い合わせはこちら
           </Link>

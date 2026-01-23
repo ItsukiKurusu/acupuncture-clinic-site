@@ -126,3 +126,23 @@
     @apply bg-background text-foreground font-serif;
   }
 }
+
+/* CTA Button with hover action */
+.standout-button {
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 1rem 1rem;
+  color: white !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  border-bottom: 7px solid #388E3C;
+  transition: all 0.1s ease;
+  text-decoration: none;
+}
+
+.standout-button:hover {
+  transform: translateY(4px);
+  border-bottom: 7px solid transparent;
+}
