@@ -97,6 +97,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           className="prose prose-lg max-w-none
             prose-headings:text-gray-900 
             prose-headings:font-bold
+            prose-h1:text-3xl prose-h1:mt-0 prose-h1:mb-6
             prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
             prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
@@ -109,7 +110,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600
             prose-code:text-[#d4af37] prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
             prose-pre:bg-gray-900 prose-pre:text-gray-100
-            prose-img:rounded-lg prose-img:shadow-lg"
+            prose-img:rounded-lg prose-img:shadow-lg
+            prose-video:rounded-lg prose-video:shadow-lg"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
