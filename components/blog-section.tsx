@@ -26,8 +26,8 @@ export function BlogSection({ posts }: BlogSectionProps) {
           className="group block"
         >
           <Card className="h-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            {/* カバー画像 */}
-            {post.coverImage && (
+            {/* カバー画像（動画ファイルは除外） */}
+            {post.coverImage && !post.coverImage.endsWith('.mp4') && (
               <div className="relative w-full h-48 bg-muted overflow-hidden">
                 <Image
                   src={post.coverImage}
