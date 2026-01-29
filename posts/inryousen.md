@@ -2,9 +2,15 @@
 title: "陰陵泉（いんりょうせん）とは？｜むくみ・冷え・だるさに効果が期待できるツボ"
 date: "2026-01-29"
 excerpt: "ひざの内側にある重要なツボ「陰陵泉」の場所と、むくみ・冷え・足のだるさへの効果、自宅でできる簡単なセルフケア方法を解説します。水分代謝を整えて体を軽やかに。"
+coverImage: "/inryousen.mp4"
 author: "鍼灸HANE"
 tags: ["鍼灸", "健康", "治療"]
 ---
+
+<video width="100%" controls autoplay muted loop>
+  <source src="/inryousen.mp4" type="video/mp4">
+  お使いのブラウザは動画タグをサポートしていません。
+</video>
 
 ## 陰陵泉（いんりょうせん）とは？
 
