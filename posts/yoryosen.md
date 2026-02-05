@@ -2,10 +2,15 @@
 title: "陽陵泉（ようりょうせん）｜足のだるさ・筋肉の張りに効果的なツボ"
 date: "2026-02-05"
 excerpt: "ひざ外側にある「陽陵泉」は、足のだるさや筋肉の張りを和らげる代表的なツボです。立ち仕事や歩き疲れをリセットする場所の見つけ方とセルフケア方法を解説します。"
-coverImage: ""
+coverImage: "/yoryousen.mp4"
 author: "鍼灸HANE"
 tags: ["鍼灸", "健康", "治療", "セルフケア", "腰痛", "膝痛"]
 ---
+
+<video width="100%" controls autoplay muted loop>
+	<source src="/yoryousen.mp4" type="video/mp4">
+	お使いのブラウザは動画タグをサポートしていません。
+</video>
 
 # 陽陵泉（ようりょうせん）｜セルフケア
 
