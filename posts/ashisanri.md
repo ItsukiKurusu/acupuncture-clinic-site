@@ -7,6 +7,8 @@ author: "鍼灸HANE"
 tags: ["ツボ", "セルフケア", "むくみ", "冷え性", "胃腸"]
 ---
 
+<video controls playsinline preload="metadata" src="/ashisanri.mp4"></video>
+
 ## 足三里（あしさんり）｜セルフケア
 
 **ひざのお皿の外側下、指3本分ほど下がったところ。**
