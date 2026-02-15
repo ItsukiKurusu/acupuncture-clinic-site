@@ -4,6 +4,9 @@ import { getAllPosts } from '@/lib/blog'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://acupuncture-clinic-site.vercel.app'
 
+  const blogPosts = getAllPosts()
+  const latestBlogDate = blogPosts.length > 0 ? new Date(blogPosts[0].date) : null
+
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -43,14 +46,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: latestBlogDate ?? new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
   ]
 
   // ブログ記事を動的に追加
-  const blogPosts = getAllPosts()
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
