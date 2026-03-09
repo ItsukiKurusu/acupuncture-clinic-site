@@ -270,20 +270,33 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
         {/* About Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div ref={aboutRef} className="container mx-auto w-full px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-start">
+                <div className="space-y-4">
+                  <div className="space-y-3">
                   <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
                     当院について
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                     一人ひとりに寄り添った<br />丁寧な治療
                   </h2>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  <p className="max-w-[680px] text-muted-foreground md:text-xl/relaxed lg:text-lg/relaxed xl:text-xl/relaxed">
                     当院では、患者様一人ひとりの症状や体質に合わせたオーダーメイドの治療を行っています。豊富な経験と確かな技術で、皆様の健康をサポートいたします。
                   </p>
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                  <Button asChild>
+                    <Link href="/about">当院について</Link>
+                  </Button>
+                  <Button asChild variant="outline">
+                    <Link href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                      ご予約・お問い合わせ
+                    </Link>
+                  </Button>
+                </div>
+                </div>
+                <div className="rounded-2xl border bg-background/80 p-6 shadow-sm backdrop-blur-sm lg:p-8">
+                  <div className="flex flex-col gap-4 text-left">
                   <div className="flex items-center gap-2">
                     <Leaf className="h-5 w-5 text-primary" />
                     <span>国家資格を持つ鍼灸師による施術</span>
@@ -297,15 +310,6 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                     <span>豊富な施術メニュー</span>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <Button asChild>
-                    <Link href="/about">当院について</Link>
-                  </Button>
-                  <Button asChild variant="outline">
-                    <Link href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                      ご予約・お問い合わせ
-                    </Link>
-                  </Button>
                 </div>
               </div>
             </div>
