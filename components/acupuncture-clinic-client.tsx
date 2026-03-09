@@ -326,7 +326,7 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
                 様々なお悩みに対応できるよう、幅広い施術メニューをご用意しております。
               </p>
             </div>
-            <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8 max-w-6xl mx-auto">
+            <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 max-w-6xl mx-auto">
               <Card className="shadow-xl">
                 <CardHeader className="flex flex-col items-center text-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
