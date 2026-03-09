@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Noto_Serif_JP } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 
@@ -62,7 +63,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={cn("font-serif", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>{children}</body>
+      <body className={cn("font-serif", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
