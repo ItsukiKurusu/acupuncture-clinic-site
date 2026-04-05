@@ -1,62 +1,58 @@
 import { MetadataRoute } from 'next'
+import fs from 'node:fs'
+import path from 'node:path'
 import { getAllPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://acupuncture-clinic-site.vercel.app'
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://acupuncture-clinic-site.vercel.app').replace(/\/$/, '')
+
+  const getFileLastModified = (relativeFilePath: string): Date => {
+    const fullPath = path.join(process.cwd(), relativeFilePath)
+    if (!fs.existsSync(fullPath)) {
+      return new Date()
+    }
+
+    return fs.statSync(fullPath).mtime
+  }
+
+  const parseDate = (dateString?: string): Date | null => {
+    if (!dateString) {
+      return null
+    }
+
+    const parsed = new Date(dateString)
+    return Number.isNaN(parsed.getTime()) ? null : parsed
+  }
 
   const blogPosts = getAllPosts()
-  const latestBlogDate = blogPosts.length > 0 ? new Date(blogPosts[0].date) : null
+  const latestBlogDate = parseDate(blogPosts[0]?.date)
 
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/treatment`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/scenes`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/matrix-wave`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: latestBlogDate ?? new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
+  const staticPageDefinitions = [
+    { route: '', sourceFile: 'app/page.tsx', changeFrequency: 'monthly' as const, priority: 1 },
+    { route: '/about', sourceFile: 'app/about/page.tsx', changeFrequency: 'monthly' as const, priority: 0.8 },
+    { route: '/treatment', sourceFile: 'app/treatment/page.tsx', changeFrequency: 'monthly' as const, priority: 0.8 },
+    { route: '/services', sourceFile: 'app/services/page.tsx', changeFrequency: 'monthly' as const, priority: 0.9 },
+    { route: '/scenes', sourceFile: 'app/scenes/page.tsx', changeFrequency: 'monthly' as const, priority: 0.6 },
+    { route: '/matrix-wave', sourceFile: 'app/matrix-wave/page.tsx', changeFrequency: 'monthly' as const, priority: 0.9 },
+    { route: '/blog', sourceFile: 'app/blog/page.tsx', changeFrequency: 'weekly' as const, priority: 0.8 },
   ]
 
-  // ブログ記事を動的に追加
+  const staticPages: MetadataRoute.Sitemap = staticPageDefinitions.map((page) => {
+    const pageLastModified =
+      page.route === '/blog' ? (latestBlogDate ?? getFileLastModified(page.sourceFile)) : getFileLastModified(page.sourceFile)
+
+    return {
+      url: `${baseUrl}${page.route}`,
+      lastModified: pageLastModified,
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+    }
+  })
+
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
+    lastModified: parseDate(post.date) ?? getFileLastModified(`posts/${post.slug}.md`),
+    changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
