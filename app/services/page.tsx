@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -156,6 +157,31 @@ export default function ServicesPage() {
             どの施術も、経験豊富な理学療法士が丁寧に対応いたします。
           </p>
           <div className="w-24 h-1 bg-black mx-auto"></div>
+        </div>
+      </section>
+
+      <section className="bg-white py-10 md:py-14">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm">
+            <div className="px-6 pt-8 text-center md:px-10 md:pt-10">
+              <p className="text-2xl font-bold text-gray-800 md:text-3xl">
+                「地域情報誌　いるか」に掲載されました！
+              </p>
+            </div>
+            <div className="p-4 md:p-8">
+              <div className="overflow-hidden rounded-xl bg-white">
+                <Image
+                  src="/いるかHP素材.png"
+                  alt="地域情報誌いるか掲載のお知らせ"
+                  width={1600}
+                  height={900}
+                  sizes="(min-width: 1024px) 896px, (min-width: 768px) 90vw, 100vw"
+                  className="h-auto w-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
