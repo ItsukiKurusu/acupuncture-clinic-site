@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Noto_Serif_JP } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 
@@ -63,6 +64,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-524375RWWM"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-524375RWWM');
+          `}
+        </Script>
+      </head>
       <body className={cn("font-serif", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
         {children}
         <Analytics />
