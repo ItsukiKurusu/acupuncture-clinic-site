@@ -11,14 +11,17 @@ export default function BlogPage() {
   const posts = getAllPosts()
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-16 max-w-6xl">
         {/* ヘッダー */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase mb-4" style={{ backgroundColor: "rgba(212,175,55,0.15)", color: "#b8960a" }}>
+            Blog
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1c1917" }}>
             ブログ
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-muted-foreground">
             鍼灸、健康、治療に関する最新情報をお届けします
           </p>
         </div>
