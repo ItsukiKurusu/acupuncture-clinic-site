@@ -19,13 +19,13 @@ const services = [
   {
     icon: <Leaf className="h-7 w-7" style={{ color: "#b8960a" }} />,
     title: "施術",
-    price: "全身　¥6,000\n局所　¥4,000",
+    price: "全身　¥7,000\n局所　¥5,000",
     description: "慢性的な肩こり・腰痛や身体のだるさ、取りにくい疲れや痛みに対して体質改善を促します。",
   },
   {
     icon: <Sparkles className="h-7 w-7" style={{ color: "#b8960a" }} />,
     title: "美容鍼",
-    price: "初回お試し　¥5,000\n2回目以降　¥8,000",
+    price: "初回お試し　¥6,000\n2回目以降　¥9,000",
     description: "お顔のツボを刺激し、血行を促進。リフトアップ、しわ・たるみの改善、肌質の向上を目指します。",
   },
   {

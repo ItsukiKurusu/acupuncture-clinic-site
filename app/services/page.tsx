@@ -24,7 +24,7 @@ const services: ServiceItem[] = [
   {
     name: "施術（整体・鍼・電気・カッピング）",
     description: "全身の筋肉の緊張を和らげ、血行を促進する総合的な施術",
-    price: "全身 6,000円 / 局所 4,000円",
+    price: "全身 7,000円 / 局所 5,000円",
     isPopular: true,
     category: "基本施術"
   },
@@ -49,7 +49,7 @@ const services: ServiceItem[] = [
   {
     name: "美容鍼",
     description: "お肌のハリや血色を改善し、自然な美しさを引き出す美容専門の鍼治療",
-    price: "初回 5,000円 / 2回目以降 8,000円",
+    price: "初回 6,000円 / 2回目以降 9,000円",
     isPopular: true,
     category: "美容"
   },
