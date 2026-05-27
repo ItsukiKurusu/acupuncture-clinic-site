@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/matrix-wave", label: "MATRIX WAVE" },
   { href: "/#testimonials", label: "お客様の声" },
   { href: "/blog", label: "ブログ" },
+  { href: "/iruka", label: "いるか新聞" },
   { href: "/#instagram", label: "Instagram" },
   { href: "/#faq", label: "よくある質問" },
   { href: "/#contact", label: "アクセス" },
