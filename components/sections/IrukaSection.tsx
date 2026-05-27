@@ -2,6 +2,19 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 
+const issues = [
+  {
+    label: "5月号",
+    src: "/iruka5.jpg",
+    alt: "地域情報誌いるか 5月号",
+  },
+  {
+    label: "4月号",
+    src: "/いるかHP素材.png",
+    alt: "地域情報誌いるか 4月号",
+  },
+]
+
 export function IrukaSection() {
   return (
     <motion.section
@@ -26,18 +39,36 @@ export function IrukaSection() {
             >
               「地域情報誌　いるか」に掲載されました！
             </p>
+            <p
+              className="mt-2 text-sm md:text-base"
+              style={{ color: "#78716c" }}
+            >
+              いるか新聞 - 六本松いきいきコラム アーカイブ
+            </p>
           </div>
+
           <div className="p-4 md:p-8">
-            <div className="overflow-hidden rounded-xl">
-              <Image
-                src="/いるかHP素材.png"
-                width={1600}
-                height={900}
-                alt="地域情報誌いるか掲載のお知らせ"
-                sizes="(min-width: 1024px) 896px, (min-width: 768px) 90vw, 100vw"
-                className="h-auto w-full object-contain"
-                priority
-              />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {issues.map((issue) => (
+                <div key={issue.label} className="flex flex-col gap-2">
+                  <span
+                    className="text-center text-sm font-semibold tracking-widest"
+                    style={{ color: "#a8926a" }}
+                  >
+                    {issue.label}
+                  </span>
+                  <div className="overflow-hidden rounded-xl" style={{ border: "1px solid #e8e0cc" }}>
+                    <Image
+                      src={issue.src}
+                      width={800}
+                      height={600}
+                      alt={issue.alt}
+                      sizes="(min-width: 1024px) 420px, (min-width: 640px) 45vw, 90vw"
+                      className="h-auto w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
