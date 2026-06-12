@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 const banners = [
   {
     href: "https://www.shinq-compass.jp/salon/reserve/37835",
-    src: "/campaign-banner.png",
+    src: "/HPバナー2.png",
     alt: "キャンペーン",
   },
   {
