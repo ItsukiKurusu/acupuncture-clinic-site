@@ -9,9 +9,9 @@ const issues = [
   {
     label: "6月号",
     date: "2025年6月",
-    src: "/iruka6.pdf",
+    src: "/iruka6-1.png",
     alt: "地域情報誌いるか 6月号",
-    type: "pdf" as const,
+    type: "image" as const,
   },
   {
     label: "5月号",
