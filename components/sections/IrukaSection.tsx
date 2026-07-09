@@ -3,19 +3,9 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
+import { irukaIssues } from "@/lib/iruka-issues"
 
-const issues = [
-  {
-    label: "5月号",
-    src: "/iruka5.jpg",
-    alt: "地域情報誌いるか 5月号",
-  },
-  {
-    label: "4月号",
-    src: "/いるかHP素材.png",
-    alt: "地域情報誌いるか 4月号",
-  },
-]
+const issues = irukaIssues.slice(0, 2)
 
 export function IrukaSection() {
   const [selected, setSelected] = useState<(typeof issues)[number] | null>(null)
