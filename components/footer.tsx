@@ -1,6 +1,8 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import { Instagram, MapPin, Phone, Clock } from "lucide-react"
+import { trackEvent } from "@/lib/analytics"
 
 export function Footer() {
   const instagramUrl =
@@ -66,7 +68,13 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 pt-1">
                 <Phone className="h-4 w-4 shrink-0" style={{ color: "#d4af37" }} />
-                <span>090-4181-7937</span>
+                <a
+                  href="tel:0904181937"
+                  onClick={() => trackEvent("tel_click", { location: "footer" })}
+                  className="hover:underline"
+                >
+                  090-4181-7937
+                </a>
               </div>
             </address>
           </div>
@@ -88,6 +96,7 @@ export function Footer() {
               href={bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("line_click", { location: "footer" })}
               className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-md transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#06C755", color: "#fff" }}
             >

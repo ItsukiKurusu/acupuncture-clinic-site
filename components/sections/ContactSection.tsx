@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { MapPin, Phone, Clock } from "lucide-react"
+import { trackEvent } from "@/lib/analytics"
 
 const container = {
   hidden: {},
@@ -68,7 +69,13 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
 
             <motion.div variants={item} className="flex items-center gap-3 text-muted-foreground">
               <Phone className="h-5 w-5 shrink-0" style={{ color: "#b8960a" }} />
-              <span className="text-sm">090-4181-7937</span>
+              <a
+                href="tel:0904181937"
+                onClick={() => trackEvent("tel_click", { location: "contact_section" })}
+                className="text-sm hover:underline"
+              >
+                090-4181-7937
+              </a>
             </motion.div>
 
             <motion.div variants={item} className="flex items-start gap-3 text-muted-foreground">
@@ -85,6 +92,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
                 href={bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("line_click", { location: "contact_section" })}
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all hover:scale-105"
                 style={{
                   backgroundColor: "#06C755",

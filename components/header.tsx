@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
+import { trackEvent } from "@/lib/analytics"
 
 const navLinks = [
   { href: "/about", label: "当院について" },
@@ -88,6 +89,7 @@ export function Header() {
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("line_click", { location: "header_desktop" })}
             className="inline-flex items-center justify-center px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
               backgroundColor: scrolled ? "#d4af37" : "rgba(255,255,255,0.15)",
@@ -157,7 +159,10 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="block w-full text-center py-2.5 rounded-full text-sm font-bold transition-all"
                 style={{ backgroundColor: "#d4af37", color: "#1c1917" }}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackEvent("line_click", { location: "header_mobile" })
+                  setOpen(false)
+                }}
               >
                 ご予約・お問い合わせ
               </Link>

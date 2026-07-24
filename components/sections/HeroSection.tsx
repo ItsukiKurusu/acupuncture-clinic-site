@@ -2,6 +2,7 @@
 import { useRef } from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { trackEvent } from "@/lib/analytics"
 
 const textVariants = {
   hidden: { opacity: 0 },
@@ -93,6 +94,7 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("line_click", { location: "hero" })}
             className="inline-flex items-center justify-center px-9 py-3.5 rounded-full text-sm font-bold tracking-wider transition-all duration-300 hover:scale-105"
             style={{
               backgroundColor: "#06C755",
