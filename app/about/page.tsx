@@ -2,12 +2,8 @@
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { useEffect } from "react"
 
 export default function AboutPage() {
-  useEffect(() => {
-    document.title = "当院について｜鍼灸HANE - 中央区六本松の鍼灸院";
-  }, []);
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
       <Header />

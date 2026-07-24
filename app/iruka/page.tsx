@@ -10,10 +10,6 @@ export default function IrukaPage() {
   const [selected, setSelected] = useState<(typeof issues)[number] | null>(null)
 
   useEffect(() => {
-    document.title = "いるか新聞｜鍼灸HANE - 六本松いきいきコラム"
-  }, [])
-
-  useEffect(() => {
     if (!selected) return
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSelected(null)
     document.addEventListener("keydown", onKey)

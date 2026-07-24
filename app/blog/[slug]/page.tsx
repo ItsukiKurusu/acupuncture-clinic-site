@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { Calendar, Tag, ArrowLeft } from 'lucide-react'
+import { SITE_URL } from '@/lib/site-config'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -30,9 +33,21 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | 鍼灸院ブログ`,
+    title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `${SITE_URL}/blog/${slug}`,
+    },
     openGraph: {
+      title: `${post.title}｜鍼灸HANE`,
+      description: post.excerpt,
+      url: `${SITE_URL}/blog/${slug}`,
+      siteName: '鍼灸HANE',
+      locale: 'ja_JP',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
     },
@@ -48,8 +63,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <article className="container mx-auto px-4 py-16 max-w-4xl">
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header />
+      <article className="container mx-auto px-4 py-16 max-w-4xl flex-1">
         {/* 戻るリンク */}
         <Link
           href="/blog"
@@ -106,13 +122,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="text-gray-700 mb-6">
             お体の不調やご相談がございましたら、お気軽にご連絡ください。
           </p>
-          <Link
-            href="/#contact"
-            className="standout-button"
-            style={{ backgroundColor: '#d4af37' }}
-          >
-            お問い合わせはこちら
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/services"
+              className="standout-button"
+              style={{ backgroundColor: '#1c1917' }}
+            >
+              施術内容・料金を見る
+            </Link>
+            <Link
+              href="/#contact"
+              className="standout-button"
+              style={{ backgroundColor: '#d4af37' }}
+            >
+              お問い合わせはこちら
+            </Link>
+          </div>
         </div>
 
         {/* 戻るリンク（下部） */}
@@ -126,6 +151,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </Link>
         </div>
       </article>
+      <Footer />
     </div>
   )
 }

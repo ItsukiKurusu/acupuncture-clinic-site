@@ -1,8 +1,9 @@
 
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const gallery = [
   {
@@ -49,10 +50,7 @@ const gallery = [
 
 export default function ScenesPage() {
   const [preview, setPreview] = useState<null | typeof gallery[0]>(null);
-  
-  useEffect(() => {
-    document.title = "院内風景｜鍼灸HANE - 中央区六本松の鍼灸院";
-  }, []);
+
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
       <Header />
@@ -105,6 +103,7 @@ export default function ScenesPage() {
           ))}
         </div>
       </section>
+      <Footer />
       {/* プレビュー用モーダル */}
       {preview && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setPreview(null)}>

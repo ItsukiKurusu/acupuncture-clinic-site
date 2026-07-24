@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const gallery = [
   {
@@ -41,12 +42,9 @@ const gallery = [
 ];
 
 export default function TreatmentPage() {
-  useEffect(() => {
-    document.title = "治療内容｜鍼灸HANE - 中央区六本松の鍼灸院";
-  }, []);
-
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
+      <Header />
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center h-[60vh] bg-white">
         <motion.video
@@ -95,6 +93,7 @@ export default function TreatmentPage() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
