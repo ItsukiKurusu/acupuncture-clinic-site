@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
+import { SITE_URL } from "@/lib/site-config"
+import { MobileCtaBar } from "@/components/mobile-cta-bar"
 
 const notoSerifJp = Noto_Serif_JP({
   subsets: ["latin"],
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "鍼灸HANE｜中央区六本松の鍼灸院",
     description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。",
-    url: "https://acupuncture-clinic-site.vercel.app",
+    url: SITE_URL,
     siteName: "鍼灸HANE",
     locale: "ja_JP",
     type: "website"
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   },
   // 検索エンジン向けの追加設定
   alternates: {
-    canonical: "https://acupuncture-clinic-site.vercel.app"
+    canonical: SITE_URL
   },
   robots: {
     index: true,
@@ -78,8 +80,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={cn("font-serif", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+      <body className={cn("font-serif pb-16 lg:pb-0", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
         {children}
+        <MobileCtaBar />
         <Analytics />
       </body>
     </html>

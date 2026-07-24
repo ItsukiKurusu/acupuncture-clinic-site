@@ -1,13 +1,17 @@
 import { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: '施術内容・料金 - 鍼灸HANE | 福岡市中央区六本松の鍼灸院',
+  title: '施術内容・料金',
   description: '鍼灸HANEの施術メニューと料金のご案内。整体・鍼・電気・カッピング、美容鍼、EMSトレーニングなど多彩な施術をご提供。福岡市中央区六本松の理学療法士による丁寧な治療。',
   keywords: ['施術内容', '料金', '鍼灸', '整体', '美容鍼', 'EMSトレーニング', '六本松', '福岡市', '中央区', 'HANE'],
+  alternates: {
+    canonical: `${SITE_URL}/services`,
+  },
   openGraph: {
     title: '施術内容・料金 - 鍼灸HANE',
     description: '鍼灸HANEの施術メニューと料金のご案内。整体・鍼・電気・カッピング、美容鍼、EMSトレーニングなど多彩な施術をご提供。',
-    url: 'https://acupuncture-clinic-site.vercel.app/services',
+    url: `${SITE_URL}/services`,
     siteName: '鍼灸HANE',
     images: [
       {

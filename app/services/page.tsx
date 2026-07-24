@@ -9,65 +9,9 @@ import { Separator } from "@/components/ui/separator";
 import ServicesStructuredData from "@/components/services-structured-data";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { services, serviceCategories as categories } from "@/lib/services-data";
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface ServiceItem {
-  name: string;
-  description?: string;
-  price: string;
-  isPopular?: boolean;
-  category: string;
-}
-
-const services: ServiceItem[] = [
-  {
-    name: "施術（整体・鍼・電気・カッピング）",
-    description: "全身の筋肉の緊張を和らげ、血行を促進する総合的な施術",
-    price: "全身 7,000円 / 局所 5,000円",
-    isPopular: true,
-    category: "基本施術"
-  },
-  {
-    name: "眼精疲労改善",
-    description: "デスクワークやスマートフォンによる目の疲れを和らげる専門施術",
-    price: "2,000円",
-    category: "専門施術"
-  },
-  {
-    name: "EMSトレーニング",
-    description: "電気刺激により筋肉を効率的に鍛える最新のトレーニング",
-    price: "3,000円",
-    category: "トレーニング"
-  },
-  {
-    name: "EMS×パーソナル",
-    description: "EMSトレーニングと個別指導を組み合わせた贅沢なコース",
-    price: "8,000円",
-    category: "トレーニング"
-  },
-  {
-    name: "美容鍼",
-    description: "お肌のハリや血色を改善し、自然な美しさを引き出す美容専門の鍼治療",
-    price: "初回 6,000円 / 2回目以降 9,000円",
-    isPopular: true,
-    category: "美容"
-  },
-  {
-    name: "小顔矯正",
-    description: "フェイスラインを整え、リフトアップ効果を期待できる施術",
-    price: "3,000円",
-    category: "美容"
-  },
-  {
-    name: "マトリクス式電界施術",
-    description: "最新の電界技術を活用した革新的な治療法",
-    price: "1,500円",
-    category: "専門施術"
-  }
-];
-
-const categories = ["基本施術", "専門施術", "トレーニング", "美容"];
 
 export default function ServicesPage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -228,7 +172,7 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-3 text-lg font-semibold">
               <span className="text-2xl">📞</span>
-              <span>090-4181-7937</span>
+              <a href="tel:0904181937" className="hover:underline">090-4181-7937</a>
             </div>
             <div className="text-sm opacity-75">
               受付時間: 10:00 - 20:00 (日・祝日を除く)
@@ -264,8 +208,8 @@ export default function ServicesPage() {
                   <li>• 現金</li>
                   <li>• 各種クレジットカード</li>
                   <li>• 電子マネー</li>
-                  <li>• 各種保険（要相談）</li>
                 </ul>
+                <p className="text-xs text-gray-400 mt-3">※保険診療は行っておりません（自費診療のみ）</p>
               </div>
             </div>
             <div className="mt-8 bg-gray-100 p-6 rounded-lg">

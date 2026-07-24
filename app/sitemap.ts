@@ -2,9 +2,10 @@ import { MetadataRoute } from 'next'
 import fs from 'node:fs'
 import path from 'node:path'
 import { getAllPosts } from '@/lib/blog'
+import { SITE_URL } from '@/lib/site-config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://acupuncture-clinic-site.vercel.app').replace(/\/$/, '')
+  const baseUrl = SITE_URL
 
   const getFileLastModified = (relativeFilePath: string): Date => {
     const fullPath = path.join(process.cwd(), relativeFilePath)
