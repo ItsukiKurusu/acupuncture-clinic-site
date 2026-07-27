@@ -29,14 +29,14 @@ export function IrukaSection() {
         <div className="container mx-auto px-4 md:px-6">
           <div
             className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-white shadow-sm"
-            style={{ border: "1px solid #E8D5C0" }}
+            style={{ border: "1px solid #e8e0cc" }}
           >
             <div className="px-6 pt-8 text-center md:px-10 md:pt-10">
               <p
                 className="text-2xl font-bold md:text-3xl"
                 style={{
-                  fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
-                  color: "#472808",
+                  fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
+                  color: "#1c1917",
                 }}
               >
                 「地域情報誌　いるか」に掲載されました！
@@ -55,14 +55,14 @@ export function IrukaSection() {
                   <div key={issue.label} className="flex flex-col gap-2">
                     <span
                       className="text-center text-sm font-semibold tracking-widest"
-                      style={{ color: "#BE9F6D" }}
+                      style={{ color: "#a8926a" }}
                     >
                       {issue.label}
                     </span>
                     <button
                       onClick={() => setSelected(issue)}
                       className="overflow-hidden rounded-xl transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-                      style={{ border: "1px solid #E8D5C0" }}
+                      style={{ border: "1px solid #e8e0cc" }}
                       aria-label={`${issue.alt}を拡大表示`}
                     >
                       <Image

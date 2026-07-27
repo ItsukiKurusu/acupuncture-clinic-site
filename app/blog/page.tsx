@@ -38,10 +38,10 @@ export default function BlogPage() {
       <div className="container mx-auto px-4 py-16 max-w-6xl flex-1">
         {/* ヘッダー */}
         <div className="text-center mb-12">
-          <div className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase mb-4" style={{ backgroundColor: "rgba(212, 86, 28,0.15)", color: "#964001" }}>
+          <div className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase mb-4" style={{ backgroundColor: "rgba(212,175,55,0.15)", color: "#b8960a" }}>
             Blog
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#472808" }}>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1c1917" }}>
             ブログ
           </h1>
           <p className="text-lg text-muted-foreground">

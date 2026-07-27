@@ -19,15 +19,15 @@ export default function IrukaPage() {
             <div className="flex flex-col items-center text-center space-y-3 mb-12">
               <p
                 className="text-xs font-semibold tracking-[0.2em] uppercase"
-                style={{ color: "#BE9F6D" }}
+                style={{ color: "#a8926a" }}
               >
                 Iruka Newspaper
               </p>
               <h1
                 className="text-3xl font-bold md:text-4xl"
                 style={{
-                  fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
-                  color: "#472808",
+                  fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
+                  color: "#1c1917",
                 }}
               >
                 いるか新聞
@@ -35,7 +35,7 @@ export default function IrukaPage() {
               <p className="text-sm md:text-base" style={{ color: "#78716c" }}>
                 六本松いきいきコラム アーカイブ
               </p>
-              <div className="w-12 h-px mt-2" style={{ backgroundColor: "#D4561C" }} />
+              <div className="w-12 h-px mt-2" style={{ backgroundColor: "#d4af37" }} />
               <p className="max-w-lg text-sm md:text-base leading-relaxed" style={{ color: "#78716c" }}>
                 地域情報誌「いるか」に掲載している、鍼灸HANEのセルフケアコラムです。
                 毎月、日常で役立つ健康情報をお届けしています。

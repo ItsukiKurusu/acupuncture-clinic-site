@@ -10,8 +10,8 @@
   --card-foreground: 35 10% 25%;
   --popover: 35 50% 98%;
   --popover-foreground: 35 10% 25%;
-  --primary: 19 77% 47%;
-  --primary-foreground: 35 50% 98%;
+  --primary: 140 30% 45%;
+  --primary-foreground: 140 50% 98%;
   --secondary: 35 25% 60%;
   --secondary-foreground: 35 50% 98%;
   --muted: 35 20% 90%;
@@ -22,13 +22,13 @@
   --destructive-foreground: 210 40% 98%;
   --border: 35 20% 85%;
   --input: 35 20% 85%;
-  --ring: 19 77% 47%;
+  --ring: 140 30% 45%;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 1rem;
+  --radius: 0.5rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -38,7 +38,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  --font-serif: var(--font-shippori-mincho), "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro",
+  --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro",
     "MS PMincho", "MS Mincho", serif;
 }
 
@@ -132,19 +132,19 @@
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
-  padding: 0.9rem 2rem;
+  padding: 1rem 1rem;
   color: white !important;
   font-weight: bold;
   border: none;
-  border-radius: 9999px;
-  box-shadow: 0 6px 20px rgba(71, 40, 8, 0.22);
-  transition: all 0.2s ease;
+  border-radius: 5px;
+  border-bottom: 7px solid #388E3C;
+  transition: all 0.1s ease;
   text-decoration: none;
 }
 
 .standout-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(71, 40, 8, 0.3);
+  transform: translateY(4px);
+  border-bottom: 7px solid transparent;
 }
 /* Blog content styles */
 .blog-content {
@@ -152,7 +152,7 @@
 }
 
 .blog-content h2 {
-  @apply text-2xl font-bold text-gray-900 mt-12 mb-4 border-b-2 border-[#D4561C]/30 pb-2;
+  @apply text-2xl font-bold text-gray-900 mt-12 mb-4 border-b-2 border-[#d4af37]/30 pb-2;
 }
 
 .blog-content h3 {
@@ -168,7 +168,7 @@
 }
 
 .blog-content a {
-  @apply text-[#D4561C] no-underline transition-all duration-200 hover:underline hover:text-[#e8823f];
+  @apply text-[#d4af37] no-underline transition-all duration-200 hover:underline hover:text-[#e8c547];
 }
 
 .blog-content strong {
@@ -196,11 +196,11 @@
 }
 
 .blog-content blockquote {
-  @apply border-l-4 border-[#D4561C] pl-4 italic text-gray-600 bg-[#D4561C]/5 py-4 my-6;
+  @apply border-l-4 border-[#d4af37] pl-4 italic text-gray-600 bg-[#d4af37]/5 py-4 my-6;
 }
 
 .blog-content code {
-  @apply text-[#D4561C] bg-gray-100 px-2 py-1 rounded font-mono text-sm;
+  @apply text-[#d4af37] bg-gray-100 px-2 py-1 rounded font-mono text-sm;
 }
 
 .blog-content pre {
@@ -220,7 +220,7 @@
 }
 
 .blog-content hr {
-  @apply my-8 border-t-2 border-[#D4561C]/30;
+  @apply my-8 border-t-2 border-[#d4af37]/30;
 }
 
 .blog-content table {

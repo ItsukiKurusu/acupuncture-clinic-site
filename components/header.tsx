@@ -37,7 +37,7 @@ export function Header() {
         backgroundColor: scrolled ? "rgba(255,255,255,0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(14px)" : "none",
         borderBottom: scrolled
-          ? "1.5px solid rgba(212, 86, 28,0.3)"
+          ? "1.5px solid rgba(212,175,55,0.3)"
           : "1.5px solid rgba(255,255,255,0.1)",
         boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.06)" : "none",
       }}
@@ -56,8 +56,8 @@ export function Header() {
           <span
             className="text-xl font-semibold tracking-wide transition-colors duration-500"
             style={{
-              fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
-              color: scrolled ? "#472808" : "rgba(255,255,255,0.95)",
+              fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
+              color: scrolled ? "#1c1917" : "rgba(255,255,255,0.95)",
             }}
           >
             鍼灸HANE
@@ -71,13 +71,13 @@ export function Header() {
               key={href}
               href={href}
               className="relative px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-300 group"
-              style={{ color: scrolled ? "rgba(71, 40, 8,0.75)" : "rgba(255,255,255,0.85)" }}
+              style={{ color: scrolled ? "rgba(28,25,23,0.75)" : "rgba(255,255,255,0.85)" }}
               prefetch={false}
             >
               {label}
               <span
                 className="absolute bottom-0.5 left-2.5 right-2.5 h-px scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
-                style={{ backgroundColor: "#D4561C" }}
+                style={{ backgroundColor: "#d4af37" }}
               />
             </Link>
           ))}
@@ -92,11 +92,11 @@ export function Header() {
             onClick={() => trackEvent("line_click", { location: "header_desktop" })}
             className="inline-flex items-center justify-center px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
-              backgroundColor: scrolled ? "#D4561C" : "rgba(255,255,255,0.15)",
-              color: scrolled ? "#472808" : "#fff",
+              backgroundColor: scrolled ? "#d4af37" : "rgba(255,255,255,0.15)",
+              color: scrolled ? "#1c1917" : "#fff",
               border: scrolled ? "none" : "1px solid rgba(255,255,255,0.4)",
               backdropFilter: scrolled ? "none" : "blur(6px)",
-              boxShadow: scrolled ? "0 2px 12px rgba(212, 86, 28,0.3)" : "none",
+              boxShadow: scrolled ? "0 2px 12px rgba(212,175,55,0.3)" : "none",
               letterSpacing: "0.03em",
             }}
           >
@@ -109,7 +109,7 @@ export function Header() {
           <button
             aria-label={open ? "メニューを閉じる" : "メニューを開く"}
             className="p-2 transition-colors duration-300"
-            style={{ color: scrolled ? "rgba(71, 40, 8,0.7)" : "rgba(255,255,255,0.9)" }}
+            style={{ color: scrolled ? "rgba(28,25,23,0.7)" : "rgba(255,255,255,0.9)" }}
             onClick={() => setOpen(!open)}
           >
             {open ? (
@@ -137,15 +137,15 @@ export function Header() {
             className="lg:hidden bg-white/98 px-4 py-3 space-y-0.5"
             style={{
               backdropFilter: "blur(14px)",
-              borderTop: "1px solid rgba(212, 86, 28,0.2)",
+              borderTop: "1px solid rgba(212,175,55,0.2)",
             }}
           >
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                className="block text-sm py-2.5 px-2 font-medium rounded-lg transition-colors hover:bg-[#D4561C]/8"
-                style={{ color: "rgba(71, 40, 8,0.8)" }}
+                className="block text-sm py-2.5 px-2 font-medium rounded-lg transition-colors hover:bg-[#d4af37]/8"
+                style={{ color: "rgba(28,25,23,0.8)" }}
                 onClick={() => setOpen(false)}
                 prefetch={false}
               >
@@ -158,7 +158,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center py-2.5 rounded-full text-sm font-bold transition-all"
-                style={{ backgroundColor: "#D4561C", color: "#472808" }}
+                style={{ backgroundColor: "#d4af37", color: "#1c1917" }}
                 onClick={() => {
                   trackEvent("line_click", { location: "header_mobile" })
                   setOpen(false)

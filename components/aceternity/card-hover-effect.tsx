@@ -31,7 +31,7 @@ export function HoverEffect({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-[#D4561C]/10 block rounded-2xl"
+                className="absolute inset-0 h-full w-full bg-[#d4af37]/10 block rounded-2xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 0.15 } }}
@@ -42,14 +42,14 @@ export function HoverEffect({
           <div
             className="relative z-20 rounded-2xl h-full bg-white flex flex-col items-center text-center p-6 transition-shadow duration-300 group-hover:shadow-xl"
             style={{
-              border: "1px solid #E8D5C0",
-              borderTop: "3px solid #D4561C",
+              border: "1px solid #e8e0cc",
+              borderTop: "3px solid #d4af37",
             }}
           >
             {item.icon && (
               <div
                 className="p-3.5 rounded-full mb-4"
-                style={{ backgroundColor: "rgba(212, 86, 28,0.12)" }}
+                style={{ backgroundColor: "rgba(212,175,55,0.12)" }}
               >
                 {item.icon}
               </div>

@@ -18,7 +18,7 @@ export function MobileCtaBar() {
         href="tel:0904181937"
         onClick={() => trackEvent("tel_click", { location: "mobile_cta_bar" })}
         className="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold"
-        style={{ backgroundColor: "#472808", color: "#fff" }}
+        style={{ backgroundColor: "#1c1917", color: "#fff" }}
       >
         <Phone className="h-4 w-4" />
         電話をかける

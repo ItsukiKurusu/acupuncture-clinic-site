@@ -10,7 +10,7 @@ export function Footer() {
   const bookingUrl = "https://line.me/R/ti/p/@241gbrkw"
 
   return (
-    <footer className="w-full" style={{ backgroundColor: "#472808", color: "rgba(255,255,255,0.75)" }}>
+    <footer className="w-full" style={{ backgroundColor: "#1c1917", color: "rgba(255,255,255,0.75)" }}>
       <div className="container mx-auto px-4 md:px-6 pt-12 pb-8">
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
@@ -27,7 +27,7 @@ export function Footer() {
               />
               <span
                 className="text-xl font-semibold text-white"
-                style={{ fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+                style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
               >
                 鍼灸HANE
               </span>
@@ -51,12 +51,12 @@ export function Footer() {
 
           {/* Access */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#D4561C" }}>
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#d4af37" }}>
               アクセス
             </h4>
             <address className="not-italic text-sm leading-relaxed space-y-1" style={{ color: "rgba(255,255,255,0.65)" }}>
               <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "#D4561C" }} />
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "#d4af37" }} />
                 <span>
                   〒810-0044<br />
                   福岡市中央区六本松4丁目5-39<br />
@@ -67,7 +67,7 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-2 pt-1">
-                <Phone className="h-4 w-4 shrink-0" style={{ color: "#D4561C" }} />
+                <Phone className="h-4 w-4 shrink-0" style={{ color: "#d4af37" }} />
                 <a
                   href="tel:0904181937"
                   onClick={() => trackEvent("tel_click", { location: "footer" })}
@@ -81,11 +81,11 @@ export function Footer() {
 
           {/* Hours & Booking */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#D4561C" }}>
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#d4af37" }}>
               営業時間
             </h4>
             <div className="flex items-start gap-2 text-sm mb-4" style={{ color: "rgba(255,255,255,0.65)" }}>
-              <Clock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "#D4561C" }} />
+              <Clock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "#d4af37" }} />
               <div className="space-y-0.5">
                 <p>月〜土：10:00 – 20:00</p>
                 <p>日・祝：定休日</p>

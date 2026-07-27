@@ -34,8 +34,8 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
               onClick={() => setSelectedTag('all')}
               className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
                 selectedTag === 'all'
-                  ? 'bg-[#D4561C] text-white border-[#D4561C]'
-                  : 'bg-white text-gray-700 border-gray-300 hover:border-[#D4561C] hover:text-[#D4561C]'
+                  ? 'bg-[#d4af37] text-white border-[#d4af37]'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]'
               }`}
             >
               すべて
@@ -48,8 +48,8 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
                 onClick={() => setSelectedTag(tag)}
                 className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
                   selectedTag === tag
-                    ? 'bg-[#D4561C] text-white border-[#D4561C]'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-[#D4561C] hover:text-[#D4561C]'
+                    ? 'bg-[#d4af37] text-white border-[#d4af37]'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]'
                 }`}
               >
                 {tag}
@@ -72,7 +72,7 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
               className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#D4561C] transition-colors line-clamp-2">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#d4af37] transition-colors line-clamp-2">
                   {post.title}
                 </h2>
 

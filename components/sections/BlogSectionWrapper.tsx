@@ -18,13 +18,13 @@ export function BlogSectionWrapper({ posts }: { posts: BlogPostMeta[] }) {
         >
           <span
             className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-            style={{ backgroundColor: "rgba(212, 86, 28,0.12)", color: "#964001" }}
+            style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
           >
             Blog
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-5xl"
-            style={{ fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
           >
             ブログ
           </h2>

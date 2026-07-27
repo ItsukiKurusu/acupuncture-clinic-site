@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Shippori_Mincho } from "next/font/google"
+import { Noto_Serif_JP } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils"
 import { SITE_URL } from "@/lib/site-config"
 import { MobileCtaBar } from "@/components/mobile-cta-bar"
 
-const shipporiMincho = Shippori_Mincho({
+const notoSerifJp = Noto_Serif_JP({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-shippori-mincho",
+  variable: "--font-noto-serif-jp",
 })
 
 export const metadata: Metadata = {
@@ -86,7 +86,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={cn("font-serif pb-16 lg:pb-0", shipporiMincho.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+      <body className={cn("font-serif pb-16 lg:pb-0", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
         {children}
         <MobileCtaBar />
         <Analytics />
