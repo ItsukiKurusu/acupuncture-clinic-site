@@ -7,6 +7,7 @@ import { SITE_URL } from '@/lib/site-config'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import BlogPostingStructuredData from '@/components/blog-posting-structured-data'
+import { PageBreadcrumb } from '@/components/page-breadcrumb'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -81,6 +82,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <BlogPostingStructuredData post={post} slug={slug} />
       <Header />
       <article className="container mx-auto px-4 py-16 max-w-4xl flex-1">
+        {/* パンくずリスト */}
+        <PageBreadcrumb
+          className="mb-6"
+          items={[
+            { name: 'ホーム', path: '/' },
+            { name: 'ブログ', path: '/blog' },
+            { name: post.title },
+          ]}
+        />
+
         {/* 戻るリンク */}
         <Link
           href="/blog"

@@ -4,6 +4,7 @@ import { BlogFilterableList } from '@/components/blog-filterable-list'
 import { SITE_URL } from '@/lib/site-config'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import BreadcrumbStructuredData from '@/components/breadcrumb-structured-data'
 
 export const metadata: Metadata = {
   title: 'ブログ｜ツボ・セルフケア情報',
@@ -32,6 +33,7 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: 'ブログ' }]} />
       <Header />
       <div className="container mx-auto px-4 py-16 max-w-6xl flex-1">
         {/* ヘッダー */}

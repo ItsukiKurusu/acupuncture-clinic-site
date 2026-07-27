@@ -1,11 +1,12 @@
-"use client";
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import BreadcrumbStructuredData from "@/components/breadcrumb-structured-data"
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+      <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: '当院について' }]} />
       <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">

@@ -1,4 +1,3 @@
-import Script from 'next/script'
 import { SITE_URL } from '@/lib/site-config'
 
 // GBPのURLを取得し次第、下記 sameAs 配列に追加してください（例: "https://g.page/r/xxxxx"）。
@@ -54,8 +53,7 @@ export default function StructuredData() {
   }
 
   return (
-    <Script
-      id="structured-data"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(structuredData)

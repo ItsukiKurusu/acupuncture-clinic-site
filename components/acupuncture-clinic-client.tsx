@@ -12,9 +12,6 @@ import { BlogSectionWrapper } from "@/components/sections/BlogSectionWrapper"
 import { InstagramSection } from "@/components/sections/InstagramSection"
 import { FaqSection } from "@/components/sections/FaqSection"
 import { ContactSection } from "@/components/sections/ContactSection"
-import StructuredData from "@/components/structured-data"
-import ReviewStructuredData from "@/components/review-structured-data"
-import FAQStructuredData from "@/components/faq-structured-data"
 import { BlogPostMeta } from "@/lib/blog"
 
 const BOOKING_URL = "https://line.me/R/ti/p/@241gbrkw"
@@ -29,9 +26,6 @@ interface AcupunctureClinicClientProps {
 export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClinicClientProps) {
   return (
     <>
-      <StructuredData />
-      <ReviewStructuredData />
-      <FAQStructuredData />
       <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full">
         <Header />
         <main className="flex-1">

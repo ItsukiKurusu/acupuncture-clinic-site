@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 // レビュー内容は components/sections/TestimonialsSection.tsx に実際に掲載している
 // お客様の声と一致させています。表示内容と食い違わせないよう、変更する際は両方を揃えること。
 export default function ReviewStructuredData() {
@@ -38,8 +36,7 @@ export default function ReviewStructuredData() {
   }
 
   return (
-    <Script
-      id="review-structured-data"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(reviewData)

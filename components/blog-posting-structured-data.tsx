@@ -1,4 +1,3 @@
-import Script from 'next/script'
 import { SITE_URL } from '@/lib/site-config'
 import { resolvePostImage, type BlogPost } from '@/lib/blog'
 
@@ -37,8 +36,7 @@ export default function BlogPostingStructuredData({ post, slug }: BlogPostingStr
   }
 
   return (
-    <Script
-      id={`blog-posting-structured-data-${slug}`}
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(structuredData),
