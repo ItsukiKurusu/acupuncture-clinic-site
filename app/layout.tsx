@@ -15,6 +15,7 @@ const notoSerifJp = Noto_Serif_JP({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "鍼灸HANE｜中央区六本松の鍼灸院",
     template: "%s｜鍼灸HANE - 中央区六本松の鍼灸院"
@@ -24,23 +25,28 @@ export const metadata: Metadata = {
   generator: 'v0.dev',
   verification: {
     google: '442cf3c64d24a393',
-    // Bing Webmaster Toolsから取得したコードに置き換えてください
-    other: {
-      'msvalidate.01': 'your-bing-verification-code-here'
-    }
   },
   openGraph: {
     title: "鍼灸HANE｜中央区六本松の鍼灸院",
     description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高め、健やかな毎日をサポートします。",
     url: SITE_URL,
     siteName: "鍼灸HANE",
+    images: [
+      {
+        url: '/acupuncture-clinic-interior.png',
+        width: 1200,
+        height: 630,
+        alt: '鍼灸HANE 施術室内',
+      },
+    ],
     locale: "ja_JP",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "鍼灸HANE｜中央区六本松の鍼灸院",
-    description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術。"
+    description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術。",
+    images: ['/acupuncture-clinic-interior.png'],
   },
   // 検索エンジン向けの追加設定
   alternates: {
