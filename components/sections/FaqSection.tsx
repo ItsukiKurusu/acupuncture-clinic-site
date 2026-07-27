@@ -21,13 +21,13 @@ export function FaqSection() {
         >
           <span
             className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-            style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+            style={{ backgroundColor: "rgba(212, 86, 28,0.12)", color: "#964001" }}
           >
             よくある質問
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
           >
             FAQ
           </h2>
@@ -46,11 +46,11 @@ export function FaqSection() {
               <AccordionItem
                 value={`item-${i + 1}`}
                 className="bg-white rounded-xl px-5 shadow-sm"
-                style={{ border: "1px solid #e8e0cc" }}
+                style={{ border: "1px solid #E8D5C0" }}
               >
                 <AccordionTrigger
                   className="text-left font-semibold hover:no-underline py-5"
-                  style={{ color: "#1c1917" }}
+                  style={{ color: "#472808" }}
                 >
                   {faq.q}
                 </AccordionTrigger>

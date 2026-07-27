@@ -13,7 +13,7 @@ export function Hero() {
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight text-[#333]">
               MATRIX <br />
-              <span className="text-[#d4af37]">WAVE</span>
+              <span className="text-[#D4561C]">WAVE</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
@@ -38,7 +38,7 @@ export function Hero() {
       </div>
 
       {/* Decorative background element */}
-      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-[#f8f9fa] rounded-l-[100px] hidden md:block" />
+      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-[#FAF5ED] rounded-l-[100px] hidden md:block" />
     </section>
   )
 }

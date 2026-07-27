@@ -30,10 +30,10 @@ export function IrukaArchive() {
             >
               <div
                 className="overflow-hidden rounded-2xl shadow-sm transition-shadow group-hover:shadow-md flex items-center justify-center"
-                style={{ border: "1px solid #e8e0cc", backgroundColor: "#faf7f2", aspectRatio: "4/3" }}
+                style={{ border: "1px solid #E8D5C0", backgroundColor: "#FAF5ED", aspectRatio: "4/3" }}
               >
                 <div className="flex flex-col items-center gap-3 text-center px-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a8926a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#BE9F6D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                     <polyline points="14 2 14 8 20 8"/>
                     <line x1="9" y1="15" x2="15" y2="15"/>
@@ -47,7 +47,7 @@ export function IrukaArchive() {
               <div className="flex items-center gap-2 px-1">
                 <span
                   className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded-full"
-                  style={{ backgroundColor: "#f5f0e8", color: "#a8926a" }}
+                  style={{ backgroundColor: "#F5E7D5", color: "#BE9F6D" }}
                 >
                   {issue.label}
                 </span>
@@ -63,7 +63,7 @@ export function IrukaArchive() {
             >
               <div
                 className="overflow-hidden rounded-2xl shadow-sm transition-shadow group-hover:shadow-md"
-                style={{ border: "1px solid #e8e0cc" }}
+                style={{ border: "1px solid #E8D5C0" }}
               >
                 <Image
                   src={issue.src}
@@ -77,7 +77,7 @@ export function IrukaArchive() {
               <div className="flex items-center gap-2 px-1">
                 <span
                   className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded-full"
-                  style={{ backgroundColor: "#f5f0e8", color: "#a8926a" }}
+                  style={{ backgroundColor: "#F5E7D5", color: "#BE9F6D" }}
                 >
                   {issue.label}
                 </span>

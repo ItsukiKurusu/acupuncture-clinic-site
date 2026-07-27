@@ -65,7 +65,7 @@ export function ScenesGallery() {
           transition={{ duration: 1 }}
         />
         <motion.h1
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-[#bfae9e] bg-white/70 px-6 py-2 rounded-xl shadow"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-[#DEB8A8] bg-white/70 px-6 py-2 rounded-xl shadow"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -95,7 +95,7 @@ export function ScenesGallery() {
                 height={320}
                 className="w-full h-[320px] object-cover duration-300"
               />
-              <div className="p-5 text-[#bfae9e] text-lg text-center font-semibold">
+              <div className="p-5 text-[#DEB8A8] text-lg text-center font-semibold">
                 {item.caption}
               </div>
             </motion.div>
@@ -120,9 +120,9 @@ export function ScenesGallery() {
               height={1108}
               className="max-w-[90vw] max-h-[80vh] w-auto h-auto rounded-2xl shadow-2xl"
             />
-            <div className="text-center text-[#bfae9e] text-xl font-semibold mt-4">{preview.caption}</div>
+            <div className="text-center text-[#DEB8A8] text-xl font-semibold mt-4">{preview.caption}</div>
             <button
-              className="absolute top-2 right-2 text-white bg-[#bfae9e] rounded-full px-3 py-1 text-lg"
+              className="absolute top-2 right-2 text-white bg-[#DEB8A8] rounded-full px-3 py-1 text-lg"
               onClick={() => setPreview(null)}
             >
               ×

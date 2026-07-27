@@ -5,7 +5,7 @@ import { ScenesGallery } from "@/components/scenes-gallery";
 
 export default function ScenesPage() {
   return (
-    <div className="bg-[#f8f5f2] min-h-screen">
+    <div className="bg-[#FAF5ED] min-h-screen">
       <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: '施術風景' }]} />
       <Header />
       <ScenesGallery />

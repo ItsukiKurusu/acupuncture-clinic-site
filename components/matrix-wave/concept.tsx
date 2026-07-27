@@ -5,7 +5,7 @@ export function Concept() {
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#333]">マトリクス施術とは？</h2>
 
-          <div className="w-16 h-0.5 bg-[#d4af37] mx-auto" />
+          <div className="w-16 h-0.5 bg-[#D4561C] mx-auto" />
 
           <p className="text-lg text-gray-600 leading-loose">
             人間の体は、電気信号（イオン）によって活動しています。
@@ -16,7 +16,7 @@ export function Concept() {
           </p>
 
           <div className="py-8">
-            <span className="text-4xl md:text-5xl font-serif text-[#d4af37] tracking-widest">細胞超進化</span>
+            <span className="text-4xl md:text-5xl font-serif text-[#D4561C] tracking-widest">細胞超進化</span>
           </div>
 
           <p className="text-gray-500">

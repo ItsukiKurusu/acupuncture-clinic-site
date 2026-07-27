@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* 戻るリンク */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-[#d4af37] mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-[#D4561C] mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>ブログ一覧に戻る</span>
@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-[#d4af37]/10 text-[#d4af37] rounded-full text-sm font-medium"
+                  className="px-3 py-1 bg-[#D4561C]/10 text-[#D4561C] rounded-full text-sm font-medium"
                 >
                   {tag}
                 </span>
@@ -149,7 +149,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={relatedPost.slug}
                   href={`/blog/${relatedPost.slug}`}
-                  className="block p-5 bg-white border border-gray-200 rounded-lg hover:border-[#d4af37] hover:shadow-md transition-all"
+                  className="block p-5 bg-white border border-gray-200 rounded-lg hover:border-[#D4561C] hover:shadow-md transition-all"
                 >
                   <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
                     {relatedPost.title}
@@ -164,7 +164,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* 記事末尾のCTA */}
-        <div className="mt-16 p-8 bg-gradient-to-r from-[#d4af37]/10 to-[#d4af37]/5 rounded-lg text-center">
+        <div className="mt-16 p-8 bg-gradient-to-r from-[#D4561C]/10 to-[#D4561C]/5 rounded-lg text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             ご予約・お問い合わせ
           </h3>
@@ -175,14 +175,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <Link
               href="/services"
               className="standout-button"
-              style={{ backgroundColor: '#1c1917' }}
+              style={{ backgroundColor: '#472808' }}
             >
               施術内容・料金を見る
             </Link>
             <Link
               href="/#contact"
               className="standout-button"
-              style={{ backgroundColor: '#d4af37' }}
+              style={{ backgroundColor: '#D4561C' }}
             >
               お問い合わせはこちら
             </Link>
@@ -193,7 +193,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="mt-12 text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-[#d4af37] transition-colors"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-[#D4561C] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ブログ一覧に戻る</span>

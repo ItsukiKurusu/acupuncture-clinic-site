@@ -27,13 +27,13 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
         >
           <span
             className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-            style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+            style={{ backgroundColor: "rgba(212, 86, 28,0.12)", color: "#964001" }}
           >
             アクセス
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
           >
             ご予約・お問い合わせ
           </h2>
@@ -52,13 +52,13 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             <motion.h3
               variants={item}
               className="text-2xl font-bold"
-              style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+              style={{ fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
             >
               鍼灸HANE
             </motion.h3>
 
             <motion.div variants={item} className="flex items-start gap-3 text-muted-foreground">
-              <MapPin className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "#b8960a" }} />
+              <MapPin className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "#964001" }} />
               <span className="text-sm leading-relaxed">
                 〒810-0044<br />
                 福岡県福岡市中央区六本松4丁目5-39<br />
@@ -68,7 +68,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             </motion.div>
 
             <motion.div variants={item} className="flex items-center gap-3 text-muted-foreground">
-              <Phone className="h-5 w-5 shrink-0" style={{ color: "#b8960a" }} />
+              <Phone className="h-5 w-5 shrink-0" style={{ color: "#964001" }} />
               <a
                 href="tel:0904181937"
                 onClick={() => trackEvent("tel_click", { location: "contact_section" })}
@@ -79,7 +79,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             </motion.div>
 
             <motion.div variants={item} className="flex items-start gap-3 text-muted-foreground">
-              <Clock className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "#b8960a" }} />
+              <Clock className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "#964001" }} />
               <div className="text-sm leading-relaxed">
                 <p>月〜土：10:00 – 20:00</p>
                 <p>日・祝：定休日</p>
@@ -108,7 +108,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
           {/* Map */}
           <motion.div
             className="relative h-[300px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg"
-            style={{ border: "1px solid #e8e0cc" }}
+            style={{ border: "1px solid #E8D5C0" }}
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}

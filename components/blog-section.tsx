@@ -32,7 +32,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
           <Link href={`/blog/${post.slug}`} className="group block h-full">
             <div
               className="h-full bg-white rounded-2xl overflow-hidden shadow-md transition-shadow duration-300 group-hover:shadow-xl"
-              style={{ border: "1px solid #e8e0cc", borderTop: "3px solid #d4af37" }}
+              style={{ border: "1px solid #E8D5C0", borderTop: "3px solid #D4561C" }}
             >
               {post.coverImage && !post.coverImage.endsWith(".mp4") && (
                 <div className="relative w-full h-44 overflow-hidden">
@@ -46,7 +46,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
               )}
 
               <div className="p-6">
-                <h3 className="text-lg font-bold text-foreground mb-2.5 line-clamp-2 group-hover:text-[#b8960a] transition-colors duration-200">
+                <h3 className="text-lg font-bold text-foreground mb-2.5 line-clamp-2 group-hover:text-[#964001] transition-colors duration-200">
                   {post.title}
                 </h3>
 
@@ -61,7 +61,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                   </div>
                   <div
                     className="flex items-center gap-1 font-semibold text-xs group-hover:gap-2 transition-all duration-200"
-                    style={{ color: "#b8960a" }}
+                    style={{ color: "#964001" }}
                   >
                     <span>続きを読む</span>
                     <ArrowRight className="w-3.5 h-3.5" />

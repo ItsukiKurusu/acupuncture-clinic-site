@@ -26,7 +26,7 @@ const features = [
 
 export function Features() {
   return (
-    <section id="course" className="py-24 bg-[#f8f9fa]">
+    <section id="course" className="py-24 bg-[#FAF5ED]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#333] mb-4">Features</h2>
@@ -39,8 +39,8 @@ export function Features() {
               key={index}
               className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 group"
             >
-              <div className="w-14 h-14 bg-[#f8f9fa] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#d4af37] transition-colors duration-300">
-                <feature.icon className="w-6 h-6 text-[#d4af37] group-hover:text-white transition-colors duration-300" />
+              <div className="w-14 h-14 bg-[#FAF5ED] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#D4561C] transition-colors duration-300">
+                <feature.icon className="w-6 h-6 text-[#D4561C] group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="text-xl font-serif font-medium mb-4 text-[#333]">{feature.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>

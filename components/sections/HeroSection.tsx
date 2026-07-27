@@ -63,10 +63,10 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
           <span
             className="text-[10px] font-semibold tracking-[0.35em] uppercase px-4 py-1.5 rounded-full"
             style={{
-              backgroundColor: "rgba(212,175,55,0.22)",
+              backgroundColor: "rgba(212, 86, 28,0.22)",
               color: "#f5d980",
               backdropFilter: "blur(6px)",
-              border: "1px solid rgba(212,175,55,0.3)",
+              border: "1px solid rgba(212, 86, 28,0.3)",
             }}
           >
             福岡市中央区六本松
@@ -76,7 +76,7 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
         <motion.h1
           variants={childVariants}
           className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] font-bold tracking-tight text-white drop-shadow-lg leading-snug mb-5"
-          style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+          style={{ fontFamily: "var(--font-shippori-mincho), '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
         >
           心と身体を癒す、<br />伝統の鍼灸治療
         </motion.h1>
