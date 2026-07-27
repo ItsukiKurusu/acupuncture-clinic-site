@@ -31,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPageDefinitions = [
     { route: '', sourceFile: 'app/page.tsx', changeFrequency: 'monthly' as const, priority: 1 },
     { route: '/about', sourceFile: 'app/about/page.tsx', changeFrequency: 'monthly' as const, priority: 0.8 },
-    { route: '/treatment', sourceFile: 'app/treatment/page.tsx', changeFrequency: 'monthly' as const, priority: 0.8 },
     { route: '/services', sourceFile: 'app/services/page.tsx', changeFrequency: 'monthly' as const, priority: 0.9 },
     { route: '/scenes', sourceFile: 'app/scenes/page.tsx', changeFrequency: 'monthly' as const, priority: 0.6 },
     { route: '/matrix-wave', sourceFile: 'app/matrix-wave/page.tsx', changeFrequency: 'monthly' as const, priority: 0.9 },
