@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug } from '@/lib/blog'
+import { getAllPosts, getPostBySlug, getRelatedPosts, resolvePostImage } from '@/lib/blog'
 import { Calendar, Tag, ArrowLeft } from 'lucide-react'
 import { SITE_URL } from '@/lib/site-config'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import BlogPostingStructuredData from '@/components/blog-posting-structured-data'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -32,6 +33,8 @@ export async function generateMetadata({
     }
   }
 
+  const ogImage = resolvePostImage(post.coverImage)
+
   return {
     title: post.title,
     description: post.excerpt,
@@ -43,6 +46,14 @@ export async function generateMetadata({
       description: post.excerpt,
       url: `${SITE_URL}/blog/${slug}`,
       siteName: '鍼灸HANE',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
       locale: 'ja_JP',
       type: 'article',
     },
@@ -50,6 +61,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
+      images: [ogImage],
     },
   }
 }
@@ -62,8 +74,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
+  const relatedPosts = getRelatedPosts(slug, post.tags)
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <BlogPostingStructuredData post={post} slug={slug} />
       <Header />
       <article className="container mx-auto px-4 py-16 max-w-4xl flex-1">
         {/* 戻るリンク */}
@@ -113,6 +128,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           className="blog-content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        {/* 関連記事 */}
+        {relatedPosts.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">関連記事</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((relatedPost) => (
+                <Link
+                  key={relatedPost.slug}
+                  href={`/blog/${relatedPost.slug}`}
+                  className="block p-5 bg-white border border-gray-200 rounded-lg hover:border-[#d4af37] hover:shadow-md transition-all"
+                >
+                  <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
+                    {relatedPost.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 line-clamp-3">
+                    {relatedPost.excerpt}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* 記事末尾のCTA */}
         <div className="mt-16 p-8 bg-gradient-to-r from-[#d4af37]/10 to-[#d4af37]/5 rounded-lg text-center">

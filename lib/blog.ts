@@ -108,3 +108,42 @@ export function getPostsByTag(tag: string): BlogPostMeta[] {
   const allPosts = getAllPosts()
   return allPosts.filter((post) => post.tags?.includes(tag))
 }
+
+const FALLBACK_POST_IMAGE = '/acupuncture-clinic-interior.png'
+
+/**
+ * OGP/構造化データ用の画像URLを解決する（動画や未設定時はフォールバック画像を返す）
+ */
+export function resolvePostImage(coverImage?: string): string {
+  if (coverImage && /\.(png|jpe?g|webp|gif)$/i.test(coverImage)) {
+    return coverImage
+  }
+  return FALLBACK_POST_IMAGE
+}
+
+/**
+ * 現在の記事とタグを共有する関連記事を取得（共有タグ数→新しい順）
+ */
+export function getRelatedPosts(currentSlug: string, tags: string[] | undefined, count: number = 3): BlogPostMeta[] {
+  if (!tags || tags.length === 0) {
+    return []
+  }
+
+  const allPosts = getAllPosts().filter((post) => post.slug !== currentSlug)
+
+  const scored = allPosts
+    .map((post) => ({
+      post,
+      sharedTagCount: post.tags?.filter((tag) => tags.includes(tag)).length ?? 0,
+    }))
+    .filter((entry) => entry.sharedTagCount > 0)
+
+  scored.sort((a, b) => {
+    if (a.sharedTagCount !== b.sharedTagCount) {
+      return b.sharedTagCount - a.sharedTagCount
+    }
+    return a.post.date < b.post.date ? 1 : -1
+  })
+
+  return scored.slice(0, count).map((entry) => entry.post)
+}
