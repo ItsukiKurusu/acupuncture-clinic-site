@@ -1,6 +1,7 @@
 
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -91,9 +92,11 @@ export default function ScenesPage() {
               whileHover={{ scale: 1.07 }}
               onClick={() => setPreview(item)}
             >
-              <img
+              <Image
                 src={item.src}
                 alt={item.alt}
+                width={420}
+                height={320}
                 className="w-full h-[320px] object-cover duration-300"
               />
               <div className="p-5 text-[#bfae9e] text-lg text-center font-semibold">
@@ -114,10 +117,12 @@ export default function ScenesPage() {
             className="relative"
             onClick={e => e.stopPropagation()}
           >
-            <img
+            <Image
               src={preview.src}
               alt={preview.alt}
-              className="max-w-[90vw] max-h-[80vh] rounded-2xl shadow-2xl"
+              width={1477}
+              height={1108}
+              className="max-w-[90vw] max-h-[80vh] w-auto h-auto rounded-2xl shadow-2xl"
             />
             <div className="text-center text-[#bfae9e] text-xl font-semibold mt-4">{preview.caption}</div>
             <button

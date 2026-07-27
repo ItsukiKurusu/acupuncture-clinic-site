@@ -112,7 +112,7 @@ export function Footer() {
           </p>
           <nav className="flex gap-6">
             <Link
-              href="#"
+              href="/privacy-policy"
               className="text-xs transition-colors hover:opacity-80"
               style={{ color: "rgba(255,255,255,0.40)" }}
             >

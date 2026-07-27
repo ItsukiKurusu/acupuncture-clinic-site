@@ -7,10 +7,7 @@ author: "鍼灸HANE"
 tags: ["鍼灸", "健康", "治療"]
 ---
 
-<video width="100%" controls autoplay muted loop>
-  <source src="/inryousen.mp4" type="video/mp4">
-  お使いのブラウザは動画タグをサポートしていません。
-</video>
+<video controls playsinline preload="metadata" src="/inryousen.mp4"></video>
 
 ## 陰陵泉（いんりょうせん）とは？
 

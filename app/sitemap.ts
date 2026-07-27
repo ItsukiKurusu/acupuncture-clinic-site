@@ -1,13 +1,40 @@
 import { MetadataRoute } from 'next'
 import fs from 'node:fs'
 import path from 'node:path'
+import { execSync } from 'node:child_process'
 import { getAllPosts } from '@/lib/blog'
 import { SITE_URL } from '@/lib/site-config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL
 
+  // ビルド環境のファイルmtimeはgit checkout時刻にリセットされることが
+  // 多く実際の更新日と無関係になりがちなため、gitの最終コミット日時を
+  // 優先し、取得できない場合のみmtimeにフォールバックする。
+  const getGitLastModified = (relativeFilePath: string): Date | null => {
+    try {
+      const output = execSync(`git log -1 --format=%cI -- "${relativeFilePath}"`, {
+        cwd: process.cwd(),
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).toString().trim()
+
+      if (!output) {
+        return null
+      }
+
+      const date = new Date(output)
+      return Number.isNaN(date.getTime()) ? null : date
+    } catch {
+      return null
+    }
+  }
+
   const getFileLastModified = (relativeFilePath: string): Date => {
+    const gitDate = getGitLastModified(relativeFilePath)
+    if (gitDate) {
+      return gitDate
+    }
+
     const fullPath = path.join(process.cwd(), relativeFilePath)
     if (!fs.existsSync(fullPath)) {
       return new Date()
@@ -36,6 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: '/iruka', sourceFile: 'app/iruka/page.tsx', changeFrequency: 'monthly' as const, priority: 0.6 },
     { route: '/matrix-wave', sourceFile: 'app/matrix-wave/page.tsx', changeFrequency: 'monthly' as const, priority: 0.9 },
     { route: '/blog', sourceFile: 'app/blog/page.tsx', changeFrequency: 'weekly' as const, priority: 0.8 },
+    { route: '/privacy-policy', sourceFile: 'app/privacy-policy/page.tsx', changeFrequency: 'yearly' as const, priority: 0.3 },
   ]
 
   const staticPages: MetadataRoute.Sitemap = staticPageDefinitions.map((page) => {

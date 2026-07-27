@@ -7,10 +7,7 @@ author: "鍼灸HANE"
 tags: ["鍼灸", "健康", "治療", "セルフケア", "腰痛", "膝痛"]
 ---
 
-<video width="100%" controls autoplay muted loop>
-	<source src="/yoryousen.mp4" type="video/mp4">
-	お使いのブラウザは動画タグをサポートしていません。
-</video>
+<video controls playsinline preload="metadata" src="/yoryousen.mp4"></video>
 
 # 陽陵泉（ようりょうせん）｜セルフケア
 

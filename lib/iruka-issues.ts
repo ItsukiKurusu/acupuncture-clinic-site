@@ -23,7 +23,7 @@ export const irukaIssues = [
   {
     label: "4月号",
     date: "2025年4月",
-    src: "/いるかHP素材.png",
+    src: "/iruka4.png",
     alt: "地域情報誌いるか 4月号",
     type: "image" as const,
   },
