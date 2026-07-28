@@ -5,6 +5,12 @@ export default function ReviewStructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "鍼灸HANE",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "reviewCount": "2"
+    },
     "review": [
       {
         "@type": "Review",
