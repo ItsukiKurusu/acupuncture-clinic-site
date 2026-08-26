@@ -14,6 +14,9 @@ const nextConfig = {
       },
     ],
   },
+  outputFileTracingExcludes: {
+    '*': ['public/**'],
+  },
 }
 
 export default nextConfig
