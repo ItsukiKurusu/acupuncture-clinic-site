@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
 import { BlogFilterableList } from '@/components/blog-filterable-list'
@@ -56,9 +55,7 @@ export default function BlogPage() {
             <p className="text-gray-500 text-lg">記事がまだありません。</p>
           </div>
         ) : (
-          <Suspense fallback={null}>
-            <BlogFilterableList posts={posts} />
-          </Suspense>
+          <BlogFilterableList posts={posts} />
         )}
       </div>
       <Footer />

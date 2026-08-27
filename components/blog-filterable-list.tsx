@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import { Calendar, Tag } from 'lucide-react'
 import type { BlogPostMeta } from '@/lib/blog'
 import { BLOG_CATEGORIES, isBlogCategory, type BlogCategory } from '@/lib/blog-categories'
@@ -20,19 +19,24 @@ function parseCategoryParam(value: string | null): CategoryFilter {
 }
 
 export function BlogFilterableList({ posts }: BlogFilterableListProps) {
-  const searchParams = useSearchParams()
-  const categoryParam = searchParams.get('category')
-
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>(() =>
-    parseCategoryParam(categoryParam),
-  )
+  // 初期値は必ず 'all'。Nextのルーター製クエリ取得フックを使うと静的プリレンダリング時に
+  // Suspenseのfallbackへ退避してしまい、記事一覧がHTMLに出力されず（クライアント描画のみになり）
+  // クローラーが記事リンクを辿れなくなるため、クエリはハイドレーション後にwindowから読む。
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all')
   const [selectedTag, setSelectedTag] = useState<string>('all')
 
-  // /blog?category=お知らせ で直接カテゴリーを開けるようにURLと同期する
+  // /blog?category=お知らせ の直リンクに対応する（マウント後・ブラウザの戻る進むにも追従）
   useEffect(() => {
-    setSelectedCategory(parseCategoryParam(categoryParam))
-    setSelectedTag('all')
-  }, [categoryParam])
+    const applyCategoryFromUrl = () => {
+      const param = new URLSearchParams(window.location.search).get('category')
+      setSelectedCategory(parseCategoryParam(param))
+      setSelectedTag('all')
+    }
+
+    applyCategoryFromUrl()
+    window.addEventListener('popstate', applyCategoryFromUrl)
+    return () => window.removeEventListener('popstate', applyCategoryFromUrl)
+  }, [])
 
   // カテゴリータブは記事が存在するカテゴリーのみ表示
   const availableCategories = useMemo(
@@ -60,10 +64,19 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
     return categoryPosts.filter((post) => post.tags?.includes(selectedTag))
   }, [categoryPosts, selectedTag])
 
-  // カテゴリーを切り替えたらタグ絞り込みはリセットする
+  // カテゴリーを切り替えたらタグ絞り込みはリセットし、URLにも反映する
   const handleCategoryChange = (category: CategoryFilter) => {
     setSelectedCategory(category)
     setSelectedTag('all')
+
+    // 履歴を汚さず、リロードや共有でも同じ絞り込みが再現できるようにする
+    const url = new URL(window.location.href)
+    if (category === 'all') {
+      url.searchParams.delete('category')
+    } else {
+      url.searchParams.set('category', category)
+    }
+    window.history.replaceState(null, '', url)
   }
 
   const categoryCount = (category: CategoryFilter) =>
