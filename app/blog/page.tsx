@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
 import { BlogFilterableList } from '@/components/blog-filterable-list'
@@ -7,15 +8,15 @@ import { Footer } from '@/components/footer'
 import BreadcrumbStructuredData from '@/components/breadcrumb-structured-data'
 
 export const metadata: Metadata = {
-  title: 'ブログ｜ツボ・セルフケア情報',
-  description: '福岡市中央区六本松の鍼灸院「鍼灸HANE」が発信する、症状別のツボ・セルフケア情報。肩こり・腰痛・冷え・自律神経の乱れなど、日常で役立つ健康情報をお届けします。',
-  keywords: ['鍼灸HANE', 'ブログ', 'ツボ', 'セルフケア', '六本松', '福岡市中央区', '肩こり', '腰痛', '冷え性'],
+  title: 'ブログ｜健康情報・お知らせ',
+  description: '福岡市中央区六本松の鍼灸院「鍼灸HANE」のブログ。症状別のツボ・セルフケアなどの「健康情報」と、トレーナー活動報告などの「お知らせ」をカテゴリー別にお届けします。',
+  keywords: ['鍼灸HANE', 'ブログ', '健康情報', 'お知らせ', '活動報告', 'ツボ', 'セルフケア', '六本松', '福岡市中央区', '肩こり', '腰痛', '冷え性'],
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
     title: 'ブログ｜鍼灸HANE - 中央区六本松の鍼灸院',
-    description: '症状別のツボ・セルフケア情報をお届けします。',
+    description: '症状別のツボ・セルフケアなどの健康情報と、院からのお知らせ・活動報告をお届けします。',
     url: `${SITE_URL}/blog`,
     siteName: '鍼灸HANE',
     locale: 'ja_JP',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'ブログ｜鍼灸HANE',
-    description: '福岡市中央区六本松の鍼灸院が発信する、症状別のツボ・セルフケア情報。',
+    description: '福岡市中央区六本松の鍼灸院が発信する健康情報と、院からのお知らせ・活動報告。',
   },
 }
 
@@ -45,7 +46,7 @@ export default function BlogPage() {
             ブログ
           </h1>
           <p className="text-lg text-muted-foreground">
-            鍼灸、健康、治療に関する最新情報をお届けします
+            ツボ・セルフケアの「健康情報」と、活動報告などの「お知らせ」をお届けします
           </p>
         </div>
 
@@ -55,7 +56,9 @@ export default function BlogPage() {
             <p className="text-gray-500 text-lg">記事がまだありません。</p>
           </div>
         ) : (
-          <BlogFilterableList posts={posts} />
+          <Suspense fallback={null}>
+            <BlogFilterableList posts={posts} />
+          </Suspense>
         )}
       </div>
       <Footer />

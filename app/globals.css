@@ -211,12 +211,12 @@
   @apply bg-transparent text-gray-100 p-0;
 }
 
-.blog-content img {
-  @apply rounded-lg shadow-lg my-6 max-w-full h-auto;
-}
-
+.blog-content img,
 .blog-content video {
-  @apply rounded-lg shadow-lg my-6 max-w-full h-auto;
+  @apply rounded-lg shadow-lg my-6 max-w-full h-auto block mx-auto;
+  /* 縦長の写真・動画が画面を占有しないように高さを制限する */
+  max-height: 70vh;
+  width: auto;
 }
 
 .blog-content hr {

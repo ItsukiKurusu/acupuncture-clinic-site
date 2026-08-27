@@ -8,6 +8,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import BlogPostingStructuredData from '@/components/blog-posting-structured-data'
 import { PageBreadcrumb } from '@/components/page-breadcrumb'
+import { CategoryBadge } from '@/components/category-badge'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -75,7 +76,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  const relatedPosts = getRelatedPosts(slug, post.tags)
+  const relatedPosts = getRelatedPosts(slug, post.tags, post.category)
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -88,6 +89,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           items={[
             { name: 'ホーム', path: '/' },
             { name: 'ブログ', path: '/blog' },
+            { name: post.category, path: `/blog?category=${encodeURIComponent(post.category)}` },
             { name: post.title },
           ]}
         />
@@ -100,6 +102,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <ArrowLeft className="w-4 h-4" />
           <span>ブログ一覧に戻る</span>
         </Link>
+
+        {/* カテゴリー */}
+        <CategoryBadge category={post.category} className="mb-4" />
 
         {/* タイトル */}
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -143,7 +148,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* 関連記事 */}
         {relatedPosts.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">関連記事</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              関連記事（{post.category}）
+            </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((relatedPost) => (
                 <Link
@@ -151,6 +158,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   href={`/blog/${relatedPost.slug}`}
                   className="block p-5 bg-white border border-gray-200 rounded-lg hover:border-[#d4af37] hover:shadow-md transition-all"
                 >
+                  <CategoryBadge category={relatedPost.category} className="mb-2" />
                   <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
                     {relatedPost.title}
                   </h3>

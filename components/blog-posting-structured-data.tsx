@@ -13,6 +13,7 @@ export default function BlogPostingStructuredData({ post, slug }: BlogPostingStr
     "headline": post.title,
     "description": post.excerpt,
     "image": `${SITE_URL}${resolvePostImage(post.coverImage)}`,
+    "articleSection": post.category,
     "datePublished": post.date,
     "dateModified": post.date,
     "url": `${SITE_URL}/blog/${slug}`,

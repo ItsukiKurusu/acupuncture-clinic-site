@@ -2,6 +2,14 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { marked } from 'marked'
+import {
+  DEFAULT_BLOG_CATEGORY,
+  normalizeCategory,
+  type BlogCategory,
+} from '@/lib/blog-categories'
+
+// カテゴリー定義は '@/lib/blog-categories' が正、利便性のため型を再エクスポートする
+export type { BlogCategory } from '@/lib/blog-categories'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -11,6 +19,7 @@ export interface BlogPost {
   date: string
   excerpt: string
   content: string
+  category: BlogCategory
   coverImage?: string
   author?: string
   tags?: string[]
@@ -21,6 +30,7 @@ export interface BlogPostMeta {
   title: string
   date: string
   excerpt: string
+  category: BlogCategory
   coverImage?: string
   author?: string
   tags?: string[]
@@ -49,6 +59,7 @@ export function getAllPosts(): BlogPostMeta[] {
         title: data.title || '',
         date: data.date || '',
         excerpt: data.excerpt || '',
+        category: normalizeCategory(data.category),
         coverImage: data.coverImage,
         author: data.author,
         tags: data.tags,
@@ -83,6 +94,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       date: data.date || '',
       excerpt: data.excerpt || '',
       content: contentHtml,
+      category: normalizeCategory(data.category),
       coverImage: data.coverImage,
       author: data.author,
       tags: data.tags,
@@ -109,6 +121,14 @@ export function getPostsByTag(tag: string): BlogPostMeta[] {
   return allPosts.filter((post) => post.tags?.includes(tag))
 }
 
+/**
+ * カテゴリーで記事をフィルタリング
+ */
+export function getPostsByCategory(category: BlogCategory): BlogPostMeta[] {
+  const allPosts = getAllPosts()
+  return allPosts.filter((post) => post.category === category)
+}
+
 const FALLBACK_POST_IMAGE = '/acupuncture-clinic-interior.png'
 
 /**
@@ -122,19 +142,23 @@ export function resolvePostImage(coverImage?: string): string {
 }
 
 /**
- * 現在の記事とタグを共有する関連記事を取得（共有タグ数→新しい順）
+ * 現在の記事と同じカテゴリー内で、タグを共有する関連記事を取得（共有タグ数→新しい順）
+ * タグが一致する記事がない場合は同カテゴリーの新着記事で補完する
  */
-export function getRelatedPosts(currentSlug: string, tags: string[] | undefined, count: number = 3): BlogPostMeta[] {
-  if (!tags || tags.length === 0) {
-    return []
-  }
+export function getRelatedPosts(
+  currentSlug: string,
+  tags: string[] | undefined,
+  category: BlogCategory = DEFAULT_BLOG_CATEGORY,
+  count: number = 3,
+): BlogPostMeta[] {
+  const sameCategoryPosts = getAllPosts().filter(
+    (post) => post.slug !== currentSlug && post.category === category,
+  )
 
-  const allPosts = getAllPosts().filter((post) => post.slug !== currentSlug)
-
-  const scored = allPosts
+  const scored = sameCategoryPosts
     .map((post) => ({
       post,
-      sharedTagCount: post.tags?.filter((tag) => tags.includes(tag)).length ?? 0,
+      sharedTagCount: post.tags?.filter((tag) => tags?.includes(tag)).length ?? 0,
     }))
     .filter((entry) => entry.sharedTagCount > 0)
 
@@ -145,5 +169,19 @@ export function getRelatedPosts(currentSlug: string, tags: string[] | undefined,
     return a.post.date < b.post.date ? 1 : -1
   })
 
-  return scored.slice(0, count).map((entry) => entry.post)
+  const related = scored.slice(0, count).map((entry) => entry.post)
+
+  // タグ一致が足りない場合は同カテゴリーの新着記事で補完
+  if (related.length < count) {
+    const relatedSlugs = new Set(related.map((post) => post.slug))
+    for (const post of sameCategoryPosts) {
+      if (related.length >= count) break
+      if (!relatedSlugs.has(post.slug)) {
+        related.push(post)
+        relatedSlugs.add(post.slug)
+      }
+    }
+  }
+
+  return related
 }

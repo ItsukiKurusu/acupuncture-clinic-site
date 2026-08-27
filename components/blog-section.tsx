@@ -4,6 +4,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Calendar, ArrowRight } from "lucide-react"
 import { BlogPostMeta } from "@/lib/blog"
+import { CategoryBadge } from "@/components/category-badge"
 
 interface BlogSectionProps {
   posts: BlogPostMeta[]
@@ -46,6 +47,8 @@ export function BlogSection({ posts }: BlogSectionProps) {
               )}
 
               <div className="p-6">
+                <CategoryBadge category={post.category} className="mb-2.5" />
+
                 <h3 className="text-lg font-bold text-foreground mb-2.5 line-clamp-2 group-hover:text-[#b8960a] transition-colors duration-200">
                   {post.title}
                 </h3>

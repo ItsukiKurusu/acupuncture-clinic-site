@@ -1,31 +1,104 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Calendar, Tag } from 'lucide-react'
 import type { BlogPostMeta } from '@/lib/blog'
+import { BLOG_CATEGORIES, isBlogCategory, type BlogCategory } from '@/lib/blog-categories'
+import { CategoryBadge } from '@/components/category-badge'
 
 interface BlogFilterableListProps {
   posts: BlogPostMeta[]
 }
 
+type CategoryFilter = BlogCategory | 'all'
+
+/** ?category=お知らせ のようなクエリを検証してカテゴリー絞り込みに変換する */
+function parseCategoryParam(value: string | null): CategoryFilter {
+  return isBlogCategory(value) ? value : 'all'
+}
+
 export function BlogFilterableList({ posts }: BlogFilterableListProps) {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category')
+
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>(() =>
+    parseCategoryParam(categoryParam),
+  )
   const [selectedTag, setSelectedTag] = useState<string>('all')
 
+  // /blog?category=お知らせ で直接カテゴリーを開けるようにURLと同期する
+  useEffect(() => {
+    setSelectedCategory(parseCategoryParam(categoryParam))
+    setSelectedTag('all')
+  }, [categoryParam])
+
+  // カテゴリータブは記事が存在するカテゴリーのみ表示
+  const availableCategories = useMemo(
+    () => BLOG_CATEGORIES.filter((category) => posts.some((post) => post.category === category)),
+    [posts],
+  )
+
+  const categoryPosts = useMemo(() => {
+    if (selectedCategory === 'all') {
+      return posts
+    }
+    return posts.filter((post) => post.category === selectedCategory)
+  }, [posts, selectedCategory])
+
+  // タグはカテゴリー絞り込み後の記事から算出
   const allTags = useMemo(() => {
-    const tags = posts.flatMap((post) => post.tags ?? [])
+    const tags = categoryPosts.flatMap((post) => post.tags ?? [])
     return [...new Set(tags)].sort((a, b) => a.localeCompare(b, 'ja'))
-  }, [posts])
+  }, [categoryPosts])
 
   const filteredPosts = useMemo(() => {
     if (selectedTag === 'all') {
-      return posts
+      return categoryPosts
     }
-    return posts.filter((post) => post.tags?.includes(selectedTag))
-  }, [posts, selectedTag])
+    return categoryPosts.filter((post) => post.tags?.includes(selectedTag))
+  }, [categoryPosts, selectedTag])
+
+  // カテゴリーを切り替えたらタグ絞り込みはリセットする
+  const handleCategoryChange = (category: CategoryFilter) => {
+    setSelectedCategory(category)
+    setSelectedTag('all')
+  }
+
+  const categoryCount = (category: CategoryFilter) =>
+    category === 'all' ? posts.length : posts.filter((post) => post.category === category).length
 
   return (
     <>
+      {/* カテゴリー切り替え */}
+      {availableCategories.length > 1 && (
+        <div className="mb-6 flex flex-wrap justify-center gap-2 sm:gap-3">
+          {(['all', ...availableCategories] as CategoryFilter[]).map((category) => {
+            const isActive = selectedCategory === category
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => handleCategoryChange(category)}
+                aria-pressed={isActive}
+                className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                  isActive
+                    ? 'bg-[#1c1917] text-white border-[#1c1917]'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-[#1c1917] hover:text-[#1c1917]'
+                }`}
+              >
+                {category === 'all' ? 'すべて' : category}
+                <span className={`ml-2 text-xs ${isActive ? 'text-white/70' : 'text-gray-400'}`}>
+                  {categoryCount(category)}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      )}
+
+      {/* タグ絞り込み */}
       {allTags.length > 0 && (
         <div className="mb-8">
           <div className="flex flex-wrap items-center gap-2">
@@ -72,6 +145,8 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
               className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="p-6">
+                <CategoryBadge category={post.category} className="mb-3" />
+
                 <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#d4af37] transition-colors line-clamp-2">
                   {post.title}
                 </h2>
