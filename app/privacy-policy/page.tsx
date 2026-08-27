@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
                 <p>
                   本ポリシーに関するお問い合わせは、下記までご連絡ください。<br />
                   鍼灸HANE<br />
-                  電話：<a href="tel:0904181937" className="hover:underline">090-4181-7937</a>
+                  ご連絡はLINE公式アカウント、または当サイト各ページに記載の電話番号よりお願いいたします。
                 </p>
               </div>
 

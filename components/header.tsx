@@ -7,6 +7,7 @@ import { trackEvent } from "@/lib/analytics"
 
 const navLinks = [
   { href: "/about", label: "当院について" },
+  { href: "/symptoms", label: "症状別のご案内" },
   { href: "/scenes", label: "施術風景" },
   { href: "/services", label: "施術内容" },
   { href: "/matrix-wave", label: "MATRIX WAVE" },

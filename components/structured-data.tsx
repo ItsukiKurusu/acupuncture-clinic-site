@@ -1,8 +1,9 @@
-import { SITE_URL } from '@/lib/site-config'
+import { CLINIC_NODE_ID, GBP_CANONICAL_URL, SITE_URL } from '@/lib/site-config'
 
-// GBPのURLを取得し次第、下記 sameAs 配列に追加してください（例: "https://g.page/r/xxxxx"）。
-// GBPと紐付けることで、Googleに「同一事業者」であることをより明確に伝えられます。
+// Googleビジネスプロフィールと同一事業者であることを伝えるための外部プロフィール。
+// GBPを先頭に置く（Googleにとって最も重要な紐付け先のため）。
 const SAME_AS = [
+  GBP_CANONICAL_URL,
   "https://www.instagram.com/shinkyu.hane",
   "https://www.shinq-compass.jp/salon/review/37835",
 ]
@@ -11,6 +12,7 @@ export default function StructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
+    "@id": CLINIC_NODE_ID,
     "name": "鍼灸HANE",
     "alternateName": "ハネ鍼灸院",
     "description": "福岡市中央区六本松の鍼灸院。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高める。",
@@ -27,8 +29,8 @@ export default function StructuredData() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "33.574537",
-      "longitude": "130.375311"
+      "latitude": "33.574620",
+      "longitude": "130.379116"
     },
     "openingHours": [
       "Mo-Sa 10:00-20:00"
