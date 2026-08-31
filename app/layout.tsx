@@ -1,18 +1,16 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Noto_Serif_JP } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
-import { cn } from "@/lib/utils"
 import { SITE_URL } from "@/lib/site-config"
 import { MobileCtaBar } from "@/components/mobile-cta-bar"
+import { ReducedMotionProvider } from "@/components/reduced-motion-provider"
 
-const notoSerifJp = Noto_Serif_JP({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-noto-serif-jp",
-})
+// Webフォントは読み込まない。以前 Noto Serif JP を subsets:["latin"]（＝日本語グリフを
+// 含まない）で読み込んだうえ <body> のインラインstyleで上書きしていたため、
+// ダウンロードした分がまるごと無駄になっていた。
+// 書体は app/globals.css の --font-sans / --font-serif（OS標準フォント）で指定する。
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "鍼灸HANE",
     images: [
       {
-        url: '/acupuncture-clinic-interior.png',
+        url: '/og/clinic.jpg',
         width: 1200,
         height: 630,
         alt: '鍼灸HANE 施術室内',
@@ -46,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "鍼灸HANE｜中央区六本松の鍼灸院",
     description: "福岡市中央区六本松の鍼灸院「鍼灸HANE」。お一人おひとりの症状に合わせたオーダーメイドの施術。",
-    images: ['/acupuncture-clinic-interior.png'],
+    images: ['/og/clinic.jpg'],
   },
   // 検索エンジン向けの追加設定
   alternates: {
@@ -86,9 +84,11 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={cn("font-serif pb-16 lg:pb-0", notoSerifJp.variable)} style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
-        {children}
-        <MobileCtaBar />
+      <body className="pb-16 lg:pb-0">
+        <ReducedMotionProvider>
+          {children}
+          <MobileCtaBar />
+        </ReducedMotionProvider>
         <Analytics />
       </body>
     </html>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: '鍼灸HANE',
     images: [
       {
-        url: '/treatment1.jpg',
+        url: '/og/treatment1.jpg',
         width: 1200,
         height: 630,
         alt: '鍼灸HANE 院内風景',

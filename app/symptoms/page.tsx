@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description: '肩こり・腰痛・自律神経の乱れ・美容鍼について、原因の考え方から施術の流れ、料金までご紹介します。',
     url: `${SITE_URL}/symptoms`,
     siteName: '鍼灸HANE',
+    images: [{ url: '/og/clinic.jpg', width: 1200, height: 630, alt: '鍼灸HANE 施術室内' }],
     locale: 'ja_JP',
     type: 'website',
   },

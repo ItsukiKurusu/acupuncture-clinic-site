@@ -35,7 +35,7 @@ export function IrukaSection() {
               <p
                 className="text-2xl font-bold md:text-3xl"
                 style={{
-                  fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
+                  fontFamily: "var(--font-serif)",
                   color: "#1c1917",
                 }}
               >

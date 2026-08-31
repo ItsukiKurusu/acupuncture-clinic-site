@@ -24,7 +24,7 @@ export function BlogSectionWrapper({ posts }: { posts: BlogPostMeta[] }) {
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-5xl"
-            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "var(--font-serif)" }}
           >
             ブログ
           </h2>

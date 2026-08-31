@@ -27,7 +27,7 @@ export function FaqSection() {
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "var(--font-serif)" }}
           >
             FAQ
           </h2>

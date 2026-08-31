@@ -1,4 +1,4 @@
-import { CLINIC_NODE_ID, GBP_CANONICAL_URL, SITE_URL } from '@/lib/site-config'
+import { CLINIC_NODE_ID, GBP_CANONICAL_URL, SITE_URL, TEL_E164 } from '@/lib/site-config'
 
 // Googleビジネスプロフィールと同一事業者であることを伝えるための外部プロフィール。
 // GBPを先頭に置く（Googleにとって最も重要な紐付け先のため）。
@@ -18,7 +18,7 @@ export default function StructuredData() {
     "description": "福岡市中央区六本松の鍼灸院。お一人おひとりの症状に合わせたオーダーメイドの施術で、自然治癒力を高める。",
     "url": SITE_URL,
     "sameAs": SAME_AS,
-    "telephone": "+81-90-4181-7937",
+    "telephone": TEL_E164,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "六本松4丁目5-39 ピア21 401号室",

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { MapPin, Phone, Clock } from "lucide-react"
 import { trackEvent } from "@/lib/analytics"
+import { TEL_DISPLAY, TEL_HREF } from "@/lib/site-config"
 
 const container = {
   hidden: {},
@@ -33,7 +34,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "var(--font-serif)" }}
           >
             ご予約・お問い合わせ
           </h2>
@@ -52,7 +53,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             <motion.h3
               variants={item}
               className="text-2xl font-bold"
-              style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+              style={{ fontFamily: "var(--font-serif)" }}
             >
               鍼灸HANE
             </motion.h3>
@@ -70,11 +71,11 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             <motion.div variants={item} className="flex items-center gap-3 text-muted-foreground">
               <Phone className="h-5 w-5 shrink-0" style={{ color: "#b8960a" }} />
               <a
-                href="tel:0904181937"
+                href={TEL_HREF}
                 onClick={() => trackEvent("tel_click", { location: "contact_section" })}
                 className="text-sm hover:underline"
               >
-                090-4181-7937
+                {TEL_DISPLAY}
               </a>
             </motion.div>
 

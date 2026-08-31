@@ -44,7 +44,7 @@ export function AboutSection({ bookingUrl }: { bookingUrl: string }) {
             <motion.h2
               variants={item}
               className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl leading-tight"
-              style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+              style={{ fontFamily: "var(--font-serif)" }}
             >
               一人ひとりに寄り添った<br />丁寧な治療
             </motion.h2>

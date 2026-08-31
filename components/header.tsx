@@ -4,23 +4,22 @@ import Link from "next/link"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { trackEvent } from "@/lib/analytics"
+import { BOOKING_URL } from "@/lib/site-config"
 
+// グローバルナビは主要導線の6項目に絞る。
+// 以前は11項目あり粒度も揃っていなかったため、選択の負荷が高かった。
+// ここから外した「施術風景」「お客様の声」「いるか新聞」「Instagram」
+// 「よくある質問」はフッターのサイトマップから辿れる。
 const navLinks = [
   { href: "/about", label: "当院について" },
   { href: "/symptoms", label: "症状別のご案内" },
-  { href: "/scenes", label: "施術風景" },
-  { href: "/services", label: "施術内容" },
+  { href: "/services", label: "施術内容・料金" },
   { href: "/matrix-wave", label: "MATRIX WAVE" },
-  { href: "/#testimonials", label: "お客様の声" },
   { href: "/blog", label: "ブログ" },
-  { href: "/iruka", label: "いるか新聞" },
-  { href: "/#instagram", label: "Instagram" },
-  { href: "/#faq", label: "よくある質問" },
   { href: "/#contact", label: "アクセス" },
 ]
 
 export function Header() {
-  const bookingUrl = "https://line.me/R/ti/p/@241gbrkw"
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -57,7 +56,7 @@ export function Header() {
           <span
             className="text-xl font-semibold tracking-wide transition-colors duration-500"
             style={{
-              fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
+              fontFamily: "var(--font-serif)",
               color: scrolled ? "#1c1917" : "rgba(255,255,255,0.95)",
             }}
           >
@@ -66,18 +65,18 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="ml-auto hidden lg:flex items-center gap-0.5">
+        <nav className="ml-auto hidden lg:flex items-center gap-1">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="relative px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-300 group"
+              className="relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 group"
               style={{ color: scrolled ? "rgba(28,25,23,0.75)" : "rgba(255,255,255,0.85)" }}
               prefetch={false}
             >
               {label}
               <span
-                className="absolute bottom-0.5 left-2.5 right-2.5 h-px scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+                className="absolute bottom-0.5 left-3 right-3 h-px scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
                 style={{ backgroundColor: "#d4af37" }}
               />
             </Link>
@@ -87,7 +86,7 @@ export function Header() {
         {/* CTA button */}
         <div className="ml-4 hidden lg:block">
           <Link
-            href={bookingUrl}
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent("line_click", { location: "header_desktop" })}
@@ -155,7 +154,7 @@ export function Header() {
             ))}
             <div className="pt-3 pb-1">
               <Link
-                href={bookingUrl}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center py-2.5 rounded-full text-sm font-bold transition-all"

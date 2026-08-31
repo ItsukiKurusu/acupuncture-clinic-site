@@ -64,7 +64,7 @@ export function ServicesSection() {
           <motion.h2
             variants={item}
             className="text-3xl font-bold tracking-tight md:text-4xl"
-            style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+            style={{ fontFamily: "var(--font-serif)" }}
           >
             多彩な施術メニュー
           </motion.h2>

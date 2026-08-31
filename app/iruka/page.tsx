@@ -26,7 +26,7 @@ export default function IrukaPage() {
               <h1
                 className="text-3xl font-bold md:text-4xl"
                 style={{
-                  fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif",
+                  fontFamily: "var(--font-serif)",
                   color: "#1c1917",
                 }}
               >

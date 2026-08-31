@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { BOOKING_URL } from "@/lib/site-config"
 
 export function CTA() {
   return (
@@ -19,7 +20,7 @@ export function CTA() {
         </p>
 
         <a 
-          href="https://line.me/R/ti/p/@241gbrkw" 
+          href={BOOKING_URL} 
           target="_blank" 
           rel="noopener noreferrer"
           className="standout-button"

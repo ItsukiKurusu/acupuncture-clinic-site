@@ -3,17 +3,30 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, MapPin, Phone, Clock } from "lucide-react"
 import { trackEvent } from "@/lib/analytics"
+import { BOOKING_URL, INSTAGRAM_URL, TEL_DISPLAY, TEL_HREF } from "@/lib/site-config"
+
+// ヘッダーのグローバルナビを6項目に絞ったため、サイト内の全ページへの
+// 導線はここで担保する。
+const siteLinks = [
+  { href: "/about", label: "当院について" },
+  { href: "/symptoms", label: "症状別のご案内" },
+  { href: "/services", label: "施術内容・料金" },
+  { href: "/matrix-wave", label: "MATRIX WAVE" },
+  { href: "/scenes", label: "施術風景" },
+  { href: "/blog", label: "ブログ" },
+  { href: "/iruka", label: "いるか新聞" },
+  { href: "/#testimonials", label: "お客様の声" },
+  { href: "/#faq", label: "よくある質問" },
+  { href: "/#contact", label: "アクセス" },
+]
 
 export function Footer() {
-  const instagramUrl =
-    "https://www.instagram.com/shinkyu.hane?utm_source=ig_web_button_share_sheet&igsh=MTZvODR2N3RjNm4yYQ=="
-  const bookingUrl = "https://line.me/R/ti/p/@241gbrkw"
 
   return (
     <footer className="w-full" style={{ backgroundColor: "#1c1917", color: "rgba(255,255,255,0.75)" }}>
       <div className="container mx-auto px-4 md:px-6 pt-12 pb-8">
         {/* Main grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
 
           {/* Brand */}
           <div>
@@ -27,7 +40,7 @@ export function Footer() {
               />
               <span
                 className="text-xl font-semibold text-white"
-                style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+                style={{ fontFamily: "var(--font-serif)" }}
               >
                 鍼灸HANE
               </span>
@@ -37,7 +50,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               <Link
-                href={instagramUrl}
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -69,11 +82,11 @@ export function Footer() {
               <div className="flex items-center gap-2 pt-1">
                 <Phone className="h-4 w-4 shrink-0" style={{ color: "#d4af37" }} />
                 <a
-                  href="tel:0904181937"
+                  href={TEL_HREF}
                   onClick={() => trackEvent("tel_click", { location: "footer" })}
                   className="hover:underline"
                 >
-                  090-4181-7937
+                  {TEL_DISPLAY}
                 </a>
               </div>
             </address>
@@ -93,7 +106,7 @@ export function Footer() {
               </div>
             </div>
             <Link
-              href={bookingUrl}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("line_click", { location: "footer" })}
@@ -103,6 +116,26 @@ export function Footer() {
               LINEで予約する
             </Link>
           </div>
+
+          {/* Sitemap */}
+          <nav aria-label="サイト内リンク">
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#d4af37" }}>
+              サイトマップ
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {siteLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="transition-colors hover:text-white"
+                    style={{ color: "rgba(255,255,255,0.60)" }}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         {/* Bottom bar */}

@@ -1,8 +1,7 @@
 "use client"
 import { Phone, MessageCircle } from "lucide-react"
 import { trackEvent } from "@/lib/analytics"
-
-const BOOKING_URL = "https://line.me/R/ti/p/@241gbrkw"
+import { BOOKING_URL, TEL_HREF } from "@/lib/site-config"
 
 // スマートフォンでは常時表示。PC（lg以上）では既にヘッダーに予約ボタンがあるため非表示。
 export function MobileCtaBar() {
@@ -15,7 +14,7 @@ export function MobileCtaBar() {
       }}
     >
       <a
-        href="tel:0904181937"
+        href={TEL_HREF}
         onClick={() => trackEvent("tel_click", { location: "mobile_cta_bar" })}
         className="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold"
         style={{ backgroundColor: "#1c1917", color: "#fff" }}

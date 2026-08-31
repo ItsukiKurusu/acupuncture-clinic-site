@@ -1,0 +1,5 @@
+# @tailwindcss/oxide はTailwind v4のネイティブバイナリ、sharp は next/image の
+# 画像最適化に必要。どちらもビルド時にネイティブモジュールを用意するため許可する。
+allowBuilds:
+  '@tailwindcss/oxide': true
+  sharp: true
