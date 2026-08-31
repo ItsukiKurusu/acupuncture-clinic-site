@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Check, Clock, ArrowRight, MapPin } from 'lucide-react'
-import { BOOKING_URL } from '@/lib/site-config'
+import { BOOKING_URL, TEL_DISPLAY, TEL_HREF } from '@/lib/site-config'
 import { services } from '@/lib/services-data'
 import type { Symptom } from '@/lib/symptoms-data'
 import type { BlogPostMeta } from '@/lib/blog'
@@ -193,8 +193,8 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="standout-button" style={{ backgroundColor: '#06C755' }}>
             LINEで予約する
           </a>
-          <a href="tel:0904181937" className="standout-button" style={{ backgroundColor: INK }}>
-            090-4181-7937 に電話する
+          <a href={TEL_HREF} className="standout-button" style={{ backgroundColor: INK }}>
+            {TEL_DISPLAY} に電話する
           </a>
         </div>
       </section>

@@ -2,6 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { BOOKING_URL } from "@/lib/site-config"
 
 const banners = [
   {
@@ -10,7 +11,7 @@ const banners = [
     alt: "キャンペーン",
   },
   {
-    href: "https://line.me/R/ti/p/@241gbrkw",
+    href: BOOKING_URL,
     src: "/line-banner.png",
     alt: "LINE追加バナー",
   },

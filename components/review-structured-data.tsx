@@ -1,16 +1,19 @@
+import { CLINIC_NODE_ID } from '@/lib/site-config'
+
 // レビュー内容は components/sections/TestimonialsSection.tsx に実際に掲載している
 // お客様の声と一致させています。表示内容と食い違わせないよう、変更する際は両方を揃えること。
+//
+// aggregateRating は意図的に持たせていない。自社サイト上の自社レビュー
+// （self-serving review）はGoogleのリッチリザルト対象外であり、
+// 件数の少ない評価値を出しても効果がないうえ、ガイドライン違反のリスクがある。
+// 星評価の獲得はGoogleビジネスプロフィール側に寄せる。
 export default function ReviewStructuredData() {
   const reviewData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    // トップページの事業者ノードと同一の@id・@typeを使い、1事業者に集約する。
+    "@type": "MedicalBusiness",
+    "@id": CLINIC_NODE_ID,
     "name": "鍼灸HANE",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "reviewCount": "2"
-    },
     "review": [
       {
         "@type": "Review",

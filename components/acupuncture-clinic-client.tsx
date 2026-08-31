@@ -13,8 +13,8 @@ import { InstagramSection } from "@/components/sections/InstagramSection"
 import { FaqSection } from "@/components/sections/FaqSection"
 import { ContactSection } from "@/components/sections/ContactSection"
 import { BlogPostMeta } from "@/lib/blog"
+import { BOOKING_URL } from "@/lib/site-config"
 
-const BOOKING_URL = "https://line.me/R/ti/p/@241gbrkw"
 const REVIEWS_URL = "https://www.shinq-compass.jp/salon/review/37835"
 const INSTAGRAM_URL =
   "https://www.instagram.com/shinkyu.hane?utm_source=ig_web_button_share_sheet&igsh=MTZvODR2N3RjNm4yYQ=="

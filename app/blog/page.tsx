@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description: '症状別のツボ・セルフケアなどの健康情報と、院からのお知らせ・活動報告をお届けします。',
     url: `${SITE_URL}/blog`,
     siteName: '鍼灸HANE',
+    images: [{ url: '/og/clinic.jpg', width: 1200, height: 630, alt: '鍼灸HANE 施術室内' }],
     locale: 'ja_JP',
     type: 'website',
   },

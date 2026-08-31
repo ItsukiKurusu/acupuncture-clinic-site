@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description: '地域情報誌「いるか」に掲載している鍼灸HANEのセルフケアコラム・アーカイブ。',
     url: `${SITE_URL}/iruka`,
     siteName: '鍼灸HANE',
+    images: [{ url: '/og/clinic.jpg', width: 1200, height: 630, alt: '鍼灸HANE 施術室内' }],
     locale: 'ja_JP',
     type: 'website',
   },

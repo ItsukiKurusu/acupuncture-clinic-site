@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { services, serviceCategories as categories } from "@/lib/services-data";
+import { TEL_DISPLAY, TEL_HREF } from "@/lib/site-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -165,7 +166,7 @@ export function ServicesContent() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-3 text-lg font-semibold">
               <span className="text-2xl">📞</span>
-              <a href="tel:0904181937" className="hover:underline">090-4181-7937</a>
+              <a href={TEL_HREF} className="hover:underline">{TEL_DISPLAY}</a>
             </div>
             <div className="text-sm opacity-75">
               受付時間: 10:00 - 20:00 (日・祝日を除く)

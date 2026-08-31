@@ -4,25 +4,25 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: 35 50% 98%;
-  --foreground: 35 10% 25%;
-  --card: 35 50% 96%;
-  --card-foreground: 35 10% 25%;
-  --popover: 35 50% 98%;
-  --popover-foreground: 35 10% 25%;
-  --primary: 140 30% 45%;
-  --primary-foreground: 140 50% 98%;
-  --secondary: 35 25% 60%;
-  --secondary-foreground: 35 50% 98%;
-  --muted: 35 20% 90%;
-  --muted-foreground: 35 10% 45%;
-  --accent: 45 70% 85%;
-  --accent-foreground: 35 10% 25%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 35 20% 85%;
-  --input: 35 20% 85%;
-  --ring: 140 30% 45%;
+  --background: hsl(35 50% 98%);
+  --foreground: hsl(35 10% 25%);
+  --card: hsl(35 50% 96%);
+  --card-foreground: hsl(35 10% 25%);
+  --popover: hsl(35 50% 98%);
+  --popover-foreground: hsl(35 10% 25%);
+  --primary: hsl(140 30% 45%);
+  --primary-foreground: hsl(140 50% 98%);
+  --secondary: hsl(35 25% 60%);
+  --secondary-foreground: hsl(35 50% 98%);
+  --muted: hsl(35 20% 90%);
+  --muted-foreground: hsl(35 10% 45%);
+  --accent: hsl(45 70% 85%);
+  --accent-foreground: hsl(35 10% 25%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --border: hsl(35 20% 85%);
+  --input: hsl(35 20% 85%);
+  --ring: hsl(140 30% 45%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -37,9 +37,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro",
-    "MS PMincho", "MS Mincho", serif;
+  /* 本文用のゴシック体。OS標準フォントのみで構成し、Webフォントは読み込まない。 */
+  --font-sans: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "MS Pゴシック", sans-serif;
+  /* 見出し用の明朝体。和の落ち着いた印象を出すために使う。
+     各コンポーネントで直接フォント名を書かず、必ずこの変数を参照すること。 */
+  --font-serif: "游明朝", "Yu Mincho", YuMincho, "游明朝体", YuMincho, "ヒラギノ明朝 ProN",
+    "Hiragino Mincho ProN", "Hiragino Mincho Pro", "MS PMincho", serif;
 }
 
 .dark {
@@ -123,7 +127,30 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-serif;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* キーボード操作時のフォーカス位置を全要素で明示する。
+     マウス操作時には出ないよう :focus-visible を使う。 */
+  :focus-visible {
+    outline: 2px solid #b8960a;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* OSで「視差効果を減らす」を有効にしている利用者向け。
+   当院には自律神経の不調・めまいを訴える方も来院されるため、
+   スクロール連動アニメーションを止める。framer-motion 側は
+   app/layout.tsx の MotionConfig reducedMotion="user" で無効化している。 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

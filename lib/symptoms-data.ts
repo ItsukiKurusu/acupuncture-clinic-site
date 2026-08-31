@@ -45,7 +45,7 @@ export interface Symptom {
   faqs: SymptomFaq[]
   /** 関連するセルフケア記事のスラッグ（posts/*.md と一致させる） */
   relatedPostSlugs: string[]
-  /** OGP画像。public/ 配下の実ファイルを指すこと */
+  /** OGP画像。public/og/ 配下の 1200x630 の実ファイルを指すこと */
   ogImage: string
 }
 
@@ -132,8 +132,8 @@ export const symptoms: Symptom[] = [
         a: 'はい。首肩の緊張が関わる頭痛については、その原因となっている筋緊張へアプローチします。ただし、突然の激しい頭痛や手足の麻痺を伴う場合は、まず医療機関の受診をおすすめしています。',
       },
     ],
-    relatedPostSlugs: ['gaikan', 'gouya', 'tesanri'],
-    ogImage: '/treatment1.jpg',
+    relatedPostSlugs: ['tsubo-katakori'],
+    ogImage: '/og/treatment1.jpg',
   },
 
   {
@@ -218,8 +218,8 @@ export const symptoms: Symptom[] = [
         a: '初めは週1回程度を目安に3〜5回、その後は状態に応じて2週間から1か月に1回のメンテナンスへ移行していきます。痛みが強い時期は間隔を詰めることもあります。',
       },
     ],
-    relatedPostSlugs: ['konron', 'yoryosen', 'gaishitugan'],
-    ogImage: '/treatment3.jpg',
+    relatedPostSlugs: ['tsubo-youtsu-hizatsu'],
+    ogImage: '/og/treatment3.jpg',
   },
 
   {
@@ -305,8 +305,8 @@ export const symptoms: Symptom[] = [
         a: '緊張が緩んだ反動で、当日から翌日にかけて眠気やだるさが出ることがあります。多くは1日程度で落ち着き、その後すっきりされる方が多いです。初回は特にゆっくり過ごせる日をお選びいただくとよいでしょう。',
       },
     ],
-    relatedPostSlugs: ['naikan', 'taisyou', 'yuusen', 'taihaku-selfcare'],
-    ogImage: '/treatment5.jpg',
+    relatedPostSlugs: ['tsubo-jiritsu-shinkei', 'tsubo-hie-mukumi', 'tsubo-icho'],
+    ogImage: '/og/treatment5.jpg',
   },
 
   {
@@ -391,8 +391,8 @@ export const symptoms: Symptom[] = [
         a: 'はい。施術前にクレンジングをご用意していますのでそのままお越しください。施術後のメイクは、当日は控えていただくことをおすすめしています。',
       },
     ],
-    relatedPostSlugs: ['beauty-acupuncture', 'geikou'],
-    ogImage: '/treatment8.jpg',
+    relatedPostSlugs: ['beauty-acupuncture'],
+    ogImage: '/og/treatment8.jpg',
   },
 ]
 
@@ -401,3 +401,49 @@ export function getSymptomBySlug(slug: string): Symptom | undefined {
 }
 
 export const symptomSlugs = symptoms.map((symptom) => symptom.slug)
+
+/**
+ * 記事タグから症状ページを引くための対応表。
+ * ブログ記事（薄いセルフケア記事）から症状ページへ内部リンクを通し、
+ * 記事に集まった検索流入を集客の主力ページへ流すために使う。
+ *
+ * relatedPostSlugs（症状→記事）だけでは記事側の12本しかカバーできないため、
+ * タグからの逆引きを併用する。
+ */
+const SYMPTOM_TAG_MAP: Record<string, string[]> = {
+  katakori: ['肩こり', '肩こり改善', '首こり', '眼精疲労', '目の疲れ', '姿勢改善', '腕の疲れ'],
+  youtsu: ['腰痛', '腰痛対策', '膝痛', '膝の痛み改善', '股関節痛', '歩き方', 'ひざケア'],
+  'jiritsu-shinkei': [
+    '自律神経',
+    'ストレスケア',
+    '疲労回復',
+    '冷え性',
+    '冷え性改善',
+    '冷え性対策',
+    'むくみ改善',
+    '不眠',
+    '頭痛',
+    '頭痛改善',
+    '胃腸ケア',
+    '胃の不調',
+    'リラックス',
+    '足のだるさ',
+  ],
+  biyoshin: ['美容鍼', '美容', 'たるみ', 'ほうれい線', '小顔', '花粉症対策'],
+}
+
+/**
+ * 記事に関連する症状ページを返す。
+ * relatedPostSlugs による明示的な指定を優先し、無ければタグ一致で補完する。
+ */
+export function getSymptomsForPost(postSlug: string, tags: string[] = []): Symptom[] {
+  const explicit = symptoms.filter((symptom) => symptom.relatedPostSlugs.includes(postSlug))
+  if (explicit.length > 0) {
+    return explicit
+  }
+
+  const tagSet = new Set(tags)
+  return symptoms.filter((symptom) =>
+    (SYMPTOM_TAG_MAP[symptom.slug] ?? []).some((tag) => tagSet.has(tag))
+  )
+}

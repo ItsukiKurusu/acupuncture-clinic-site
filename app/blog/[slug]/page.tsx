@@ -9,6 +9,7 @@ import { Footer } from '@/components/footer'
 import BlogPostingStructuredData from '@/components/blog-posting-structured-data'
 import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import { CategoryBadge } from '@/components/category-badge'
+import { getSymptomsForPost } from '@/lib/symptoms-data'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -77,6 +78,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const relatedPosts = getRelatedPosts(slug, post.tags, post.category)
+  // セルフケア記事から症状別ページへ内部リンクを通し、検索流入を主力ページへ流す。
+  const relatedSymptoms = getSymptomsForPost(slug, post.tags)
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -170,6 +173,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
         )}
+
+        {/* 関連する症状ページ。タグから該当が引けない記事でも一覧へは必ず導線を通す。 */}
+        <aside className="mt-16">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            このお悩みの施術について
+          </h2>
+          {relatedSymptoms.length > 0 && (
+            <div className="grid gap-6 sm:grid-cols-2 mb-6">
+              {relatedSymptoms.map((symptom) => (
+                <Link
+                  key={symptom.slug}
+                  href={`/symptoms/${symptom.slug}`}
+                  className="block bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  style={{ border: '1px solid #e8e0cc', borderTop: '3px solid #d4af37' }}
+                >
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {symptom.name}の施術について
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{symptom.summary}</p>
+                </Link>
+              ))}
+            </div>
+          )}
+          <Link
+            href="/symptoms"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline"
+            style={{ color: '#b8960a' }}
+          >
+            症状別のご案内をすべて見る
+            <ArrowLeft className="w-4 h-4 rotate-180" />
+          </Link>
+        </aside>
 
         {/* 記事末尾のCTA */}
         <div className="mt-16 p-8 bg-gradient-to-r from-[#d4af37]/10 to-[#d4af37]/5 rounded-lg text-center">

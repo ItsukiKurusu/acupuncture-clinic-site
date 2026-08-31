@@ -1,8 +1,13 @@
 "use client"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
+import ReactDOM from "react-dom"
 import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { trackEvent } from "@/lib/analytics"
+
+// LCP要素は背景動画。2.6MBのmp4のデコードを待たせず、28KBの静止画を先に描画する。
+// トップページでしか使わないため、layout.tsx のheadではなくここで宣言する。
+const HERO_POSTER = "/hero-poster.webp"
 
 const textVariants = {
   hidden: { opacity: 0 },
@@ -18,7 +23,21 @@ const childVariants = {
 }
 
 export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
+  ReactDOM.preload(HERO_POSTER, { as: "image", fetchPriority: "high" })
+
   const sectionRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // 「視差効果を減らす」設定時はループ再生を止め、ポスター画像のまま見せる。
+  // useReducedMotion は初回レンダー時点では false を返すため、autoPlay属性ではなく
+  // マウント後に明示的に停止・巻き戻しする（属性を後から変えても再生は止まらない）。
+  const prefersReducedMotion = useReducedMotion()
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !prefersReducedMotion) return
+    video.pause()
+    video.currentTime = 0
+  }, [prefersReducedMotion])
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -34,10 +53,13 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
       {/* Video background */}
       <motion.div className="absolute inset-0" style={{ scale: videoScale }}>
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          poster={HERO_POSTER}
+          preload="metadata"
           className="w-full h-full object-cover"
         >
           <source src="/hero.mp4" type="video/mp4" />
@@ -76,9 +98,9 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
         <motion.h1
           variants={childVariants}
           className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] font-bold tracking-tight text-white drop-shadow-lg leading-snug mb-5"
-          style={{ fontFamily: "'游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif" }}
+          style={{ fontFamily: "var(--font-serif)" }}
         >
-          心と身体を癒す、<br />伝統の鍼灸治療
+          六本松の鍼灸院<br />心と身体を癒す、伝統の鍼灸
         </motion.h1>
 
         <motion.p

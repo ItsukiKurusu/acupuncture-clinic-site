@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: '鍼灸HANE',
     images: [
       {
-        url: '/acupuncture-clinic-interior.png',
+        url: '/og/clinic.jpg',
         width: 1200,
         height: 630,
         alt: '鍼灸HANE 施術室内',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '施術内容・料金 - 鍼灸HANE',
     description: '鍼灸HANEの施術メニューと料金のご案内。理学療法士による丁寧な治療をご提供。',
-    images: ['/acupuncture-clinic-interior.png'],
+    images: ['/og/clinic.jpg'],
   },
 };
 

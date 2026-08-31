@@ -129,7 +129,8 @@ export function getPostsByCategory(category: BlogCategory): BlogPostMeta[] {
   return allPosts.filter((post) => post.category === category)
 }
 
-const FALLBACK_POST_IMAGE = '/acupuncture-clinic-interior.png'
+// OGP用に 1200x630 で用意した画像。クローラは生ファイルを取得するため寸法を揃えておく。
+const FALLBACK_POST_IMAGE = '/og/clinic.jpg'
 
 /**
  * OGP/構造化データ用の画像URLを解決する（動画や未設定時はフォールバック画像を返す）

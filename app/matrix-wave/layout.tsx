@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: '鍼灸HANE',
     images: [
       {
-        url: '/matrix-wave.png',
+        url: '/og/matrix-wave.jpg',
         width: 1200,
         height: 630,
         alt: 'MATRIX WAVE',
