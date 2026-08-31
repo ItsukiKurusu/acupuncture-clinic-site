@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import BreadcrumbStructuredData from "@/components/breadcrumb-structured-data"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 import { IrukaArchive } from "@/components/iruka-archive"
 
 export default function IrukaPage() {
@@ -9,11 +9,14 @@ export default function IrukaPage() {
       className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full"
      
     >
-      <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: 'いるか新聞' }]} />
       <Header />
       <main className="flex-1">
-        <section className="w-full py-12 md:py-20">
+        <section className="w-full pt-6 pb-12 md:pb-20">
           <div className="container mx-auto px-4 md:px-6">
+            <PageBreadcrumb
+              className="mb-10"
+              items={[{ name: 'ホーム', path: '/' }, { name: 'いるか新聞' }]}
+            />
 
             {/* ページタイトル */}
             <div className="flex flex-col items-center text-center space-y-3 mb-12">

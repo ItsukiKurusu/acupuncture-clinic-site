@@ -55,7 +55,7 @@ export function ServicesContent() {
   return (
     <>
       {/* 導入 */}
-      <section className="bg-background pt-20 pb-14">
+      <section className="bg-background pt-10 pb-14">
         <div className="container mx-auto px-4 text-center max-w-3xl" ref={heroRef}>
           <span
             className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4"

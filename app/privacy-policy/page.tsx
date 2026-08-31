@@ -1,13 +1,18 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full">
       <Header />
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24">
+        <section className="w-full pt-6 pb-12 md:pb-24">
           <div className="container mx-auto w-full px-4 md:px-6 max-w-3xl">
+            <PageBreadcrumb
+              className="mb-10"
+              items={[{ name: 'ホーム', path: '/' }, { name: 'プライバシーポリシー' }]}
+            />
             <h1 className="heading-mincho text-3xl sm:text-4xl mb-10">
               プライバシーポリシー
             </h1>
