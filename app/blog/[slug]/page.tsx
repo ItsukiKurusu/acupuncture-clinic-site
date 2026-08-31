@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* 戻るリンク */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-[#d4af37] mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-[color:var(--gold-strong)] mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>ブログ一覧に戻る</span>
@@ -133,7 +133,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-[#d4af37]/10 text-[#d4af37] rounded-full text-sm font-medium"
+                  className="px-2.5 py-0.5 rounded border text-sm font-medium"
+                  style={{ borderColor: 'var(--gold)', color: 'var(--gold-strong)' }}
                 >
                   {tag}
                 </span>
@@ -159,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={relatedPost.slug}
                   href={`/blog/${relatedPost.slug}`}
-                  className="block p-5 bg-white border border-gray-200 rounded-lg hover:border-[#d4af37] hover:shadow-md transition-all"
+                  className="block p-5 bg-white border border-gray-200 rounded hover:border-[color:var(--gold)] transition-all"
                 >
                   <CategoryBadge category={relatedPost.category} className="mb-2" />
                   <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
@@ -185,8 +186,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={symptom.slug}
                   href={`/symptoms/${symptom.slug}`}
-                  className="block bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                  style={{ border: '1px solid #e8e0cc', borderTop: '3px solid #d4af37' }}
+                  className="block bg-white rounded p-6 transition-all duration-300"
+                  style={{ border: '1px solid var(--hairline)' }}
                 >
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {symptom.name}の施術について
@@ -199,7 +200,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Link
             href="/symptoms"
             className="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline"
-            style={{ color: '#b8960a' }}
+            style={{ color: 'var(--gold-strong)' }}
           >
             症状別のご案内をすべて見る
             <ArrowLeft className="w-4 h-4 rotate-180" />
@@ -207,7 +208,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </aside>
 
         {/* 記事末尾のCTA */}
-        <div className="mt-16 p-8 bg-gradient-to-r from-[#d4af37]/10 to-[#d4af37]/5 rounded-lg text-center">
+        <div
+          className="mt-16 p-8 rounded text-center"
+          style={{ backgroundColor: 'var(--gold-wash)', border: '1px solid var(--hairline)' }}
+        >
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             ご予約・お問い合わせ
           </h3>
@@ -225,7 +229,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <Link
               href="/#contact"
               className="standout-button"
-              style={{ backgroundColor: '#d4af37' }}
+              style={{ backgroundColor: 'var(--gold-strong)' }}
             >
               お問い合わせはこちら
             </Link>
@@ -236,7 +240,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="mt-12 text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-[#d4af37] transition-colors"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-[color:var(--gold-strong)] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ブログ一覧に戻る</span>

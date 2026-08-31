@@ -20,16 +20,16 @@ export function FaqSection() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <span
-            className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-            style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase"
+            style={{ color: "var(--gold-strong)" }}
           >
-            よくある質問
+            FAQ
           </span>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
             style={{ fontFamily: "var(--font-serif)" }}
           >
-            FAQ
+            よくある質問
           </h2>
           <p className="text-muted-foreground md:text-lg">患者様からよくいただく質問をまとめました。</p>
         </motion.div>
@@ -45,8 +45,8 @@ export function FaqSection() {
             >
               <AccordionItem
                 value={`item-${i + 1}`}
-                className="bg-white rounded-xl px-5 shadow-sm"
-                style={{ border: "1px solid #e8e0cc" }}
+                className="bg-white rounded px-5"
+                style={{ border: "1px solid var(--hairline)" }}
               >
                 <AccordionTrigger
                   className="text-left font-semibold hover:no-underline py-5"

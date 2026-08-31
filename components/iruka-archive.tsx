@@ -29,8 +29,8 @@ export function IrukaArchive() {
               aria-label={`${issue.alt}をPDFで開く`}
             >
               <div
-                className="overflow-hidden rounded-2xl shadow-sm transition-shadow group-hover:shadow-md flex items-center justify-center"
-                style={{ border: "1px solid #e8e0cc", backgroundColor: "#faf7f2", aspectRatio: "4/3" }}
+                className="overflow-hidden rounded flex items-center justify-center"
+                style={{ border: "1px solid var(--hairline)", backgroundColor: "#faf7f2", aspectRatio: "4/3" }}
               >
                 <div className="flex flex-col items-center gap-3 text-center px-6">
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a8926a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -46,7 +46,7 @@ export function IrukaArchive() {
               </div>
               <div className="flex items-center gap-2 px-1">
                 <span
-                  className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded-full"
+                  className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded"
                   style={{ backgroundColor: "#f5f0e8", color: "#a8926a" }}
                 >
                   {issue.label}
@@ -62,8 +62,8 @@ export function IrukaArchive() {
               aria-label={`${issue.alt}を拡大表示`}
             >
               <div
-                className="overflow-hidden rounded-2xl shadow-sm transition-shadow group-hover:shadow-md"
-                style={{ border: "1px solid #e8e0cc" }}
+                className="overflow-hidden rounded"
+                style={{ border: "1px solid var(--hairline)" }}
               >
                 <Image
                   src={issue.src}
@@ -71,12 +71,12 @@ export function IrukaArchive() {
                   height={600}
                   alt={issue.alt}
                   sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw"
-                  className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="h-auto w-full object-contain"
                 />
               </div>
               <div className="flex items-center gap-2 px-1">
                 <span
-                  className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded-full"
+                  className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded"
                   style={{ backgroundColor: "#f5f0e8", color: "#a8926a" }}
                 >
                   {issue.label}
@@ -106,7 +106,7 @@ export function IrukaArchive() {
               <X size={20} />
               <span className="text-sm">閉じる</span>
             </button>
-            <div className="overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div className="overflow-hidden rounded bg-white">
               <Image
                 src={selected.src}
                 width={1600}

@@ -42,7 +42,7 @@ export function BannerSection() {
                   width={1920}
                   height={600}
                   alt={banner.alt}
-                  className="w-full h-auto shadow-xl rounded-xl"
+                  className="w-full h-auto rounded"
                   quality={100}
                   priority
                   unoptimized

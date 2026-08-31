@@ -34,12 +34,10 @@ export function Header() {
     <header
       className="w-full sticky top-0 z-50 transition-all duration-500"
       style={{
-        backgroundColor: scrolled ? "rgba(255,255,255,0.97)" : "transparent",
-        backdropFilter: scrolled ? "blur(14px)" : "none",
+        backgroundColor: scrolled ? "#ffffff" : "transparent",
         borderBottom: scrolled
-          ? "1.5px solid rgba(212,175,55,0.3)"
-          : "1.5px solid rgba(255,255,255,0.1)",
-        boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.06)" : "none",
+          ? "1px solid var(--hairline)"
+          : "1px solid rgba(255,255,255,0.15)",
       }}
     >
       <div className="container mx-auto flex items-center h-16 px-4 lg:px-6">
@@ -77,7 +75,7 @@ export function Header() {
               {label}
               <span
                 className="absolute bottom-0.5 left-3 right-3 h-px scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
-                style={{ backgroundColor: "#d4af37" }}
+                style={{ backgroundColor: "var(--gold)" }}
               />
             </Link>
           ))}
@@ -90,13 +88,11 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent("line_click", { location: "header_desktop" })}
-            className="inline-flex items-center justify-center px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="inline-flex items-center justify-center px-5 py-2 rounded text-[13px] font-semibold transition-colors duration-300"
             style={{
-              backgroundColor: scrolled ? "#d4af37" : "rgba(255,255,255,0.15)",
-              color: scrolled ? "#1c1917" : "#fff",
-              border: scrolled ? "none" : "1px solid rgba(255,255,255,0.4)",
-              backdropFilter: scrolled ? "none" : "blur(6px)",
-              boxShadow: scrolled ? "0 2px 12px rgba(212,175,55,0.3)" : "none",
+              backgroundColor: scrolled ? "var(--gold-strong)" : "transparent",
+              color: "#fff",
+              border: scrolled ? "1px solid var(--gold-strong)" : "1px solid rgba(255,255,255,0.5)",
               letterSpacing: "0.03em",
             }}
           >
@@ -134,17 +130,14 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden bg-white/98 px-4 py-3 space-y-0.5"
-            style={{
-              backdropFilter: "blur(14px)",
-              borderTop: "1px solid rgba(212,175,55,0.2)",
-            }}
+            className="lg:hidden bg-white px-4 py-3 space-y-0.5"
+            style={{ borderTop: "1px solid var(--hairline)" }}
           >
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                className="block text-sm py-2.5 px-2 font-medium rounded-lg transition-colors hover:bg-[#d4af37]/8"
+                className="block text-sm py-2.5 px-2 font-medium rounded transition-colors hover:bg-[color:var(--gold-wash)]"
                 style={{ color: "rgba(28,25,23,0.8)" }}
                 onClick={() => setOpen(false)}
                 prefetch={false}
@@ -157,8 +150,8 @@ export function Header() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center py-2.5 rounded-full text-sm font-bold transition-all"
-                style={{ backgroundColor: "#d4af37", color: "#1c1917" }}
+                className="block w-full text-center py-2.5 rounded text-sm font-bold transition-opacity hover:opacity-85"
+                style={{ backgroundColor: "var(--gold-strong)", color: "#fff" }}
                 onClick={() => {
                   trackEvent("line_click", { location: "header_mobile" })
                   setOpen(false)

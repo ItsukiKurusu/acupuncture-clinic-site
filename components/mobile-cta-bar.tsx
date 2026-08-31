@@ -10,7 +10,7 @@ export function MobileCtaBar() {
       className="lg:hidden fixed bottom-0 left-0 right-0 z-40 grid grid-cols-2"
       style={{
         paddingBottom: "env(safe-area-inset-bottom)",
-        boxShadow: "0 -2px 16px rgba(0,0,0,0.12)",
+        borderTop: "1px solid rgba(255,255,255,0.15)",
       }}
     >
       <a

@@ -37,10 +37,10 @@ export function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 group"
+              className="bg-white p-8 rounded duration-300 border border-gray-100 group"
             >
-              <div className="w-14 h-14 bg-[#f8f9fa] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#d4af37] transition-colors duration-300">
-                <feature.icon className="w-6 h-6 text-[#d4af37] group-hover:text-white transition-colors duration-300" />
+              <div className="w-14 h-14 bg-[#f8f9fa] rounded flex items-center justify-center mb-6 group-hover:bg-[color:var(--gold-strong)] transition-colors duration-300">
+                <feature.icon className="w-6 h-6 text-[color:var(--gold-strong)] group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="text-xl font-serif font-medium mb-4 text-[#333]">{feature.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
@@ -49,7 +49,7 @@ export function Features() {
         </div>
 
         <div className="mt-16 max-w-4xl mx-auto">
-          <div className="relative w-full h-auto rounded-xl overflow-hidden shadow-xl">
+          <div className="relative w-full h-auto rounded overflow-hidden">
             <Image
               src="/matrix-prove.jpg"
               alt="MATRIX WAVE 実績"

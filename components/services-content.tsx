@@ -84,7 +84,7 @@ export function ServicesContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-green-50 pt-20 pb-16">
+      <section className="relative bg-background pt-20 pb-16">
         <div className="container mx-auto px-4 text-center" ref={heroRef}>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             施術内容・料金
@@ -108,7 +108,7 @@ export function ServicesContent() {
 
               <div className="grid gap-6 md:gap-8 max-w-4xl mx-auto">
                 {getServicesByCategory(category).map((service, index) => (
-                  <Card key={`${category}-${index}`} className="service-card hover:shadow-xl transition-all duration-300 border-l-4 border-l-black">
+                  <Card key={`${category}-${index}`} className="service-card transition-all duration-300 border-l-4 border-l-black">
                     <CardContent className="p-6 md:p-8">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div className="flex-1">
@@ -154,7 +154,7 @@ export function ServicesContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-gray-800 to-black text-white py-16">
+      <section className="text-white py-16" style={{ backgroundColor: "var(--ink)" }}>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ご予約・お問い合わせ
@@ -183,7 +183,7 @@ export function ServicesContent() {
               施術について
             </h3>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded">
                 <h4 className="text-lg font-bold text-gray-800 mb-3">
                   ⏰ 施術時間の目安
                 </h4>
@@ -194,7 +194,7 @@ export function ServicesContent() {
                   <li>• EMSトレーニング：30分</li>
                 </ul>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded">
                 <h4 className="text-lg font-bold text-gray-800 mb-3">
                   💳 お支払い方法
                 </h4>
@@ -206,7 +206,7 @@ export function ServicesContent() {
                 <p className="text-xs text-gray-400 mt-3">※保険診療は行っておりません（自費診療のみ）</p>
               </div>
             </div>
-            <div className="mt-8 bg-gray-100 p-6 rounded-lg">
+            <div className="mt-8 bg-gray-100 p-6 rounded">
               <p className="text-center text-gray-700">
                 <span className="font-semibold">初回の方は</span>カウンセリング時間を含むため、お時間に余裕を持ってお越しください。<br />
                 症状や体調により施術内容を調整いたしますので、事前にご相談ください。

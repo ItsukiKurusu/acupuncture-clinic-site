@@ -5,7 +5,7 @@ export function Mechanism() {
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative h-[500px] rounded-2xl overflow-hidden bg-gray-100">
+          <div className="relative h-[500px] rounded overflow-hidden bg-gray-100">
             <Image
               src="/nef.png"
               alt="Mechanism Visualization"
@@ -24,7 +24,7 @@ export function Mechanism() {
 
             <div className="space-y-6 pt-4">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#e6f3f7] flex items-center justify-center shrink-0 text-[#333] font-serif font-bold">
+                <div className="w-12 h-12 rounded bg-[#e6f3f7] flex items-center justify-center shrink-0 text-[#333] font-serif font-bold">
                   01
                 </div>
                 <div>
@@ -34,7 +34,7 @@ export function Mechanism() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#e6f3f7] flex items-center justify-center shrink-0 text-[#333] font-serif font-bold">
+                <div className="w-12 h-12 rounded bg-[#e6f3f7] flex items-center justify-center shrink-0 text-[#333] font-serif font-bold">
                   02
                 </div>
                 <div>
@@ -44,7 +44,7 @@ export function Mechanism() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#e6f3f7] flex items-center justify-center shrink-0 text-[#333] font-serif font-bold">
+                <div className="w-12 h-12 rounded bg-[#e6f3f7] flex items-center justify-center shrink-0 text-[#333] font-serif font-bold">
                   03
                 </div>
                 <div>

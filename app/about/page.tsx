@@ -24,12 +24,12 @@ export default function AboutPage() {
                   width={450}
                   height={560}
                   alt="院長 羽田野 裕稀"
-                  className="mx-auto aspect-[4/5] overflow-hidden rounded-xl object-cover object-top w-full h-auto sm:w-full max-w-[450px]"
+                  className="mx-auto aspect-[4/5] overflow-hidden rounded object-cover object-top w-full h-auto sm:w-full max-w-[450px]"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4 text-left lg:text-left">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm mb-2">
+                  <div className="inline-block rounded bg-secondary text-secondary-foreground px-3 py-1 text-sm mb-2">
                     院長紹介
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter">羽田野 裕稀 (はだの ひろき)</h2>

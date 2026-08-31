@@ -59,13 +59,13 @@ export function ScenesGallery() {
           muted
           loop
           playsInline
-          className="rounded-xl shadow-lg object-cover w-full h-full"
+          className="rounded object-cover w-full h-full"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         />
         <motion.h1
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-[#bfae9e] bg-white/70 px-6 py-2 rounded-xl shadow"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-[#bfae9e] bg-white/70 px-6 py-2 rounded"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -80,7 +80,7 @@ export function ScenesGallery() {
           {gallery.map((item, idx) => (
             <motion.div
               key={idx}
-              className="cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden w-[420px] flex flex-col items-center transition-all"
+              className="cursor-pointer bg-white rounded overflow-hidden w-[420px] flex flex-col items-center transition-all"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -118,11 +118,11 @@ export function ScenesGallery() {
               alt={preview.alt}
               width={1477}
               height={1108}
-              className="max-w-[90vw] max-h-[80vh] w-auto h-auto rounded-2xl shadow-2xl"
+              className="max-w-[90vw] max-h-[80vh] w-auto h-auto rounded"
             />
             <div className="text-center text-[#bfae9e] text-xl font-semibold mt-4">{preview.caption}</div>
             <button
-              className="absolute top-2 right-2 text-white bg-[#bfae9e] rounded-full px-3 py-1 text-lg"
+              className="absolute top-2 right-2 text-white bg-[#bfae9e] rounded px-3 py-1 text-lg"
               onClick={() => setPreview(null)}
             >
               ×

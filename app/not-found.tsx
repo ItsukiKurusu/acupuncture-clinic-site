@@ -27,7 +27,7 @@ export default function NotFound() {
         <div className="text-center mb-12">
           <p
             className="text-sm font-semibold tracking-[0.35em] uppercase mb-4"
-            style={{ color: '#b8960a' }}
+            style={{ color: 'var(--gold-strong)' }}
           >
             404
           </p>
@@ -49,8 +49,8 @@ export default function NotFound() {
             <Link
               key={href}
               href={href}
-              className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              style={{ border: '1px solid #e8e0cc', borderTop: '3px solid #d4af37' }}
+              className="bg-white rounded p-6 transition-all duration-300"
+              style={{ border: '1px solid var(--hairline)' }}
             >
               <span className="block font-bold mb-1.5" style={{ color: '#1c1917' }}>
                 {label}
@@ -65,8 +65,8 @@ export default function NotFound() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-bold transition-all hover:scale-105"
-            style={{ backgroundColor: '#06C755', color: '#fff', boxShadow: '0 4px 18px rgba(6,199,85,0.32)' }}
+            className="inline-flex items-center justify-center px-8 py-3 rounded text-sm font-bold transition-opacity hover:opacity-90"
+            style={{ backgroundColor: '#06C755', color: '#fff' }}
           >
             LINEでご予約はこちら
           </Link>

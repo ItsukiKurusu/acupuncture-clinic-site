@@ -35,7 +35,7 @@ export default function IrukaPage() {
               <p className="text-sm md:text-base" style={{ color: "#78716c" }}>
                 六本松いきいきコラム アーカイブ
               </p>
-              <div className="w-12 h-px mt-2" style={{ backgroundColor: "#d4af37" }} />
+              <div className="w-12 h-px mt-2" style={{ backgroundColor: "var(--gold)" }} />
               <p className="max-w-lg text-sm md:text-base leading-relaxed" style={{ color: "#78716c" }}>
                 地域情報誌「いるか」に掲載している、鍼灸HANEのセルフケアコラムです。
                 毎月、日常で役立つ健康情報をお届けしています。

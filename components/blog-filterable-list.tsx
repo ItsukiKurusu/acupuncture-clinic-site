@@ -95,7 +95,7 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
                 type="button"
                 onClick={() => handleCategoryChange(category)}
                 aria-pressed={isActive}
-                className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                className={`px-5 py-2 rounded text-sm font-semibold border transition-colors ${
                   isActive
                     ? 'bg-[#1c1917] text-white border-[#1c1917]'
                     : 'bg-white text-gray-700 border-gray-300 hover:border-[#1c1917] hover:text-[#1c1917]'
@@ -118,10 +118,10 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
             <button
               type="button"
               onClick={() => setSelectedTag('all')}
-              className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
+              className={`px-3 py-1.5 rounded text-sm border transition-colors ${
                 selectedTag === 'all'
-                  ? 'bg-[#d4af37] text-white border-[#d4af37]'
-                  : 'bg-white text-gray-700 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]'
+                  ? 'bg-[color:var(--gold-strong)] text-white border-[color:var(--gold-strong)]'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-[color:var(--gold)] hover:text-[color:var(--gold-strong)]'
               }`}
             >
               すべて
@@ -132,10 +132,10 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
                 key={tag}
                 type="button"
                 onClick={() => setSelectedTag(tag)}
-                className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
+                className={`px-3 py-1.5 rounded text-sm border transition-colors ${
                   selectedTag === tag
-                    ? 'bg-[#d4af37] text-white border-[#d4af37]'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-[#d4af37] hover:text-[#d4af37]'
+                    ? 'bg-[color:var(--gold-strong)] text-white border-[color:var(--gold-strong)]'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-[color:var(--gold)] hover:text-[color:var(--gold-strong)]'
                 }`}
               >
                 {tag}
@@ -155,12 +155,12 @@ export function BlogFilterableList({ posts }: BlogFilterableListProps) {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="group bg-white rounded overflow-hidden transition-all duration-300"
             >
               <div className="p-6">
                 <CategoryBadge category={post.category} className="mb-3" />
 
-                <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#d4af37] transition-colors line-clamp-2">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[color:var(--gold-strong)] transition-colors line-clamp-2">
                   {post.title}
                 </h2>
 

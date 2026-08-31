@@ -11,7 +11,7 @@ interface SymptomContentProps {
   otherSymptoms: Symptom[]
 }
 
-const GOLD = '#d4af37'
+const GOLD = 'var(--gold)'
 const INK = '#1c1917'
 
 export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: SymptomContentProps) {
@@ -23,8 +23,8 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
       {/* 導入 */}
       <header className="mb-14">
         <div
-          className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase mb-4"
-          style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#b8960a' }}
+          className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+          style={{ color: 'var(--gold-strong)' }}
         >
           症状別のご案内
         </div>
@@ -52,7 +52,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
         </h2>
         <ul className="grid gap-3 sm:grid-cols-2">
           {symptom.checklist.map((item) => (
-            <li key={item} className="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-4">
+            <li key={item} className="flex items-start gap-3 bg-white border border-gray-200 rounded p-4">
               <Check className="w-5 h-5 mt-0.5 flex-none" style={{ color: GOLD }} aria-hidden="true" />
               <span className="text-gray-700">{item}</span>
             </li>
@@ -84,8 +84,8 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
           {symptom.approach.map((step, index) => (
             <li key={step.heading} className="flex gap-4">
               <span
-                className="flex-none w-8 h-8 rounded-full grid place-items-center text-sm font-bold"
-                style={{ backgroundColor: 'rgba(212,175,55,0.15)', color: '#b8960a' }}
+                className="flex-none w-8 h-8 rounded grid place-items-center text-sm font-bold"
+                style={{ color: 'var(--gold-strong)', border: '1px solid var(--gold)' }}
                 aria-hidden="true"
               >
                 {index + 1}
@@ -104,7 +104,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
         <h2 className="text-2xl font-bold mb-6 pb-2 border-b-2" style={{ color: INK, borderColor: 'rgba(212,175,55,0.3)' }}>
           料金の目安
         </h2>
-        <div className="overflow-x-auto border border-gray-200 rounded-lg bg-white">
+        <div className="overflow-x-auto border border-gray-200 rounded bg-white">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 bg-gray-50">
@@ -129,7 +129,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
         </div>
         <p className="text-sm text-gray-600 mt-3">
           当院は自費診療のみで、保険診療は行っておりません。
-          <Link href="/services" className="ml-1 font-medium hover:underline" style={{ color: '#b8960a' }}>
+          <Link href="/services" className="ml-1 font-medium hover:underline" style={{ color: 'var(--gold-strong)' }}>
             全メニューと料金を見る
           </Link>
         </p>
@@ -142,7 +142,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
         </h2>
         <div className="flex flex-col gap-4">
           {symptom.faqs.map((faq) => (
-            <details key={faq.q} className="group bg-white border border-gray-200 rounded-lg">
+            <details key={faq.q} className="group bg-white border border-gray-200 rounded">
               <summary className="cursor-pointer px-5 py-4 font-bold text-gray-900 marker:content-none [&::-webkit-details-marker]:hidden flex items-start gap-3">
                 <span className="flex-none font-bold" style={{ color: GOLD }} aria-hidden="true">Q</span>
                 <span>{faq.q}</span>
@@ -167,7 +167,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block p-5 bg-white border border-gray-200 rounded-lg hover:border-[#d4af37] hover:shadow-md transition-all"
+                className="block p-5 bg-white border border-gray-200 rounded hover:border-[color:var(--gold)] transition-all"
               >
                 <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
                 <p className="text-sm text-gray-600 line-clamp-3">{post.excerpt}</p>
@@ -179,8 +179,8 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
 
       {/* CTA */}
       <section
-        className="rounded-lg p-8 text-center mb-14"
-        style={{ background: 'linear-gradient(to right, rgba(212,175,55,0.12), rgba(212,175,55,0.05))' }}
+        className="rounded p-8 text-center mb-14"
+        style={{ background: 'linear-gradient(to right, transparent, rgba(212,175,55,0.05))' }}
       >
         <h2 className="text-2xl font-bold mb-3" style={{ color: INK }}>
           {symptom.name}のご相談・ご予約
@@ -208,7 +208,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
               <li key={other.slug}>
                 <Link
                   href={`/symptoms/${other.slug}`}
-                  className="inline-flex items-center gap-2 text-gray-700 hover:text-[#b8960a] transition-colors"
+                  className="inline-flex items-center gap-2 text-gray-700 hover:text-[var(--gold-strong)] transition-colors"
                 >
                   <ArrowRight className="w-4 h-4" style={{ color: GOLD }} />
                   <span>六本松で{other.name}にお悩みの方へ</span>

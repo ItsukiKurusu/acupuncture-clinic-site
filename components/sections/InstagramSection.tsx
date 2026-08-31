@@ -34,8 +34,8 @@ export function InstagramSection({ instagramUrl }: { instagramUrl: string }) {
         >
           <motion.div variants={item}>
             <span
-              className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-              style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+              className="inline-block text-xs font-semibold tracking-[0.2em] uppercase"
+              style={{ color: "var(--gold-strong)" }}
             >
               Instagram
             </span>
@@ -82,7 +82,7 @@ export function InstagramSection({ instagramUrl }: { instagramUrl: string }) {
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded text-sm font-semibold text-white transition-opacity hover:opacity-90"
             style={{
               background: "linear-gradient(135deg, #f09433 0%, #dc2743 50%, #bc1888 100%)",
             }}
