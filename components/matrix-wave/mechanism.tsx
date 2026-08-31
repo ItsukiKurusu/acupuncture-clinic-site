@@ -7,7 +7,7 @@ export function Mechanism() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[500px] rounded overflow-hidden bg-gray-100">
             <Image
-              src="/nef.png"
+              src="/nef.webp"
               alt="Mechanism Visualization"
               fill
               className="object-contain"

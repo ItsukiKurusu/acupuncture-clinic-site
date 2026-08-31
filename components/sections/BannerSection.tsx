@@ -7,12 +7,12 @@ import { BOOKING_URL } from "@/lib/site-config"
 const banners = [
   {
     href: "https://www.shinq-compass.jp/salon/reserve/37835",
-    src: "/hp-banner2.png",
+    src: "/hp-banner2.webp",
     alt: "キャンペーン",
   },
   {
     href: BOOKING_URL,
-    src: "/line-banner.png",
+    src: "/line-banner.webp",
     alt: "LINE追加バナー",
   },
 ]

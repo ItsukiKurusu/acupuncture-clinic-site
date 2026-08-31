@@ -5,42 +5,42 @@ import { motion } from "framer-motion";
 
 const gallery = [
   {
-    src: "/treatment1.jpg",
+    src: "/treatment1.webp",
     alt: "施術風景1",
     caption: "電気治療の施術",
   },
   {
-    src: "/treatment2.jpg",
+    src: "/treatment2.webp",
     alt: "施術風景2",
     caption: "背部のマッサージ",
   },
   {
-    src: "/treatment3.jpg",
+    src: "/treatment3.webp",
     alt: "施術風景3",
     caption: "頸部の手技",
   },
   {
-    src: "/treatment4.jpg",
+    src: "/treatment4.webp",
     alt: "施術風景4",
     caption: "鍼施術の様子",
   },
   {
-    src: "/treatment5.jpg",
+    src: "/treatment5.webp",
     alt: "施術風景5",
     caption: "ストレッチによるケア",
   },
   {
-    src: "/treatment6.jpg",
+    src: "/treatment6.webp",
     alt: "施術風景6",
     caption: "脚の施術",
   },
   {
-    src: "/treatment7.jpg",
+    src: "/treatment7.webp",
     alt: "施術風景7",
     caption: "電気治療の施術",
   },
   {
-    src: "/treatment8.jpg",
+    src: "/treatment8.webp",
     alt: "施術風景8",
     caption: "姿勢改善の指導",
   },

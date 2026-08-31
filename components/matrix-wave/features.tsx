@@ -51,7 +51,7 @@ export function Features() {
         <div className="mt-16 max-w-4xl mx-auto">
           <div className="relative w-full h-auto rounded overflow-hidden">
             <Image
-              src="/matrix-prove.jpg"
+              src="/matrix-prove.webp"
               alt="MATRIX WAVE 実績"
               width={1200}
               height={800}
