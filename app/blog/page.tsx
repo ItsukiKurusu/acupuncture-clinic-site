@@ -42,7 +42,7 @@ export default function BlogPage() {
           <div className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--gold-strong)" }}>
             Blog
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1c1917" }}>
+          <h1 className="heading-mincho text-3xl md:text-4xl mb-4" style={{ color: "#1c1917" }}>
             ブログ
           </h1>
           <p className="text-lg text-muted-foreground">

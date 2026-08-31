@@ -33,9 +33,8 @@ export function IrukaSection() {
           >
             <div className="px-6 pt-8 text-center md:px-10 md:pt-10">
               <p
-                className="text-2xl font-bold md:text-3xl"
+                className="heading-mincho text-2xl md:text-3xl"
                 style={{
-                  fontFamily: "var(--font-serif)",
                   color: "#1c1917",
                 }}
               >

@@ -28,7 +28,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
         >
           症状別のご案内
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-5 leading-snug" style={{ color: INK }}>
+        <h1 className="heading-mincho text-3xl md:text-4xl mb-5 leading-relaxed" style={{ color: INK }}>
           {symptom.heading}
         </h1>
         <p className="text-lg leading-relaxed text-gray-700">{symptom.lead}</p>
@@ -167,7 +167,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block p-5 bg-white border border-gray-200 rounded hover:border-[color:var(--gold)] transition-all"
+                className="hover-card block p-5 bg-white rounded" style={{ border: '1px solid var(--hairline)' }}
               >
                 <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
                 <p className="text-sm text-gray-600 line-clamp-3">{post.excerpt}</p>

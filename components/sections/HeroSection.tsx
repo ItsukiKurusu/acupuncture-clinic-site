@@ -92,8 +92,7 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
 
         <motion.h1
           variants={childVariants}
-          className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] font-bold tracking-tight text-white drop-shadow-lg leading-snug mb-5"
-          style={{ fontFamily: "var(--font-serif)" }}
+          className="heading-mincho text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] text-white drop-shadow-lg leading-relaxed mb-5"
         >
           六本松の鍼灸院<br />心と身体を癒す、伝統の鍼灸
         </motion.h1>

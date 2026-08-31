@@ -32,8 +32,8 @@ export default function NotFound() {
             404
           </p>
           <h1
-            className="text-3xl md:text-4xl font-bold mb-5"
-            style={{ color: '#1c1917', fontFamily: 'var(--font-serif)' }}
+            className="heading-mincho text-3xl md:text-4xl mb-5"
+            style={{ color: '#1c1917' }}
           >
             お探しのページが見つかりませんでした
           </h1>
@@ -49,7 +49,7 @@ export default function NotFound() {
             <Link
               key={href}
               href={href}
-              className="bg-white rounded p-6 transition-all duration-300"
+              className="hover-card bg-white rounded p-6"
               style={{ border: '1px solid var(--hairline)' }}
             >
               <span className="block font-bold mb-1.5" style={{ color: '#1c1917' }}>

@@ -9,7 +9,7 @@ export default function ServicesPage() {
     <>
       <ServicesStructuredData />
       <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: '施術内容' }]} />
-      <div className="flex flex-col min-h-[100dvh] bg-background text-foreground" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
+      <div className="flex flex-col min-h-[100dvh] bg-background text-foreground">
         <Header />
         <main className="flex-1">
           <ServicesContent />

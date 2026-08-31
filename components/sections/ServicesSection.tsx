@@ -63,8 +63,7 @@ export function ServicesSection() {
           </motion.div>
           <motion.h2
             variants={item}
-            className="text-3xl font-bold tracking-tight md:text-4xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl md:text-4xl"
           >
             多彩な施術メニュー
           </motion.h2>

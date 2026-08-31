@@ -65,7 +65,7 @@ export function ScenesGallery() {
           transition={{ duration: 1 }}
         />
         <motion.h1
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-[#bfae9e] bg-white/70 px-6 py-2 rounded"
+          className="heading-mincho absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl text-[#8a7461] bg-white/80 px-6 py-2 rounded"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}

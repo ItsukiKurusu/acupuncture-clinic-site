@@ -52,9 +52,8 @@ export function Header() {
             style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }}
           />
           <span
-            className="text-xl font-semibold tracking-wide transition-colors duration-500"
+            className="heading-mincho text-xl transition-colors duration-500"
             style={{
-              fontFamily: "var(--font-serif)",
               color: scrolled ? "#1c1917" : "rgba(255,255,255,0.95)",
             }}
           >

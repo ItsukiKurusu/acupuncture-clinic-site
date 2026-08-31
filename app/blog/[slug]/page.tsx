@@ -110,7 +110,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <CategoryBadge category={post.category} className="mb-4" />
 
         {/* タイトル */}
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h1 className="heading-mincho text-3xl md:text-4xl text-gray-900 mb-6 leading-relaxed">
           {post.title}
         </h1>
 
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={relatedPost.slug}
                   href={`/blog/${relatedPost.slug}`}
-                  className="block p-5 bg-white border border-gray-200 rounded hover:border-[color:var(--gold)] transition-all"
+                  className="hover-card block p-5 bg-white rounded" style={{ border: '1px solid var(--hairline)' }}
                 >
                   <CategoryBadge category={relatedPost.category} className="mb-2" />
                   <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
@@ -186,7 +186,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={symptom.slug}
                   href={`/symptoms/${symptom.slug}`}
-                  className="block bg-white rounded p-6 transition-all duration-300"
+                  className="hover-card block bg-white rounded p-6"
                   style={{ border: '1px solid var(--hairline)' }}
                 >
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -199,7 +199,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
           <Link
             href="/symptoms"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline"
+            className="hover-underline inline-flex items-center gap-1.5 text-sm font-semibold"
             style={{ color: 'var(--gold-strong)' }}
           >
             症状別のご案内をすべて見る

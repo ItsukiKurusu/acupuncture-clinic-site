@@ -32,7 +32,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
         >
           <Link href={`/blog/${post.slug}`} className="group block h-full">
             <div
-              className="h-full bg-white rounded overflow-hidden duration-300"
+              className="hover-card h-full bg-white rounded overflow-hidden"
               style={{ border: "1px solid var(--hairline)" }}
             >
               {post.coverImage && !post.coverImage.endsWith(".mp4") && (

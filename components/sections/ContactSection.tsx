@@ -33,8 +33,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             アクセス
           </span>
           <h2
-            className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl sm:text-4xl"
           >
             ご予約・お問い合わせ
           </h2>
@@ -52,8 +51,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
           >
             <motion.h3
               variants={item}
-              className="text-2xl font-bold"
-              style={{ fontFamily: "var(--font-serif)" }}
+              className="heading-mincho text-2xl"
             >
               鍼灸HANE
             </motion.h3>

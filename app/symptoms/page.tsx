@@ -46,7 +46,7 @@ export default function SymptomsIndexPage() {
           >
             Symptoms
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#1c1917' }}>
+          <h1 className="heading-mincho text-3xl md:text-4xl mb-4" style={{ color: '#1c1917' }}>
             症状別のご案内
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -60,16 +60,16 @@ export default function SymptomsIndexPage() {
             <Link
               key={symptom.slug}
               href={`/symptoms/${symptom.slug}`}
-              className="group bg-white rounded p-7 transition-all duration-300"
+              className="group hover-card bg-white rounded p-7"
               style={{ border: '1px solid var(--hairline)' }}
             >
               <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--gold-strong)] transition-colors">
                 {symptom.name}
               </h2>
               <p className="text-gray-600 mb-5 leading-relaxed">{symptom.summary}</p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: 'var(--gold-strong)' }}>
+              <span className="hover-underline inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: 'var(--gold-strong)' }}>
                 詳しく見る
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="hover-arrow w-4 h-4" />
               </span>
             </Link>
           ))}

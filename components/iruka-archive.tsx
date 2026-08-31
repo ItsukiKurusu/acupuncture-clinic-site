@@ -62,7 +62,7 @@ export function IrukaArchive() {
               aria-label={`${issue.alt}を拡大表示`}
             >
               <div
-                className="overflow-hidden rounded"
+                className="hover-zoom rounded"
                 style={{ border: "1px solid var(--hairline)" }}
               >
                 <Image

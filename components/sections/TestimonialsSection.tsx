@@ -35,8 +35,7 @@ export function TestimonialsSection({ reviewsUrl }: { reviewsUrl: string }) {
             お客様の声
           </span>
           <h2
-            className="text-3xl font-bold tracking-tight md:text-4xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl md:text-4xl"
           >
             ご来院されたお客様より
           </h2>

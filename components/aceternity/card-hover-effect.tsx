@@ -27,7 +27,7 @@ export function HoverEffect({
       {items.map((item, idx) => (
         <div
           key={idx}
-          className="h-full bg-white flex flex-col items-center text-center p-7 rounded transition-colors duration-200 hover:border-[color:var(--gold)]"
+          className="hover-card h-full bg-white flex flex-col items-center text-center p-7 rounded"
           style={{ border: "1px solid var(--hairline)" }}
         >
           {item.icon && <div className="mb-4">{item.icon}</div>}

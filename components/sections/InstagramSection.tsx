@@ -42,8 +42,7 @@ export function InstagramSection({ instagramUrl }: { instagramUrl: string }) {
           </motion.div>
           <motion.h2
             variants={item}
-            className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl sm:text-4xl"
           >
             日々の情報はこちらから
           </motion.h2>

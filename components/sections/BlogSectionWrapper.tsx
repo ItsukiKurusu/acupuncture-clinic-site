@@ -23,8 +23,7 @@ export function BlogSectionWrapper({ posts }: { posts: BlogPostMeta[] }) {
             Blog
           </span>
           <h2
-            className="text-3xl font-bold tracking-tight sm:text-5xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl sm:text-5xl"
           >
             ブログ
           </h2>

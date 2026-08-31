@@ -39,8 +39,7 @@ export function Footer() {
                 className="object-contain opacity-85"
               />
               <span
-                className="text-xl font-semibold text-white"
-                style={{ fontFamily: "var(--font-serif)" }}
+                className="heading-mincho text-xl text-white"
               >
                 鍼灸HANE
               </span>

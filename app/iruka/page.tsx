@@ -7,7 +7,7 @@ export default function IrukaPage() {
   return (
     <div
       className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full"
-      style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}
+     
     >
       <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: 'いるか新聞' }]} />
       <Header />
@@ -24,9 +24,8 @@ export default function IrukaPage() {
                 Iruka Newspaper
               </p>
               <h1
-                className="text-3xl font-bold md:text-4xl"
+                className="heading-mincho text-3xl md:text-4xl"
                 style={{
-                  fontFamily: "var(--font-serif)",
                   color: "#1c1917",
                 }}
               >
