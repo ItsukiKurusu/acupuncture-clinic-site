@@ -27,14 +27,13 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
           viewport={{ once: true, margin: "-80px" }}
         >
           <span
-            className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-            style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase"
+            style={{ color: "var(--gold-strong)" }}
           >
             アクセス
           </span>
           <h2
-            className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl sm:text-4xl"
           >
             ご予約・お問い合わせ
           </h2>
@@ -52,14 +51,13 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
           >
             <motion.h3
               variants={item}
-              className="text-2xl font-bold"
-              style={{ fontFamily: "var(--font-serif)" }}
+              className="heading-mincho text-2xl"
             >
               鍼灸HANE
             </motion.h3>
 
             <motion.div variants={item} className="flex items-start gap-3 text-muted-foreground">
-              <MapPin className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "#b8960a" }} />
+              <MapPin className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "var(--gold-strong)" }} />
               <span className="text-sm leading-relaxed">
                 〒810-0044<br />
                 福岡県福岡市中央区六本松4丁目5-39<br />
@@ -69,7 +67,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             </motion.div>
 
             <motion.div variants={item} className="flex items-center gap-3 text-muted-foreground">
-              <Phone className="h-5 w-5 shrink-0" style={{ color: "#b8960a" }} />
+              <Phone className="h-5 w-5 shrink-0" style={{ color: "var(--gold-strong)" }} />
               <a
                 href={TEL_HREF}
                 onClick={() => trackEvent("tel_click", { location: "contact_section" })}
@@ -80,7 +78,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
             </motion.div>
 
             <motion.div variants={item} className="flex items-start gap-3 text-muted-foreground">
-              <Clock className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "#b8960a" }} />
+              <Clock className="h-5 w-5 mt-0.5 shrink-0" style={{ color: "var(--gold-strong)" }} />
               <div className="text-sm leading-relaxed">
                 <p>月〜土：10:00 – 20:00</p>
                 <p>日・祝：定休日</p>
@@ -94,12 +92,8 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("line_click", { location: "contact_section" })}
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all hover:scale-105"
-                style={{
-                  backgroundColor: "#06C755",
-                  color: "#fff",
-                  boxShadow: "0 4px 18px rgba(6,199,85,0.32)",
-                }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded text-sm font-bold transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#06C755", color: "#fff" }}
               >
                 LINEで予約する
               </Link>
@@ -108,8 +102,8 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
 
           {/* Map */}
           <motion.div
-            className="relative h-[300px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg"
-            style={{ border: "1px solid #e8e0cc" }}
+            className="relative h-[300px] sm:h-[420px] rounded overflow-hidden"
+            style={{ border: "1px solid var(--hairline)" }}
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}

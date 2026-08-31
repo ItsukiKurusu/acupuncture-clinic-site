@@ -39,8 +39,7 @@ export function Footer() {
                 className="object-contain opacity-85"
               />
               <span
-                className="text-xl font-semibold text-white"
-                style={{ fontFamily: "var(--font-serif)" }}
+                className="heading-mincho text-xl text-white"
               >
                 鍼灸HANE
               </span>
@@ -64,12 +63,12 @@ export function Footer() {
 
           {/* Access */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#d4af37" }}>
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>
               アクセス
             </h4>
             <address className="not-italic text-sm leading-relaxed space-y-1" style={{ color: "rgba(255,255,255,0.65)" }}>
               <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "#d4af37" }} />
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "var(--gold)" }} />
                 <span>
                   〒810-0044<br />
                   福岡市中央区六本松4丁目5-39<br />
@@ -80,7 +79,7 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-2 pt-1">
-                <Phone className="h-4 w-4 shrink-0" style={{ color: "#d4af37" }} />
+                <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--gold)" }} />
                 <a
                   href={TEL_HREF}
                   onClick={() => trackEvent("tel_click", { location: "footer" })}
@@ -94,11 +93,11 @@ export function Footer() {
 
           {/* Hours & Booking */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#d4af37" }}>
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>
               営業時間
             </h4>
             <div className="flex items-start gap-2 text-sm mb-4" style={{ color: "rgba(255,255,255,0.65)" }}>
-              <Clock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "#d4af37" }} />
+              <Clock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: "var(--gold)" }} />
               <div className="space-y-0.5">
                 <p>月〜土：10:00 – 20:00</p>
                 <p>日・祝：定休日</p>
@@ -110,7 +109,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("line_click", { location: "footer" })}
-              className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-md transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#06C755", color: "#fff" }}
             >
               LINEで予約する
@@ -119,7 +118,7 @@ export function Footer() {
 
           {/* Sitemap */}
           <nav aria-label="サイト内リンク">
-            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#d4af37" }}>
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>
               サイトマップ
             </h4>
             <ul className="space-y-2 text-sm">

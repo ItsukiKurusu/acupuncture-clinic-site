@@ -5,42 +5,42 @@ import { motion } from "framer-motion";
 
 const gallery = [
   {
-    src: "/treatment1.jpg",
+    src: "/treatment1.webp",
     alt: "施術風景1",
     caption: "電気治療の施術",
   },
   {
-    src: "/treatment2.jpg",
+    src: "/treatment2.webp",
     alt: "施術風景2",
     caption: "背部のマッサージ",
   },
   {
-    src: "/treatment3.jpg",
+    src: "/treatment3.webp",
     alt: "施術風景3",
     caption: "頸部の手技",
   },
   {
-    src: "/treatment4.jpg",
+    src: "/treatment4.webp",
     alt: "施術風景4",
     caption: "鍼施術の様子",
   },
   {
-    src: "/treatment5.jpg",
+    src: "/treatment5.webp",
     alt: "施術風景5",
     caption: "ストレッチによるケア",
   },
   {
-    src: "/treatment6.jpg",
+    src: "/treatment6.webp",
     alt: "施術風景6",
     caption: "脚の施術",
   },
   {
-    src: "/treatment7.jpg",
+    src: "/treatment7.webp",
     alt: "施術風景7",
     caption: "電気治療の施術",
   },
   {
-    src: "/treatment8.jpg",
+    src: "/treatment8.webp",
     alt: "施術風景8",
     caption: "姿勢改善の指導",
   },
@@ -59,13 +59,13 @@ export function ScenesGallery() {
           muted
           loop
           playsInline
-          className="rounded-xl shadow-lg object-cover w-full h-full"
+          className="rounded object-cover w-full h-full"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         />
         <motion.h1
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-[#bfae9e] bg-white/70 px-6 py-2 rounded-xl shadow"
+          className="heading-mincho absolute bottom-8 left-1/2 -translate-x-1/2 text-3xl md:text-4xl text-[#8a7461] bg-white/80 px-6 py-2 rounded"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -80,7 +80,7 @@ export function ScenesGallery() {
           {gallery.map((item, idx) => (
             <motion.div
               key={idx}
-              className="cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden w-[420px] flex flex-col items-center transition-all"
+              className="cursor-pointer bg-white rounded overflow-hidden w-[420px] flex flex-col items-center transition-all"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -118,11 +118,11 @@ export function ScenesGallery() {
               alt={preview.alt}
               width={1477}
               height={1108}
-              className="max-w-[90vw] max-h-[80vh] w-auto h-auto rounded-2xl shadow-2xl"
+              className="max-w-[90vw] max-h-[80vh] w-auto h-auto rounded"
             />
             <div className="text-center text-[#bfae9e] text-xl font-semibold mt-4">{preview.caption}</div>
             <button
-              className="absolute top-2 right-2 text-white bg-[#bfae9e] rounded-full px-3 py-1 text-lg"
+              className="absolute top-2 right-2 text-white bg-[#bfae9e] rounded px-3 py-1 text-lg"
               onClick={() => setPreview(null)}
             >
               ×

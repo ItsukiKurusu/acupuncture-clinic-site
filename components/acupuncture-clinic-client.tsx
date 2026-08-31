@@ -27,7 +27,7 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
   return (
     <>
       <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full">
-        <Header />
+        <Header variant="overlay" />
         <main className="flex-1">
           <HeroSection bookingUrl={BOOKING_URL} />
           <AboutSection bookingUrl={BOOKING_URL} />

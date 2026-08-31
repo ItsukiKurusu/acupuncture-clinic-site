@@ -1,18 +1,21 @@
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import BreadcrumbStructuredData from "@/components/breadcrumb-structured-data"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full" style={{ fontFamily: '"游ゴシック","MS Pゴシック","ヒラギノ角ゴ ProN",sans-serif' }}>
-      <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: '当院について' }]} />
+    <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full">
       <Header />
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full pt-6 pb-12 md:pb-24 lg:pb-32">
           <div className="container mx-auto w-full px-4 md:px-6">
+            <PageBreadcrumb
+              className="mb-10"
+              items={[{ name: 'ホーム', path: '/' }, { name: '当院について' }]}
+            />
             <div className="flex flex-col items-center text-center space-y-4 mb-12">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">当院について</h1>
+              <h1 className="heading-mincho text-3xl sm:text-4xl md:text-5xl">当院について</h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl">
                 私たちの理念と、施術へのこだわりをご紹介します。
               </p>
@@ -24,12 +27,12 @@ export default function AboutPage() {
                   width={450}
                   height={560}
                   alt="院長 羽田野 裕稀"
-                  className="mx-auto aspect-[4/5] overflow-hidden rounded-xl object-cover object-top w-full h-auto sm:w-full max-w-[450px]"
+                  className="mx-auto aspect-[4/5] overflow-hidden rounded object-cover object-top w-full h-auto sm:w-full max-w-[450px]"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4 text-left lg:text-left">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-secondary text-secondary-foreground px-3 py-1 text-sm mb-2">
+                  <div className="inline-block rounded bg-secondary text-secondary-foreground px-3 py-1 text-sm mb-2">
                     院長紹介
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter">羽田野 裕稀 (はだの ひろき)</h2>

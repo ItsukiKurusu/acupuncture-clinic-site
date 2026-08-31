@@ -83,13 +83,8 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
       >
         <motion.div variants={childVariants} className="mb-4">
           <span
-            className="text-[10px] font-semibold tracking-[0.35em] uppercase px-4 py-1.5 rounded-full"
-            style={{
-              backgroundColor: "rgba(212,175,55,0.22)",
-              color: "#f5d980",
-              backdropFilter: "blur(6px)",
-              border: "1px solid rgba(212,175,55,0.3)",
-            }}
+            className="text-[10px] font-semibold tracking-[0.35em] uppercase px-4 py-1.5 rounded"
+            style={{ color: "#fff", border: "1px solid rgba(255,255,255,0.45)" }}
           >
             福岡市中央区六本松
           </span>
@@ -97,8 +92,7 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
 
         <motion.h1
           variants={childVariants}
-          className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] font-bold tracking-tight text-white drop-shadow-lg leading-snug mb-5"
-          style={{ fontFamily: "var(--font-serif)" }}
+          className="heading-mincho text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] text-white drop-shadow-lg leading-relaxed mb-5"
         >
           六本松の鍼灸院<br />心と身体を癒す、伝統の鍼灸
         </motion.h1>
@@ -117,12 +111,8 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent("line_click", { location: "hero" })}
-            className="inline-flex items-center justify-center px-9 py-3.5 rounded-full text-sm font-bold tracking-wider transition-all duration-300 hover:scale-105"
-            style={{
-              backgroundColor: "#06C755",
-              color: "#fff",
-              boxShadow: "0 6px 24px rgba(6,199,85,0.4)",
-            }}
+            className="inline-flex items-center justify-center px-9 py-3.5 rounded text-sm font-bold tracking-wider transition-opacity duration-300 hover:opacity-90"
+            style={{ backgroundColor: "#06C755", color: "#fff" }}
           >
             LINEでご予約はこちら
           </Link>

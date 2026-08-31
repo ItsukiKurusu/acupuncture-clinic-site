@@ -13,13 +13,13 @@ export function MatrixWaveFooter() {
           </div>
 
           <div className="flex gap-8 text-sm text-gray-500">
-            <Link href="#" className="hover:text-[#d4af37] transition-colors">
+            <Link href="#" className="hover:text-[color:var(--gold-strong)] transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-[#d4af37] transition-colors">
+            <Link href="#" className="hover:text-[color:var(--gold-strong)] transition-colors">
               Terms of Service
             </Link>
-            <Link href="#" className="hover:text-[#d4af37] transition-colors">
+            <Link href="#" className="hover:text-[color:var(--gold-strong)] transition-colors">
               Contact
             </Link>
           </div>

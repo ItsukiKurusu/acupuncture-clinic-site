@@ -29,14 +29,13 @@ export function TestimonialsSection({ reviewsUrl }: { reviewsUrl: string }) {
           viewport={{ once: true, margin: "-80px" }}
         >
           <span
-            className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-            style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase"
+            style={{ color: "var(--gold-strong)" }}
           >
             お客様の声
           </span>
           <h2
-            className="text-3xl font-bold tracking-tight md:text-4xl"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="heading-mincho text-3xl md:text-4xl"
           >
             ご来院されたお客様より
           </h2>
@@ -46,10 +45,9 @@ export function TestimonialsSection({ reviewsUrl }: { reviewsUrl: string }) {
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              className="bg-white rounded-2xl p-7 shadow-md"
+              className="bg-white rounded p-7"
               style={{
-                border: "1px solid #e8e0cc",
-                borderLeft: "4px solid #d4af37",
+                border: "1px solid var(--hairline)",
               }}
               initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -59,12 +57,12 @@ export function TestimonialsSection({ reviewsUrl }: { reviewsUrl: string }) {
             >
               <div className="flex items-center gap-0.5 mb-4">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4" style={{ fill: "#d4af37", color: "#d4af37" }} />
+                  <Star key={j} className="w-4 h-4" style={{ fill: "var(--gold)", color: "var(--gold)" }} />
                 ))}
               </div>
               <h3 className="font-bold text-lg mb-3 text-foreground">{t.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-5">{t.body}</p>
-              <p className="text-sm font-semibold text-right" style={{ color: "#b8960a" }}>{t.name}</p>
+              <p className="text-sm font-semibold text-right" style={{ color: "var(--gold-strong)" }}>{t.name}</p>
             </motion.div>
           ))}
         </div>

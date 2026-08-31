@@ -28,14 +28,13 @@ export function IrukaSection() {
       >
         <div className="container mx-auto px-4 md:px-6">
           <div
-            className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-white shadow-sm"
-            style={{ border: "1px solid #e8e0cc" }}
+            className="mx-auto max-w-4xl overflow-hidden rounded bg-white"
+            style={{ border: "1px solid var(--hairline)" }}
           >
             <div className="px-6 pt-8 text-center md:px-10 md:pt-10">
               <p
-                className="text-2xl font-bold md:text-3xl"
+                className="heading-mincho text-2xl md:text-3xl"
                 style={{
-                  fontFamily: "var(--font-serif)",
                   color: "#1c1917",
                 }}
               >
@@ -61,8 +60,8 @@ export function IrukaSection() {
                     </span>
                     <button
                       onClick={() => setSelected(issue)}
-                      className="overflow-hidden rounded-xl transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-                      style={{ border: "1px solid #e8e0cc" }}
+                      className="overflow-hidden rounded transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                      style={{ border: "1px solid var(--hairline)" }}
                       aria-label={`${issue.alt}を拡大表示`}
                     >
                       <Image
@@ -99,7 +98,7 @@ export function IrukaSection() {
               <X size={20} />
               <span className="text-sm">閉じる</span>
             </button>
-            <div className="overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div className="overflow-hidden rounded bg-white">
               <Image
                 src={selected.src}
                 width={1600}

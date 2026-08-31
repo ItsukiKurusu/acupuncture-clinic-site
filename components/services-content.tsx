@@ -3,11 +3,9 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { services, serviceCategories as categories } from "@/lib/services-data";
-import { TEL_DISPLAY, TEL_HREF } from "@/lib/site-config";
+import { Clock, CreditCard, Phone } from 'lucide-react';
+import { services, serviceCategories as categories } from '@/lib/services-data';
+import { TEL_DISPLAY, TEL_HREF } from '@/lib/site-config';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,200 +14,190 @@ export function ServicesContent() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // GSAPはframer-motionのMotionConfigの管理外なので、ここで個別に判定する。
+    // 「視差効果を減らす」設定時はスクロール連動の動きを一切付けない。
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     const ctx = gsap.context(() => {
-      // Hero section animation
-      gsap.fromTo(heroRef.current,
-        {
-          opacity: 0,
-          y: 50
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power2.out"
-        }
+      gsap.fromTo(
+        heroRef.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
       );
 
-      // Cards animation
-      gsap.fromTo(".service-card",
-        {
-          opacity: 0,
-          y: 60
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
+      const scrollTrigger = {
+        trigger: cardsRef.current,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse',
+      } as const;
+
+      gsap.fromTo(
+        '.service-card',
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', scrollTrigger }
       );
 
-      // Category headers animation
-      gsap.fromTo(".category-header",
-        {
-          opacity: 0,
-          x: -30
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
+      gsap.fromTo(
+        '.category-header',
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out', scrollTrigger }
       );
     });
 
     return () => ctx.revert();
   }, []);
 
-  const getServicesByCategory = (category: string) => {
-    return services.filter(service => service.category === category);
-  };
+  const getServicesByCategory = (category: string) =>
+    services.filter((service) => service.category === category);
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-green-50 pt-20 pb-16">
-        <div className="container mx-auto px-4 text-center" ref={heroRef}>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            施術内容・料金
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            お一人お一人の症状や目的に合わせた、多彩な施術メニューをご用意しております。<br />
-            どの施術も、経験豊富な理学療法士が丁寧に対応いたします。
+      {/* 導入 */}
+      <section className="bg-background pt-10 pb-14">
+        <div className="container mx-auto px-4 text-center max-w-3xl" ref={heroRef}>
+          <span
+            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+            style={{ color: 'var(--gold-strong)' }}
+          >
+            Menu
+          </span>
+          <h1 className="heading-mincho text-3xl md:text-4xl mb-6">施術内容・料金</h1>
+          <p className="text-muted-foreground leading-relaxed">
+            お一人おひとりの症状や目的に合わせた施術メニューをご用意しています。
+            <br className="hidden sm:block" />
+            どの施術も、鍼灸師でもある理学療法士が丁寧に対応いたします。
           </p>
-          <div className="w-24 h-1 bg-black mx-auto"></div>
+          <div className="w-12 h-px mx-auto mt-8" style={{ backgroundColor: 'var(--gold)' }} />
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-white">
+      {/* メニュー一覧 */}
+      <section className="pb-16 bg-background">
         <div className="container mx-auto px-4" ref={cardsRef}>
-          {categories.map((category, categoryIndex) => (
-            <div key={category} className="mb-12">
-              <h2 className="category-header text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+          {categories.map((category) => (
+            <div key={category} className="mb-14">
+              <h2 className="category-header heading-mincho text-2xl md:text-3xl mb-8 text-center">
                 {category}
               </h2>
 
-              <div className="grid gap-6 md:gap-8 max-w-4xl mx-auto">
+              <div className="grid gap-4 max-w-4xl mx-auto">
                 {getServicesByCategory(category).map((service, index) => (
-                  <Card key={`${category}-${index}`} className="service-card hover:shadow-xl transition-all duration-300 border-l-4 border-l-black">
-                    <CardContent className="p-6 md:p-8">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-3">
-                            <h3 className="text-xl md:text-2xl font-bold text-gray-800">
-                              {service.name}
-                            </h3>
-                            {service.isPopular && (
-                              <Badge variant="secondary" className="bg-gray-100 text-gray-800 hover:bg-gray-200">
-                                人気
-                              </Badge>
-                            )}
-                          </div>
-                          {service.description && (
-                            <p className="text-gray-600 leading-relaxed">
-                              {service.description}
-                            </p>
+                  <div
+                    key={`${category}-${index}`}
+                    className="service-card hover-card bg-white rounded p-6 md:p-7"
+                    style={{ border: '1px solid var(--hairline)' }}
+                  >
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2 flex-wrap">
+                          <h3 className="text-lg md:text-xl font-bold text-foreground">
+                            {service.name}
+                          </h3>
+                          {service.isPopular && (
+                            <span
+                              className="rounded border px-2 py-0.5 text-xs font-semibold"
+                              style={{ borderColor: 'var(--gold)', color: 'var(--gold-strong)' }}
+                            >
+                              人気
+                            </span>
                           )}
                         </div>
-
-                        <Separator orientation="vertical" className="hidden md:block h-16 mx-4" />
-
-                        <div className="text-right md:min-w-[200px]">
-                          <div className="text-2xl md:text-3xl font-bold text-gray-800">
-                            {service.price}
-                          </div>
-                          <div className="text-sm text-gray-500 mt-1">
-                            （税込）
-                          </div>
-                        </div>
+                        {service.description && (
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {service.description}
+                          </p>
+                        )}
                       </div>
-                    </CardContent>
-                  </Card>
+
+                      <div
+                        className="md:text-right md:min-w-[190px] md:pl-6 md:border-l"
+                        style={{ borderColor: 'var(--hairline)' }}
+                      >
+                        <div className="heading-mincho text-xl md:text-2xl text-foreground">
+                          {service.price}
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-1">（税込）</div>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
-
-              {categoryIndex < categories.length - 1 && (
-                <Separator className="mt-12 max-w-2xl mx-auto" />
-              )}
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-gray-800 to-black text-white py-16">
+      {/* ご予約 */}
+      <section className="text-white py-16" style={{ backgroundColor: 'var(--ink)' }}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            ご予約・お問い合わせ
-          </h2>
-          <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            症状やご希望に合わせて最適な施術をご提案いたします。<br />
-            お気軽にお電話またはオンラインでご予約ください。
+          <h2 className="heading-mincho text-2xl md:text-3xl mb-5">ご予約・お問い合わせ</h2>
+          <p
+            className="mb-8 max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.75)' }}
+          >
+            症状やご希望に合わせて最適な施術をご提案いたします。
+            <br className="hidden sm:block" />
+            お電話またはLINEでお気軽にご予約ください。
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-3 text-lg font-semibold">
-              <span className="text-2xl">📞</span>
-              <a href={TEL_HREF} className="hover:underline">{TEL_DISPLAY}</a>
-            </div>
-            <div className="text-sm opacity-75">
-              受付時間: 10:00 - 20:00 (日・祝日を除く)
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <a
+              href={TEL_HREF}
+              className="hover-underline inline-flex items-center gap-2.5 text-lg font-semibold"
+            >
+              <Phone className="h-5 w-5" style={{ color: 'var(--gold)' }} />
+              {TEL_DISPLAY}
+            </a>
+            <div className="text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              受付時間 10:00 – 20:00（日・祝日を除く）
             </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Info Section */}
-      <section className="bg-gray-50 py-12">
+      {/* 補足 */}
+      <section className="bg-background py-14">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              施術について
-            </h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h4 className="text-lg font-bold text-gray-800 mb-3">
-                  ⏰ 施術時間の目安
-                </h4>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• 全身施術：60-90分</li>
-                  <li>• 局所施術：30-45分</li>
-                  <li>• 美容鍼：45-60分</li>
-                  <li>• EMSトレーニング：30分</li>
+            <h2 className="heading-mincho text-2xl mb-8 text-center">施術について</h2>
+            <div className="grid md:grid-cols-2 gap-5">
+              <div className="bg-white p-6 rounded" style={{ border: '1px solid var(--hairline)' }}>
+                <h3 className="flex items-center gap-2.5 text-base font-bold text-foreground mb-3">
+                  <Clock className="h-4 w-4 shrink-0" style={{ color: 'var(--gold)' }} />
+                  施術時間の目安
+                </h3>
+                <ul className="text-sm text-muted-foreground space-y-1.5">
+                  <li>全身施術：60〜90分</li>
+                  <li>局所施術：30〜45分</li>
+                  <li>美容鍼：45〜60分</li>
+                  <li>EMSトレーニング：30分</li>
                 </ul>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h4 className="text-lg font-bold text-gray-800 mb-3">
-                  💳 お支払い方法
-                </h4>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• 現金</li>
-                  <li>• 各種クレジットカード</li>
-                  <li>• 電子マネー</li>
+              <div className="bg-white p-6 rounded" style={{ border: '1px solid var(--hairline)' }}>
+                <h3 className="flex items-center gap-2.5 text-base font-bold text-foreground mb-3">
+                  <CreditCard className="h-4 w-4 shrink-0" style={{ color: 'var(--gold)' }} />
+                  お支払い方法
+                </h3>
+                <ul className="text-sm text-muted-foreground space-y-1.5">
+                  <li>現金</li>
+                  <li>各種クレジットカード</li>
+                  <li>電子マネー</li>
                 </ul>
-                <p className="text-xs text-gray-400 mt-3">※保険診療は行っておりません（自費診療のみ）</p>
+                <p className="text-xs text-muted-foreground mt-3">
+                  ※保険診療は行っておりません（自費診療のみ）
+                </p>
               </div>
             </div>
-            <div className="mt-8 bg-gray-100 p-6 rounded-lg">
-              <p className="text-center text-gray-700">
-                <span className="font-semibold">初回の方は</span>カウンセリング時間を含むため、お時間に余裕を持ってお越しください。<br />
-                症状や体調により施術内容を調整いたしますので、事前にご相談ください。
+            <div
+              className="mt-5 p-6 rounded"
+              style={{ backgroundColor: 'var(--gold-wash)', border: '1px solid var(--hairline)' }}
+            >
+              <p className="text-center text-sm text-foreground leading-relaxed">
+                <span className="font-semibold">初回の方は</span>
+                カウンセリングのお時間を含みますので、余裕を持ってお越しください。
+                <br className="hidden sm:block" />
+                症状や体調に合わせて施術内容を調整いたしますので、事前にご相談ください。
               </p>
             </div>
           </div>

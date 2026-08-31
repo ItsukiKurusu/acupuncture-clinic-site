@@ -35,16 +35,15 @@ export function AboutSection({ bookingUrl }: { bookingUrl: string }) {
           >
             <motion.div variants={item}>
               <span
-                className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase"
-                style={{ backgroundColor: "rgba(212,175,55,0.12)", color: "#b8960a" }}
+                className="inline-block text-xs font-semibold tracking-[0.2em] uppercase"
+                style={{ color: "var(--gold-strong)" }}
               >
                 当院について
               </span>
             </motion.div>
             <motion.h2
               variants={item}
-              className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl leading-tight"
-              style={{ fontFamily: "var(--font-serif)" }}
+              className="heading-mincho text-3xl sm:text-4xl md:text-5xl leading-snug"
             >
               一人ひとりに寄り添った<br />丁寧な治療
             </motion.h2>
@@ -65,8 +64,8 @@ export function AboutSection({ bookingUrl }: { bookingUrl: string }) {
 
           {/* Right */}
           <motion.div
-            className="rounded-2xl bg-white p-8 shadow-sm space-y-5"
-            style={{ border: "1px solid #e8e0cc", borderLeft: "4px solid #d4af37" }}
+            className="rounded bg-white p-8 space-y-5"
+            style={{ border: "1px solid var(--hairline)" }}
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -82,10 +81,8 @@ export function AboutSection({ bookingUrl }: { bookingUrl: string }) {
                 viewport={{ once: true }}
               >
                 <div
-                  className="p-2.5 rounded-full shrink-0"
-                  style={{ backgroundColor: "rgba(212,175,55,0.12)" }}
-                >
-                  <Icon className="h-5 w-5" style={{ color: "#b8960a" }} />
+                  className="pt-0.5 shrink-0">
+                  <Icon className="h-5 w-5" style={{ color: "var(--gold-strong)" }} />
                 </div>
                 <span className="font-medium text-foreground">{label}</span>
               </motion.div>

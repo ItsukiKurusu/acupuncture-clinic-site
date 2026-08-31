@@ -4,7 +4,7 @@ import { BlogFilterableList } from '@/components/blog-filterable-list'
 import { SITE_URL } from '@/lib/site-config'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import BreadcrumbStructuredData from '@/components/breadcrumb-structured-data'
+import { PageBreadcrumb } from '@/components/page-breadcrumb'
 
 export const metadata: Metadata = {
   title: 'ブログ｜健康情報・お知らせ',
@@ -34,15 +34,18 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <BreadcrumbStructuredData items={[{ name: 'ホーム', path: '/' }, { name: 'ブログ' }]} />
       <Header />
-      <div className="container mx-auto px-4 py-16 max-w-6xl flex-1">
+      <div className="container mx-auto px-4 pt-6 pb-16 max-w-6xl flex-1">
+        <PageBreadcrumb
+          className="mb-10"
+          items={[{ name: 'ホーム', path: '/' }, { name: 'ブログ' }]}
+        />
         {/* ヘッダー */}
         <div className="text-center mb-12">
-          <div className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase mb-4" style={{ backgroundColor: "rgba(212,175,55,0.15)", color: "#b8960a" }}>
+          <div className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--gold-strong)" }}>
             Blog
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1c1917" }}>
+          <h1 className="heading-mincho text-3xl md:text-4xl mb-4" style={{ color: "#1c1917" }}>
             ブログ
           </h1>
           <p className="text-lg text-muted-foreground">

@@ -24,7 +24,7 @@ export function CTA() {
           target="_blank" 
           rel="noopener noreferrer"
           className="standout-button"
-          style={{ backgroundColor: '#d4af37', display: 'inline-block' }}
+          style={{ backgroundColor: 'var(--gold-strong)', display: 'inline-block' }}
         >
           オンラインで予約する
         </a>

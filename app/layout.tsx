@@ -7,10 +7,18 @@ import { SITE_URL } from "@/lib/site-config"
 import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { ReducedMotionProvider } from "@/components/reduced-motion-provider"
 
-// Webフォントは読み込まない。以前 Noto Serif JP を subsets:["latin"]（＝日本語グリフを
-// 含まない）で読み込んだうえ <body> のインラインstyleで上書きしていたため、
-// ダウンロードした分がまるごと無駄になっていた。
-// 書体は app/globals.css の --font-sans / --font-serif（OS標準フォント）で指定する。
+// 見出し用にオールド明朝体「Zen Old Mincho」を読み込む。
+//
+// next/font/google は使えない。next/font のフォントデータ上、日本語の明朝体には
+// japanese サブセットが登録されておらず、subsets:["latin"] しか指定できないため、
+// 日本語グリフが一切含まれない（以前 Noto Serif JP がこの状態で読み込まれ、
+// ダウンロードが丸ごと無駄になっていた）。
+// Google Fonts のCSSを直接読めば unicode-range で分割されたチャンクが配信され、
+// ブラウザはページに実際に出てくる文字の分だけを取得する。
+//
+// ウェイトは400のみ。細さを保つためで、見出しにも font-bold を使わないこと。
+// （400しか無い書体に太字を指定すると、ブラウザが機械的に太らせて字形が崩れる）
+// 本文はOS標準のゴシック体のままで、Webフォントは使わない。
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -71,6 +79,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap"
+          rel="stylesheet"
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-524375RWWM"
           strategy="afterInteractive"
