@@ -132,7 +132,7 @@ export const symptoms: Symptom[] = [
         a: 'はい。首肩の緊張が関わる頭痛については、その原因となっている筋緊張へアプローチします。ただし、突然の激しい頭痛や手足の麻痺を伴う場合は、まず医療機関の受診をおすすめしています。',
       },
     ],
-    relatedPostSlugs: ['gaikan', 'gouya', 'tesanri'],
+    relatedPostSlugs: ['tsubo-katakori'],
     ogImage: '/og/treatment1.jpg',
   },
 
@@ -218,7 +218,7 @@ export const symptoms: Symptom[] = [
         a: '初めは週1回程度を目安に3〜5回、その後は状態に応じて2週間から1か月に1回のメンテナンスへ移行していきます。痛みが強い時期は間隔を詰めることもあります。',
       },
     ],
-    relatedPostSlugs: ['konron', 'yoryosen', 'gaishitugan'],
+    relatedPostSlugs: ['tsubo-youtsu-hizatsu'],
     ogImage: '/og/treatment3.jpg',
   },
 
@@ -305,7 +305,7 @@ export const symptoms: Symptom[] = [
         a: '緊張が緩んだ反動で、当日から翌日にかけて眠気やだるさが出ることがあります。多くは1日程度で落ち着き、その後すっきりされる方が多いです。初回は特にゆっくり過ごせる日をお選びいただくとよいでしょう。',
       },
     ],
-    relatedPostSlugs: ['naikan', 'taisyou', 'yuusen', 'taihaku-selfcare'],
+    relatedPostSlugs: ['tsubo-jiritsu-shinkei', 'tsubo-hie-mukumi', 'tsubo-icho'],
     ogImage: '/og/treatment5.jpg',
   },
 
@@ -391,7 +391,7 @@ export const symptoms: Symptom[] = [
         a: 'はい。施術前にクレンジングをご用意していますのでそのままお越しください。施術後のメイクは、当日は控えていただくことをおすすめしています。',
       },
     ],
-    relatedPostSlugs: ['beauty-acupuncture', 'geikou'],
+    relatedPostSlugs: ['beauty-acupuncture'],
     ogImage: '/og/treatment8.jpg',
   },
 ]
