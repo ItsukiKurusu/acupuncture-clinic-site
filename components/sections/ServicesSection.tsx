@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { HoverEffect } from "@/components/aceternity/card-hover-effect"
 import { Leaf, Sparkles } from "lucide-react"
+import { symptoms } from "@/lib/symptoms-data"
 
 const container = {
   hidden: {},
@@ -80,6 +81,24 @@ export function ServicesSection() {
         >
           <HoverEffect items={services} className="max-w-6xl mx-auto" />
         </motion.div>
+
+        {/* 症状別ページへの入口。トップから直接リンクしてクローラーの巡回を助ける */}
+        <nav aria-label="症状別のご案内" className="max-w-6xl mx-auto mt-12 text-center">
+          <p className="text-sm text-muted-foreground mb-4">お悩み別に、施術の流れと料金をご紹介しています</p>
+          <ul className="flex flex-wrap justify-center gap-3">
+            {symptoms.map((symptom) => (
+              <li key={symptom.slug}>
+                <Link
+                  href={`/symptoms/${symptom.slug}`}
+                  className="inline-block rounded border px-4 py-2 text-sm font-semibold transition-colors hover:text-[var(--gold-strong)]"
+                  style={{ borderColor: "var(--hairline)" }}
+                >
+                  {symptom.name}の施術
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <motion.div
           className="text-center mt-10"

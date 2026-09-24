@@ -132,7 +132,7 @@ export const symptoms: Symptom[] = [
         a: 'はい。首肩の緊張が関わる頭痛については、その原因となっている筋緊張へアプローチします。ただし、突然の激しい頭痛や手足の麻痺を伴う場合は、まず医療機関の受診をおすすめしています。',
       },
     ],
-    relatedPostSlugs: ['tsubo-katakori'],
+    relatedPostSlugs: ['tsubo-katakori', 'column-katakori'],
     ogImage: '/og/treatment1.jpg',
   },
 
