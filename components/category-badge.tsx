@@ -3,10 +3,11 @@ import type { BlogCategory } from '@/lib/blog-categories'
 /**
  * カテゴリーごとの配色。
  * 塗りつぶしをやめ、細い枠線と文字色だけで区別する（サイト全体の方針に合わせた）。
- * お知らせは目に留まりやすいテラコッタ系。
+ * 症状コラムは落ち着いたセージ系、お知らせは目に留まりやすいテラコッタ系。
  */
 const CATEGORY_STYLES: Record<BlogCategory, { borderColor: string; color: string }> = {
   健康情報: { borderColor: 'var(--gold)', color: 'var(--gold-strong)' },
+  症状コラム: { borderColor: '#9fb5a6', color: '#3f6b55' },
   お知らせ: { borderColor: '#d8a06a', color: '#b45309' },
 }
 

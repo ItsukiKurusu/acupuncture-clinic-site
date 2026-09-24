@@ -3,9 +3,10 @@
  * クライアントコンポーネントからも読み込むため、Node.js依存（fs等）を持たない独立モジュールにしている
  *
  * 健康情報: ツボ・セルフケアなどの健康情報
+ * 症状コラム: 症状がなぜ起こるか・受診の目安などを解説する読み物（ツボ記事・症状ページへつなぐ）
  * お知らせ: 活動報告・院からのお知らせ
  */
-export const BLOG_CATEGORIES = ['健康情報', 'お知らせ'] as const
+export const BLOG_CATEGORIES = ['健康情報', '症状コラム', 'お知らせ'] as const
 
 export type BlogCategory = (typeof BLOG_CATEGORIES)[number]
 

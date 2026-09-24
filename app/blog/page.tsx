@@ -8,8 +8,8 @@ import { PageBreadcrumb } from '@/components/page-breadcrumb'
 
 export const metadata: Metadata = {
   title: 'ブログ｜健康情報・お知らせ',
-  description: '福岡市中央区六本松の鍼灸院「鍼灸HANE」のブログ。症状別のツボ・セルフケアなどの「健康情報」と、トレーナー活動報告などの「お知らせ」をカテゴリー別にお届けします。',
-  keywords: ['鍼灸HANE', 'ブログ', '健康情報', 'お知らせ', '活動報告', 'ツボ', 'セルフケア', '六本松', '福岡市中央区', '肩こり', '腰痛', '冷え性'],
+  description: '福岡市中央区六本松の鍼灸院「鍼灸HANE」のブログ。症状別のツボ・セルフケアなどの「健康情報」、症状の原因や受診の目安を解説する「症状コラム」、トレーナー活動報告などの「お知らせ」をカテゴリー別にお届けします。',
+  keywords: ['鍼灸HANE', 'ブログ', '健康情報', '症状コラム', 'お知らせ', '活動報告', 'ツボ', 'セルフケア', '六本松', '福岡市中央区', '肩こり', '腰痛', '冷え性'],
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
@@ -49,7 +49,7 @@ export default function BlogPage() {
             ブログ
           </h1>
           <p className="text-lg text-muted-foreground">
-            ツボ・セルフケアの「健康情報」と、活動報告などの「お知らせ」をお届けします
+            ツボ・セルフケアの「健康情報」、症状を解説する「症状コラム」、活動報告などの「お知らせ」をお届けします
           </p>
         </div>
 
