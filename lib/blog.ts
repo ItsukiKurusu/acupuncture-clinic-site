@@ -13,10 +13,21 @@ export type { BlogCategory } from '@/lib/blog-categories'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
+// frontmatter の日付はクォート無しで書くと gray-matter が Date 型にしてしまうため、
+// YYYY-MM-DD の文字列にそろえる。
+function normalizeDateField(value: unknown): string | undefined {
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? undefined : value.toISOString().slice(0, 10)
+  }
+  return typeof value === 'string' && value ? value : undefined
+}
+
 export interface BlogPost {
   slug: string
   title: string
   date: string
+  /** 本文を大きく書き換えた日（YYYY-MM-DD）。未設定なら date と同じ扱い */
+  updated?: string
   excerpt: string
   content: string
   category: BlogCategory
@@ -29,6 +40,8 @@ export interface BlogPostMeta {
   slug: string
   title: string
   date: string
+  /** 本文を大きく書き換えた日（YYYY-MM-DD）。未設定なら date と同じ扱い */
+  updated?: string
   excerpt: string
   category: BlogCategory
   coverImage?: string
@@ -58,6 +71,7 @@ export function getAllPosts(): BlogPostMeta[] {
         slug,
         title: data.title || '',
         date: data.date || '',
+        updated: normalizeDateField(data.updated),
         excerpt: data.excerpt || '',
         category: normalizeCategory(data.category),
         coverImage: data.coverImage,
@@ -92,6 +106,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       slug,
       title: data.title || '',
       date: data.date || '',
+      updated: normalizeDateField(data.updated),
       excerpt: data.excerpt || '',
       content: contentHtml,
       category: normalizeCategory(data.category),
@@ -103,6 +118,19 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     console.error(`Error reading post ${slug}:`, error)
     return null
   }
+}
+
+/**
+ * 記事の最終更新日（updated があればそれ、なければ公開日）。
+ * サイトマップの lastmod と構造化データの dateModified に使う。
+ * Googleは lastmod が実態と合っているサイトほど再クロールの判断に使うため、
+ * 追記・統合など本文を大きく変えたときは frontmatter に updated を書くこと。
+ */
+export function getPostLastModified(post: Pick<BlogPostMeta, 'date' | 'updated'>): string {
+  if (post.updated && post.updated > post.date) {
+    return post.updated
+  }
+  return post.date
 }
 
 /**

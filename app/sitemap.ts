@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import fs from 'node:fs'
 import path from 'node:path'
 import { execSync } from 'node:child_process'
-import { getAllPosts } from '@/lib/blog'
+import { getAllPosts, getPostLastModified } from '@/lib/blog'
 import { symptoms } from '@/lib/symptoms-data'
 import { SITE_URL } from '@/lib/site-config'
 
@@ -54,7 +54,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   const blogPosts = getAllPosts()
-  const latestBlogDate = parseDate(blogPosts[0]?.date)
+  // 一覧ページは新規公開だけでなく既存記事の更新でも中身（抜粋・並び）が変わりうるため、
+  // 全記事の最終更新日のうち最も新しいものを使う。
+  const latestBlogDate = blogPosts
+    .map((post) => parseDate(getPostLastModified(post)))
+    .reduce<Date | null>((latest, date) => (date && (!latest || date > latest) ? date : latest), null)
 
   // /privacy-policy はnoindex（番号収集クエリ対策）のため、
   // 矛盾したシグナルを送らないようサイトマップには含めない。
@@ -83,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: parseDate(post.date) ?? getFileLastModified(`posts/${post.slug}.md`),
+    lastModified: parseDate(getPostLastModified(post)) ?? getFileLastModified(`posts/${post.slug}.md`),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))

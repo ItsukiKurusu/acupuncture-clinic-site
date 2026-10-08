@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug, getRelatedPosts, resolvePostImage } from '@/lib/blog'
+import { getAllPosts, getPostBySlug, getPostLastModified, getRelatedPosts, resolvePostImage } from '@/lib/blog'
 import { Calendar, Tag, ArrowLeft } from 'lucide-react'
 import { SITE_URL } from '@/lib/site-config'
 import { Header } from '@/components/header'
@@ -77,6 +77,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
+  const lastModified = getPostLastModified(post)
   const relatedPosts = getRelatedPosts(slug, post.tags, post.category)
   // セルフケア記事から症状別ページへ内部リンクを通し、検索流入を主力ページへ流す。
   const relatedSymptoms = getSymptomsForPost(slug, post.tags)
@@ -118,7 +119,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="flex flex-wrap gap-4 text-gray-600 mb-8 pb-8 border-b border-gray-200">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5" />
-            <span>{post.date}</span>
+            <time dateTime={post.date}>{post.date}</time>
+            {/* 構造化データの dateModified と画面上の表示をそろえる */}
+            {lastModified !== post.date && (
+              <span>
+                （更新 <time dateTime={lastModified}>{lastModified}</time>）
+              </span>
+            )}
           </div>
 
           {post.author && (

@@ -1,5 +1,5 @@
 import { SITE_URL } from '@/lib/site-config'
-import { resolvePostImage, type BlogPost } from '@/lib/blog'
+import { getPostLastModified, resolvePostImage, type BlogPost } from '@/lib/blog'
 
 interface BlogPostingStructuredDataProps {
   post: BlogPost
@@ -15,7 +15,7 @@ export default function BlogPostingStructuredData({ post, slug }: BlogPostingStr
     "image": `${SITE_URL}${resolvePostImage(post.coverImage)}`,
     "articleSection": post.category,
     "datePublished": post.date,
-    "dateModified": post.date,
+    "dateModified": getPostLastModified(post),
     "url": `${SITE_URL}/blog/${slug}`,
     "mainEntityOfPage": {
       "@type": "WebPage",
