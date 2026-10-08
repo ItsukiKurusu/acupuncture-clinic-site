@@ -7,6 +7,13 @@
  */
 export const irukaIssues = [
   {
+    label: "10月号",
+    date: "2026年10月",
+    src: "/iruka10.webp",
+    alt: "地域情報誌いるか 10月号",
+    type: "image" as const,
+  },
+  {
     label: "9月号",
     date: "2026年9月",
     src: "/iruka9.webp",
