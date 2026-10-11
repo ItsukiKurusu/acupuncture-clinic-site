@@ -1,4 +1,5 @@
-import { SITE_URL } from '@/lib/site-config'
+import { CLINIC_NODE_ID, SITE_URL } from '@/lib/site-config'
+import { DIRECTOR } from '@/lib/director'
 import { getPostLastModified, resolvePostImage, type BlogPost } from '@/lib/blog'
 
 interface BlogPostingStructuredDataProps {
@@ -17,16 +18,25 @@ export default function BlogPostingStructuredData({ post, slug }: BlogPostingStr
     "datePublished": post.date,
     "dateModified": getPostLastModified(post),
     "url": `${SITE_URL}/blog/${slug}`,
+    "inLanguage": "ja",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `${SITE_URL}/blog/${slug}`,
     },
+    // 全記事を院長が執筆・監修している。トップページの MedicalBusiness.founder と
+    // 同じ @id を使い、Googleに「同一人物（国家資格保持者）」として認識させる。
     "author": {
       "@type": "Person",
-      "name": post.author || "鍼灸HANE",
+      "@id": DIRECTOR.id,
+      "name": DIRECTOR.name,
+      "jobTitle": DIRECTOR.jobTitle,
+      "url": DIRECTOR.url,
+      "image": `${SITE_URL}${DIRECTOR.image}`,
+      "worksFor": { "@id": CLINIC_NODE_ID },
     },
     "publisher": {
       "@type": "Organization",
+      "@id": CLINIC_NODE_ID,
       "name": "鍼灸HANE",
       "logo": {
         "@type": "ImageObject",

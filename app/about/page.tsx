@@ -35,7 +35,7 @@ export default function AboutPage() {
                   <div className="inline-block rounded bg-secondary text-secondary-foreground px-3 py-1 text-sm mb-2">
                     院長紹介
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter">羽田野 裕稀 (はだの ひろき)</h2>
+                  <h2 id="director" className="text-3xl font-bold tracking-tighter">羽田野 裕稀 (はだの ひろき)</h2>
                   <p className="font-semibold text-primary">鍼灸師 / 理学療法士</p>
                   <div className="space-y-4 text-muted-foreground md:text-lg/relaxed">
                     <p>

@@ -32,3 +32,6 @@ next-env.d.ts
 # 報告用のスクリーンショット（公開・コミットしない）
 スクリーンショット*.png
 Screenshot*.png
+
+# 参考資料（GSCのCSV・スクショなど。公開・コミットしない）
+/references/

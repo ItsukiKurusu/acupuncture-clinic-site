@@ -2,14 +2,14 @@
 import { useEffect, useRef } from "react"
 import ReactDOM from "react-dom"
 import Link from "next/link"
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
+import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion"
 import { trackEvent } from "@/lib/analytics"
 
 // LCP要素は背景動画。2.6MBのmp4のデコードを待たせず、28KBの静止画を先に描画する。
 // トップページでしか使わないため、layout.tsx のheadではなくここで宣言する。
 const HERO_POSTER = "/hero-poster.webp"
 
-const textVariants = {
+const textVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -17,7 +17,7 @@ const textVariants = {
   },
 }
 
-const childVariants = {
+const childVariants: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] } },
 }
@@ -86,7 +86,7 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
             className="text-[10px] font-semibold tracking-[0.35em] uppercase px-4 py-1.5 rounded"
             style={{ color: "#fff", border: "1px solid rgba(255,255,255,0.45)" }}
           >
-            福岡市中央区六本松
+            福岡市中央区六本松｜六本松駅 徒歩8分
           </span>
         </motion.div>
 
@@ -94,18 +94,32 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
           variants={childVariants}
           className="heading-mincho text-3xl sm:text-4xl md:text-5xl xl:text-[3.2rem] text-white drop-shadow-lg leading-relaxed mb-5"
         >
-          六本松の鍼灸院<br />心と身体を癒す、伝統の鍼灸
+          六本松の鍼灸院<br />痛みの原因から、整える
         </motion.h1>
 
         <motion.p
           variants={childVariants}
-          className="text-white/80 max-w-[540px] md:text-lg leading-relaxed mb-9 drop-shadow"
+          className="text-white/85 max-w-[700px] md:text-lg leading-relaxed mb-6 drop-shadow"
         >
-          お一人おひとりの症状に合わせたオーダーメイドの施術で、<br className="hidden sm:block" />
-          自然治癒力を高め、健やかな毎日をサポートします。
+          理学療法士でもある鍼灸師が、肩こり・腰痛・自律神経の乱れ・美容のお悩みを、<br className="hidden sm:block" />
+          体の使い方まで含めて評価し、鍼灸と整体で施術します。
         </motion.p>
 
-        <motion.div variants={childVariants}>
+        {/* 検索から来た人が最初に確かめる3点（資格・予約制・立地）を1行で */}
+        <motion.ul
+          variants={childVariants}
+          className="flex flex-wrap justify-center gap-x-5 gap-y-1.5 mb-9 text-[11px] sm:text-xs tracking-wider text-white/80"
+          aria-label="当院の特徴"
+        >
+          {["国家資格：鍼灸師・理学療法士", "完全予約制", "初回60〜70分"].map((label) => (
+            <li key={label} className="flex items-center gap-1.5">
+              <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: "var(--gold)" }} aria-hidden="true" />
+              {label}
+            </li>
+          ))}
+        </motion.ul>
+
+        <motion.div variants={childVariants} className="flex flex-col sm:flex-row items-center gap-3">
           <Link
             href={bookingUrl}
             target="_blank"
@@ -115,6 +129,14 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
             style={{ backgroundColor: "#06C755", color: "#fff" }}
           >
             LINEでご予約はこちら
+          </Link>
+          <Link
+            href="/symptoms"
+            className="inline-flex items-center justify-center px-9 py-3.5 rounded text-sm font-semibold tracking-wider transition-colors duration-300 hover:bg-white/15"
+            style={{ color: "#fff", border: "1px solid rgba(255,255,255,0.55)" }}
+            prefetch={false}
+          >
+            症状から探す
           </Link>
         </motion.div>
       </motion.div>

@@ -9,6 +9,7 @@ import { Footer } from '@/components/footer'
 import BlogPostingStructuredData from '@/components/blog-posting-structured-data'
 import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import { CategoryBadge } from '@/components/category-badge'
+import { AuthorBox } from '@/components/author-box'
 import { getSymptomsForPost } from '@/lib/symptoms-data'
 
 interface BlogPostPageProps {
@@ -155,6 +156,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           className="blog-content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        {/* 著者ボックス。健康情報は「誰が書いたか」が信頼に直結するため全記事に出す */}
+        <AuthorBox />
 
         {/* 関連記事 */}
         {relatedPosts.length > 0 && (
