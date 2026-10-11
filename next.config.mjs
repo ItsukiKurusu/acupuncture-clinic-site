@@ -66,6 +66,13 @@ const nextConfig = {
         destination: '/services',
         permanent: true,
       },
+      // 「鍼治療は痛い?初めての方の不安を解消」の記事は、
+      // 流れ・料金・服装まで含めた固定ページ /first-visit に発展させた。
+      {
+        source: '/blog/first-time-acupuncture',
+        destination: '/first-visit',
+        permanent: true,
+      },
       // 1ツボ1記事だった22本を症状軸の5記事へ統合した際のリダイレクト。
       // 旧URLに集まっていた評価と被リンクを統合先へ引き継ぐため、
       // 記事を消すだけにせず必ず301で受け止める。

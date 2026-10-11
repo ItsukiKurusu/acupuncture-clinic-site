@@ -6,17 +6,18 @@ import { AnimatePresence, motion } from "framer-motion"
 import { trackEvent } from "@/lib/analytics"
 import { BOOKING_URL } from "@/lib/site-config"
 
-// グローバルナビは主要導線の6項目に絞る。
+// グローバルナビは主要導線の7項目に絞る。
 // 以前は11項目あり粒度も揃っていなかったため、選択の負荷が高かった。
 // ここから外した「施術風景」「お客様の声」「いるか新聞」「Instagram」
 // 「よくある質問」はフッターのサイトマップから辿れる。
 const navLinks = [
-  { href: "/about", label: "当院について" },
   { href: "/symptoms", label: "症状別のご案内" },
+  { href: "/first-visit", label: "初めての方へ" },
   { href: "/services", label: "施術内容・料金" },
+  { href: "/about", label: "当院について" },
   { href: "/matrix-wave", label: "MATRIX WAVE" },
   { href: "/blog", label: "ブログ" },
-  { href: "/#contact", label: "アクセス" },
+  { href: "/access", label: "アクセス" },
 ]
 
 /**
@@ -86,13 +87,13 @@ export function Header({ variant = "compact" }: { variant?: HeaderVariant }) {
             <Link
               key={href}
               href={href}
-              className="relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 group"
+              className="relative px-2.5 py-1.5 text-sm font-medium transition-colors duration-300 group"
               style={{ color: solid ? "rgba(28,25,23,0.75)" : "rgba(255,255,255,0.85)" }}
               prefetch={false}
             >
               {label}
               <span
-                className="absolute bottom-0.5 left-3 right-3 h-px scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+                className="absolute bottom-0.5 left-2.5 right-2.5 h-px scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
                 style={{ backgroundColor: "var(--gold)" }}
               />
             </Link>

@@ -3,7 +3,9 @@ import Script from "next/script"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/HeroSection"
+import { SymptomsSection } from "@/components/sections/SymptomsSection"
 import { AboutSection } from "@/components/sections/AboutSection"
+import { FirstVisitSection } from "@/components/sections/FirstVisitSection"
 import { ServicesSection } from "@/components/sections/ServicesSection"
 import { IrukaSection } from "@/components/sections/IrukaSection"
 import { BannerSection } from "@/components/sections/BannerSection"
@@ -29,13 +31,16 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
       <div className="flex flex-col min-h-[100dvh] bg-background text-foreground w-full">
         <Header variant="overlay" />
         <main className="flex-1">
+          {/* 検索意図の順に並べる：症状 → 誰が施術するか → 初回の流れ → 料金 → 評判 → 読み物 */}
           <HeroSection bookingUrl={BOOKING_URL} />
+          <SymptomsSection />
           <AboutSection bookingUrl={BOOKING_URL} />
-          <IrukaSection />
+          <FirstVisitSection />
           <ServicesSection />
           <BannerSection />
           <TestimonialsSection reviewsUrl={REVIEWS_URL} />
           <BlogSectionWrapper posts={recentPosts} />
+          <IrukaSection />
           <InstagramSection instagramUrl={INSTAGRAM_URL} />
           <FaqSection />
           <ContactSection bookingUrl={BOOKING_URL} />

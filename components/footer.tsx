@@ -8,16 +8,17 @@ import { BOOKING_URL, INSTAGRAM_URL, TEL_DISPLAY, TEL_HREF } from "@/lib/site-co
 // ヘッダーのグローバルナビを6項目に絞ったため、サイト内の全ページへの
 // 導線はここで担保する。
 const siteLinks = [
-  { href: "/about", label: "当院について" },
   { href: "/symptoms", label: "症状別のご案内" },
+  { href: "/first-visit", label: "初めての方へ" },
   { href: "/services", label: "施術内容・料金" },
+  { href: "/about", label: "当院について" },
   { href: "/matrix-wave", label: "MATRIX WAVE" },
   { href: "/scenes", label: "施術風景" },
   { href: "/blog", label: "ブログ" },
   { href: "/iruka", label: "いるか新聞" },
   { href: "/#testimonials", label: "お客様の声" },
   { href: "/#faq", label: "よくある質問" },
-  { href: "/#contact", label: "アクセス" },
+  { href: "/access", label: "アクセス" },
 ]
 
 export function Footer() {
