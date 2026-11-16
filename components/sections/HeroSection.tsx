@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react"
 import ReactDOM from "react-dom"
 import Link from "next/link"
 import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion"
-import { trackEvent } from "@/lib/analytics"
 
 // LCP要素は背景動画。2.6MBのmp4のデコードを待たせず、28KBの静止画を先に描画する。
 // トップページでしか使わないため、layout.tsx のheadではなくここで宣言する。
@@ -124,7 +123,7 @@ export function HeroSection({ bookingUrl }: { bookingUrl: string }) {
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("line_click", { location: "hero" })}
+            data-cta="hero"
             className="inline-flex items-center justify-center px-9 py-3.5 rounded text-sm font-bold tracking-wider transition-opacity duration-300 hover:opacity-90"
             style={{ backgroundColor: "#06C755", color: "#fff" }}
           >

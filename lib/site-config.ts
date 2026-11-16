@@ -16,6 +16,9 @@ export const TEL_HREF = `tel:${TEL_DISPLAY.replace(/-/g, '')}`
 /** 構造化データ用のE.164形式 */
 export const TEL_E164 = '+81-90-4181-7937'
 
+/** しんきゅうコンパスの口コミページ */
+export const SHINQ_REVIEW_URL = 'https://www.shinq-compass.jp/salon/review/37835'
+
 /** Googleビジネスプロフィール（ユーザーに見せる共有用の短縮URL） */
 export const GBP_URL = 'https://maps.app.goo.gl/AoAStfaCX3oLbch5A'
 

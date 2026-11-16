@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { Check, Clock, ArrowRight, MapPin } from 'lucide-react'
+import { Check, ArrowRight } from 'lucide-react'
 import { BOOKING_URL, TEL_DISPLAY, TEL_HREF } from '@/lib/site-config'
 import { services } from '@/lib/services-data'
+import { LpKeyFacts } from '@/components/lp-key-facts'
 import type { Symptom } from '@/lib/symptoms-data'
 import type { BlogPostMeta } from '@/lib/blog'
 
@@ -17,6 +18,10 @@ const INK = '#1c1917'
 export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: SymptomContentProps) {
   // 該当する施術メニューを料金マスタから引く（料金の二重管理を避ける）
   const relevantServices = services.filter((service) => symptom.serviceNames.includes(service.name))
+  // 最初の画面の料金は、serviceNames の先頭（そのページの主メニュー）のもの
+  const mainService = services.find((service) => service.name === symptom.serviceNames[0])
+  // 「初回は60〜70分（カウンセリング含む）、2回目以降は…」から最初の部分だけを取り出す
+  const firstVisitDuration = symptom.duration.split(/[（、]/)[0]
 
   return (
     <>
@@ -31,18 +36,13 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
         <h1 className="heading-mincho text-3xl md:text-4xl mb-5 leading-relaxed" style={{ color: INK }}>
           {symptom.heading}
         </h1>
+        <LpKeyFacts
+          image={symptom.heroImage}
+          price={mainService?.price ?? ''}
+          duration={firstVisitDuration}
+        />
         <p className="text-lg leading-relaxed text-gray-700">{symptom.lead}</p>
-
-        <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-600">
-          <span className="inline-flex items-center gap-1.5">
-            <MapPin className="w-4 h-4" style={{ color: GOLD }} />
-            地下鉄七隈線 六本松駅 徒歩8分
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <Clock className="w-4 h-4" style={{ color: GOLD }} />
-            {symptom.duration}
-          </span>
-        </div>
+        <p className="mt-4 text-sm text-gray-600">{symptom.duration}</p>
       </header>
 
       {/* お悩みチェック */}
@@ -179,6 +179,7 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
 
       {/* CTA */}
       <section
+        data-cta="lp_bottom"
         className="rounded p-8 text-center mb-14"
         style={{ background: 'linear-gradient(to right, transparent, rgba(212,175,55,0.05))' }}
       >
@@ -197,6 +198,11 @@ export function SymptomContent({ symptom, relatedPosts, otherSymptoms }: Symptom
             {TEL_DISPLAY} に電話する
           </a>
         </div>
+        <p className="text-sm text-gray-600 mt-5">
+          <Link href="/first-visit" className="font-medium hover:underline" style={{ color: 'var(--gold-strong)' }}>
+            初めての方へ：施術の流れ・鍼の痛み・服装
+          </Link>
+        </p>
       </section>
 
       {/* 他の症状へ */}

@@ -36,6 +36,7 @@ export function BannerSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
+                data-cta="banner"
               >
                 <Image
                   src={banner.src}

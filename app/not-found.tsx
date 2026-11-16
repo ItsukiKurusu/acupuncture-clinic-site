@@ -60,7 +60,7 @@ export default function NotFound() {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center" data-cta="not_found">
           <Link
             href={BOOKING_URL}
             target="_blank"

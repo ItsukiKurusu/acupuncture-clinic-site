@@ -47,6 +47,8 @@ export interface Symptom {
   relatedPostSlugs: string[]
   /** OGP画像。public/og/ 配下の 1200x630 の実ファイルを指すこと */
   ogImage: string
+  /** ページ最初の画面に出す写真（縦長 3:4 で切り抜いて表示）。広告から来た人に「誰が・どこで」を見せる */
+  heroImage: { src: string; alt: string }
 }
 
 export const symptoms: Symptom[] = [
@@ -134,6 +136,7 @@ export const symptoms: Symptom[] = [
     ],
     relatedPostSlugs: ['tsubo-katakori', 'column-katakori'],
     ogImage: '/og/treatment1.jpg',
+    heroImage: { src: '/treatment3.webp', alt: '院長が首まわりを施術している様子' },
   },
 
   {
@@ -220,6 +223,7 @@ export const symptoms: Symptom[] = [
     ],
     relatedPostSlugs: ['tsubo-youtsu-hizatsu'],
     ogImage: '/og/treatment3.jpg',
+    heroImage: { src: '/treatment6.webp', alt: '脚と股関節の動きを確認しながら施術している様子' },
   },
 
   {
@@ -307,6 +311,7 @@ export const symptoms: Symptom[] = [
     ],
     relatedPostSlugs: ['tsubo-jiritsu-shinkei', 'tsubo-hie-mukumi', 'tsubo-icho'],
     ogImage: '/og/treatment5.jpg',
+    heroImage: { src: '/treatment4.webp', alt: '鍼施術の様子' },
   },
 
   {
@@ -393,6 +398,7 @@ export const symptoms: Symptom[] = [
     ],
     relatedPostSlugs: ['beauty-acupuncture'],
     ogImage: '/og/treatment8.jpg',
+    heroImage: { src: '/director-portrait1.jpg', alt: '院長 羽田野 裕稀（鍼灸師・理学療法士）' },
   },
 ]
 

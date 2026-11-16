@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Check, Clock, MapPin, Phone } from 'lucide-react'
+import { Check, Phone } from 'lucide-react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import { AuthorBox } from '@/components/author-box'
 import { BOOKING_URL, SITE_URL, TEL_DISPLAY, TEL_HREF } from '@/lib/site-config'
 import { services } from '@/lib/services-data'
+import { LpKeyFacts } from '@/components/lp-key-facts'
+import { DIRECTOR } from '@/lib/director'
 
 const TITLE = '初めての方へ｜施術の流れ・料金・服装'
 const DESCRIPTION =
@@ -125,6 +127,10 @@ function SectionHeading({ children }: { children: ReactNode }) {
 
 export default function FirstVisitPage() {
   const relevantServices = services.filter((service) => firstVisitServiceNames.includes(service.name))
+  // 最初の画面の料金表示も料金マスタから組み立てる（例：全身 7,000円 / 局所 5,000円（美容鍼は初回 6,000円））
+  const mainPrice = services.find((service) => service.name === '施術（整体・鍼・電気・カッピング）')?.price ?? ''
+  const beautyFirstPrice = services.find((service) => service.name === '美容鍼')?.price.split(' / ')[0]
+  const keyFactsPrice = beautyFirstPrice ? `${mainPrice}（美容鍼は${beautyFirstPrice}）` : mainPrice
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -145,21 +151,16 @@ export default function FirstVisitPage() {
           <h1 className="heading-mincho text-3xl md:text-4xl mb-5 leading-relaxed" style={{ color: INK }}>
             はじめて鍼灸を受ける方へ
           </h1>
+          <LpKeyFacts
+            image={{ src: DIRECTOR.image, alt: `院長 ${DIRECTOR.name}（${DIRECTOR.jobTitle}）` }}
+            price={keyFactsPrice}
+            duration="初回は60〜70分"
+          />
           <p className="text-lg leading-relaxed text-gray-700">
             「鍼は痛そう」「何をされるのか分からない」。初めての方が不安に感じる点は、ほとんどが流れを知らないことから来ています。
             鍼灸HANEでは、理学療法士でもある鍼灸師が、評価から施術まで一つずつ説明しながら進めます。
             このページでは、ご予約から施術後の過ごし方までをまとめました。
           </p>
-          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-600">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="w-4 h-4" style={{ color: GOLD }} />
-              地下鉄七隈線 六本松駅 徒歩8分
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Clock className="w-4 h-4" style={{ color: GOLD }} />
-              初回は60〜70分（カウンセリング・評価を含む）
-            </span>
-          </div>
         </header>
 
         <section className="mb-14">
@@ -287,7 +288,7 @@ export default function FirstVisitPage() {
           <p className="text-gray-700 mb-6">
             「自分の症状に合うか分からない」という段階でも構いません。LINEでお気軽にご相談ください。
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center" data-cta="lp_bottom">
             <Link
               href={BOOKING_URL}
               target="_blank"

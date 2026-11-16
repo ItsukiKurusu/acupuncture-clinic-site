@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
-import { trackEvent } from "@/lib/analytics"
 import { BOOKING_URL } from "@/lib/site-config"
 
 // グローバルナビは主要導線の7項目に絞る。
@@ -106,7 +105,7 @@ export function Header({ variant = "compact" }: { variant?: HeaderVariant }) {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("line_click", { location: "header_desktop" })}
+            data-cta="header_desktop"
             className="inline-flex items-center justify-center px-5 py-2 rounded text-[13px] font-semibold transition-colors duration-300"
             style={{
               backgroundColor: solid ? "var(--gold-strong)" : "transparent",
@@ -127,7 +126,7 @@ export function Header({ variant = "compact" }: { variant?: HeaderVariant }) {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent("line_click", { location: "header_mobile_compact" })}
+              data-cta="header_mobile_compact"
               className="inline-flex items-center justify-center px-3.5 py-1.5 rounded text-xs font-semibold"
               style={{
                 backgroundColor: "var(--gold-strong)",
@@ -192,10 +191,8 @@ export function Header({ variant = "compact" }: { variant?: HeaderVariant }) {
                 rel="noopener noreferrer"
                 className="block w-full text-center py-2.5 rounded text-sm font-bold transition-opacity hover:opacity-85"
                 style={{ backgroundColor: "var(--gold-strong)", color: "#fff" }}
-                onClick={() => {
-                  trackEvent("line_click", { location: "header_mobile" })
-                  setOpen(false)
-                }}
+                data-cta="header_mobile"
+                onClick={() => setOpen(false)}
               >
                 ご予約・お問い合わせ
               </Link>

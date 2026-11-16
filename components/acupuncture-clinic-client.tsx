@@ -15,9 +15,8 @@ import { InstagramSection } from "@/components/sections/InstagramSection"
 import { FaqSection } from "@/components/sections/FaqSection"
 import { ContactSection } from "@/components/sections/ContactSection"
 import { BlogPostMeta } from "@/lib/blog"
-import { BOOKING_URL } from "@/lib/site-config"
+import { BOOKING_URL, SHINQ_REVIEW_URL } from "@/lib/site-config"
 
-const REVIEWS_URL = "https://www.shinq-compass.jp/salon/review/37835"
 const INSTAGRAM_URL =
   "https://www.instagram.com/shinkyu.hane?utm_source=ig_web_button_share_sheet&igsh=MTZvODR2N3RjNm4yYQ=="
 
@@ -38,7 +37,7 @@ export default function AcupunctureClinicClient({ recentPosts }: AcupunctureClin
           <FirstVisitSection />
           <ServicesSection />
           <BannerSection />
-          <TestimonialsSection reviewsUrl={REVIEWS_URL} />
+          <TestimonialsSection reviewsUrl={SHINQ_REVIEW_URL} />
           <BlogSectionWrapper posts={recentPosts} />
           <IrukaSection />
           <InstagramSection instagramUrl={INSTAGRAM_URL} />

@@ -2,7 +2,6 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { MapPin, Phone, Clock } from "lucide-react"
-import { trackEvent } from "@/lib/analytics"
 import { TEL_DISPLAY, TEL_HREF } from "@/lib/site-config"
 
 const container = {
@@ -70,7 +69,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
               <Phone className="h-5 w-5 shrink-0" style={{ color: "var(--gold-strong)" }} />
               <a
                 href={TEL_HREF}
-                onClick={() => trackEvent("tel_click", { location: "contact_section" })}
+                data-cta="contact_section"
                 className="text-sm hover:underline"
               >
                 {TEL_DISPLAY}
@@ -91,7 +90,7 @@ export function ContactSection({ bookingUrl }: { bookingUrl: string }) {
                 href={bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent("line_click", { location: "contact_section" })}
+                data-cta="contact_section"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded text-sm font-bold transition-opacity hover:opacity-90"
                 style={{ backgroundColor: "#06C755", color: "#fff" }}
               >

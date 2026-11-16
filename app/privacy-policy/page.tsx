@@ -1,6 +1,36 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
+import { META_PIXEL_ID } from "@/lib/analytics"
+
+const externalTransmissions = [
+  {
+    service: 'Google アナリティクス（GA4）',
+    recipient: 'Google LLC',
+    data: '閲覧したページのURL、参照元、閲覧日時、ブラウザ・端末の種類、IPアドレス、Cookie識別子、予約ボタンのクリック',
+    purpose: '当サイトの利用状況の分析と改善',
+    optOut: { label: 'Google アナリティクス オプトアウト アドオン', url: 'https://tools.google.com/dlpage/gaoptout' },
+  },
+  {
+    service: 'Vercel Analytics',
+    recipient: 'Vercel Inc.',
+    data: '閲覧したページのURL、参照元、ブラウザ・端末の種類（Cookieは使用しません）',
+    purpose: '当サイトの表示速度と利用状況の把握',
+    optOut: { label: 'ブラウザのトラッキング防止機能をご利用ください', url: '' },
+  },
+  // Meta Pixel は ID が設定されているときだけ読み込むので、公表も同じ条件で出す
+  ...(META_PIXEL_ID
+    ? [
+        {
+          service: 'Meta Pixel',
+          recipient: 'Meta Platforms, Inc.',
+          data: '閲覧したページのURL、参照元、閲覧日時、ブラウザ・端末の種類、IPアドレス、Cookie識別子、予約ボタンのクリック',
+          purpose: 'Facebook・Instagram 広告の効果測定と配信の最適化',
+          optOut: { label: 'Meta の広告設定', url: 'https://www.facebook.com/adpreferences/ad_settings' },
+        },
+      ]
+    : []),
+]
 
 export default function PrivacyPolicyPage() {
   return (
@@ -41,31 +71,51 @@ export default function PrivacyPolicyPage() {
                   定めるプライバシーポリシーに基づき、当該サービス上で管理されます。
                 </p>
                 <p className="mb-4">
-                  当サイト閲覧時には、以下のアクセス解析ツールにより、Cookie等を用いた利用状況データ
-                  （閲覧ページ、滞在時間、デバイス情報など）を取得する場合があります。
+                  当サイトでは、以下の外部サービスを利用しており、閲覧時にお使いの端末から各事業者へ情報が送信されます
+                  （電気通信事業法に基づく外部送信の公表）。
                 </p>
-                <ul className="list-disc pl-6 space-y-1 mb-4">
-                  <li>Google アナリティクス（GA4）：Google LLCが提供するアクセス解析サービス</li>
-                  <li>Vercel Analytics：Vercel Inc.が提供するアクセス解析サービス</li>
-                </ul>
+                <div className="space-y-4 mb-4">
+                  {externalTransmissions.map((item) => (
+                    <div key={item.service} className="rounded border border-border p-4 text-sm">
+                      <p className="font-bold text-foreground mb-2">{item.service}</p>
+                      <dl className="grid grid-cols-[6.5em_1fr] gap-x-3 gap-y-1.5">
+                        <dt>送信先</dt>
+                        <dd>{item.recipient}</dd>
+                        <dt>送信される情報</dt>
+                        <dd>{item.data}</dd>
+                        <dt>利用目的</dt>
+                        <dd>{item.purpose}</dd>
+                        <dt>停止の方法</dt>
+                        <dd>
+                          {item.optOut.url ? (
+                            <a href={item.optOut.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                              {item.optOut.label}
+                            </a>
+                          ) : (
+                            item.optOut.label
+                          )}
+                        </dd>
+                      </dl>
+                    </div>
+                  ))}
+                </div>
                 <p>
-                  これらのデータは個人を特定する情報を含まない形で収集・分析され、当サイトの改善や
-                  コンテンツの品質向上を目的として利用します。
+                  これらの情報は、氏名・電話番号など直接個人を特定する情報を含まない形で送信されます。
                 </p>
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-foreground mb-3">3. Googleマップの利用</h2>
+                <h2 className="text-xl font-bold text-foreground mb-3">3. Googleマップ・Instagramの埋め込み</h2>
                 <p>
-                  当サイトのアクセスページでは、Googleマップの埋め込み機能を利用しています。
-                  地図の表示にあたり、Google社のプライバシーポリシーに基づき情報が取得される場合があります。
+                  当サイトのアクセスページではGoogleマップを、トップページとアクセスページではInstagramの投稿を埋め込み表示しています。
+                  表示にあたり、Google LLC および Meta Platforms, Inc. のプライバシーポリシーに基づき、閲覧情報が各社に送信される場合があります。
                 </p>
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-foreground mb-3">4. Cookieの利用について</h2>
                 <p>
-                  上記解析ツールはCookieを使用します。Cookieの取得を望まれない場合は、ブラウザの設定により
+                  上記の外部サービスはCookie等を使用します。Cookieの取得を望まれない場合は、ブラウザの設定により
                   Cookieを無効にすることができます。ただし、その場合、当サイトの一部機能が正しく動作しない
                   可能性があります。
                 </p>
@@ -95,7 +145,7 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <p className="text-sm">制定日：2026年7月27日</p>
+              <p className="text-sm">制定日：2026年7月27日／改定日：2026年11月16日</p>
             </div>
           </div>
         </section>

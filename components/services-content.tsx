@@ -141,7 +141,7 @@ export function ServicesContent() {
             <br className="hidden sm:block" />
             お電話またはLINEでお気軽にご予約ください。
           </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center" data-cta="services">
             <a
               href={TEL_HREF}
               className="hover-underline inline-flex items-center gap-2.5 text-lg font-semibold"

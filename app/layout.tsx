@@ -5,6 +5,7 @@ import Script from "next/script"
 import "./globals.css"
 import { SITE_URL } from "@/lib/site-config"
 import { MobileCtaBar } from "@/components/mobile-cta-bar"
+import { ConversionTracker } from "@/components/conversion-tracker"
 import { ReducedMotionProvider } from "@/components/reduced-motion-provider"
 
 // 見出し用にオールド明朝体「Zen Old Mincho」を読み込む。
@@ -101,6 +102,7 @@ export default function RootLayout({
         <ReducedMotionProvider>
           {children}
           <MobileCtaBar />
+          <ConversionTracker />
         </ReducedMotionProvider>
         <Analytics />
       </body>

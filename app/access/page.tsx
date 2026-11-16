@@ -136,7 +136,7 @@ export default function AccessPage() {
             </table>
             <p className="text-sm text-gray-600 mt-3 flex items-center gap-1.5">
               <Phone className="w-4 h-4" style={{ color: GOLD }} aria-hidden="true" />
-              <a href={TEL_HREF} className="hover:underline">
+              <a href={TEL_HREF} className="hover:underline" data-cta="access_info">
                 {TEL_DISPLAY}
               </a>
             </p>
@@ -198,7 +198,7 @@ export default function AccessPage() {
         >
           <h2 className="text-2xl font-bold text-gray-900 mb-3">ご予約・お問い合わせ</h2>
           <p className="text-gray-700 mb-6">完全予約制です。LINEまたはお電話でご予約ください。</p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center" data-cta="lp_bottom">
             <Link
               href={BOOKING_URL}
               target="_blank"

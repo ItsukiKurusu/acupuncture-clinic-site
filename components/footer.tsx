@@ -2,7 +2,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Instagram, MapPin, Phone, Clock } from "lucide-react"
-import { trackEvent } from "@/lib/analytics"
 import { BOOKING_URL, INSTAGRAM_URL, TEL_DISPLAY, TEL_HREF } from "@/lib/site-config"
 
 // ヘッダーのグローバルナビを6項目に絞ったため、サイト内の全ページへの
@@ -83,7 +82,7 @@ export function Footer() {
                 <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--gold)" }} />
                 <a
                   href={TEL_HREF}
-                  onClick={() => trackEvent("tel_click", { location: "footer" })}
+                  data-cta="footer"
                   className="hover:underline"
                 >
                   {TEL_DISPLAY}
@@ -109,7 +108,7 @@ export function Footer() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent("line_click", { location: "footer" })}
+              data-cta="footer"
               className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#06C755", color: "#fff" }}
             >

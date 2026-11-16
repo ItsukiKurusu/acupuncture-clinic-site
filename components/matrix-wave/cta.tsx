@@ -19,7 +19,8 @@ export function CTA() {
           まずは一度、その効果をご自身のお肌と体で実感してください。
         </p>
 
-        <a 
+        <a
+          data-cta="matrix_wave"
           href={BOOKING_URL} 
           target="_blank" 
           rel="noopener noreferrer"
