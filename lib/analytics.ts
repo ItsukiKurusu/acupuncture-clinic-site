@@ -31,10 +31,18 @@ export function trackEvent(name: string, params?: AnalyticsParams) {
   window.gtag('event', name, params)
 }
 
-/** 予約行動を GA4（キーイベント用）と Meta Pixel（Contact）の両方に送る */
+/**
+ * 予約行動を GA4（キーイベント用）と Meta Pixel（Contact）の両方に送る。
+ *
+ * ⚠ Meta には追加情報（params）を付けない。イベント名だけを送る。
+ *   以前は押したページのパス（/symptoms/katakori など症状名を含む）とボタンの位置を
+ *   付けていたが、2026-11 に Meta がこのデータセットの Contact を制限イベントにして
+ *   届かなくなった（健康に関わる情報と判断された可能性がある）。
+ *   どのページ・どのボタンかは GA4 側（params）で見る。Meta に症状名を送らないこと。
+ */
 export function trackContact(name: ContactEventName, params: AnalyticsParams) {
   trackEvent(name, params)
   if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-    window.fbq('track', 'Contact', { method: name, ...params })
+    window.fbq('track', 'Contact')
   }
 }
